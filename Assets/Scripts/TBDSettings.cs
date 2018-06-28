@@ -9,6 +9,8 @@ public class TBDSettings : MonoBehaviour {
   // public GameUi GameUi;
 
   public bool UseRandomSpawn = true;
+  public string ItemPath = "/json/Items/";
+
   [Header("Base Options")]
   public float BaseHealth = 100f;
   public float BaseDamage = 1f;

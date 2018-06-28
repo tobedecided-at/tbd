@@ -1,0 +1,19 @@
+{
+  "slug" : "test_item",
+  "title" : "Test Item",
+  "desc" : "A Test Item, Yay!",
+
+  "pickupRange" : 3.0,
+  "stackable" : true,
+  "maxStackSize" : 30,
+  "rarity" : 9001,
+  "stats" : {
+    "iHealth" : 50.0,
+    "mHealth" : 2.0,
+    "iDamage" : 5.0
+  },
+  "components" : {
+    "wood.tbd" : 4,
+    "iron.tbd" : 1
+  }
+}
