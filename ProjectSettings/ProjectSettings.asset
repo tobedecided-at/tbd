@@ -661,11 +661,15 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 3
   cloudProjectId: 394139c8-364d-44b1-bcc8-caebd4b30514
-  projectName: ToBeDecided (2)
+  projectName: ToBeDecided
   organizationId: datnohand
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
