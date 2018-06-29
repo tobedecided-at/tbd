@@ -1,0 +1,21 @@
+{
+  "slug" : "wood",
+  "title" : "Wood Log",
+  "desc" : "A Log of Wood",
+
+  "weight" : 100,
+  "pickupRange" : 5.0,
+  "stackable" : true,
+  "maxStackSize" : 30,
+  "rarity" : 9001,
+  "value" : 10,
+  "stats" : {
+    "iHealth" : 50.0,
+    "mHealth" : 2.0,
+    "iDamage" : 5.0
+  },
+  "components" : {
+    "wood.tbd" : 4,
+    "iron.tbd" : 1
+  }
+}

@@ -9,6 +9,8 @@ public class TBDSettings : MonoBehaviour {
   // public GameUi GameUi;
 
   public bool UseRandomSpawn = true;
+  public string ItemPath = "/json/Items/";
+
   [Header("Base Options")]
   public float BaseHealth = 100f;
   public float BaseDamage = 1f;
@@ -25,6 +27,8 @@ public class TBDSettings : MonoBehaviour {
   [Header("Player Options")]
   public float PlayerSpeed = 6f;
   public float PlayerJumpPower = 850f;
+  public float CarryWeight = 150f;
+  public float PlayerSpeedReduction = .6f;
   public string ItemPickupTag = "Item";
   
   [Header("Camera Options")]

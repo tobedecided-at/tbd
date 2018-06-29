@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Entities;
 
 public class PlayerItemPickupSystem : ComponentSystem {
-  public struct Data {
+  struct Data {
     public Player player;
     public PlayerInput pi;
     public Transform t;
@@ -40,13 +40,19 @@ public class PlayerItemPickupSystem : ComponentSystem {
 
       if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, distance)) {
         if (hit.transform.gameObject.tag == TBDBootstrap.Settings.ItemPickupTag) {
-          OnPickup(pi, hit.transform.gameObject);
+          var i = hit.transform.GetComponent<ItemComponent>();
+          if (i == null)
+            return;
+          if (Vector3.Distance(hit.transform.position, hit.point) <= i.pickupRange) {
+            OnPickup(hit.transform.gameObject);
+          }
         }
       }
     }
   }
 
-  void OnPickup(PlayerInput pi, GameObject item) {
-    Debug.Log($"Picked Up: {item.name}");
+  void OnPickup(GameObject item) {
+    if (item.tag == TBDBootstrap.Settings.ItemPickupTag)
+      PlayerInventory.instance.OnPickup(item);
   }
 }

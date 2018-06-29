@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 public class TBDHelper : MonoBehaviour {
-  private void Start() {
+  
+  void Start() {
     TBDBootstrap.NewGame();
   }
 }
