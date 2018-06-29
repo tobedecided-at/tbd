@@ -1,12 +1,14 @@
 {
-  "slug" : "test_item",
-  "title" : "Test Item",
-  "desc" : "A Test Item, Yay!",
+  "slug" : "wood",
+  "title" : "Wood Log",
+  "desc" : "A Log of Wood",
 
-  "pickupRange" : 3.0,
+  "weight" : 100,
+  "pickupRange" : 5.0,
   "stackable" : true,
   "maxStackSize" : 30,
   "rarity" : 9001,
+  "value" : 10,
   "stats" : {
     "iHealth" : 50.0,
     "mHealth" : 2.0,

@@ -23,7 +23,7 @@ public class ItemDb : MonoBehaviour {
     DirectoryInfo d = new DirectoryInfo(path);
 
     foreach (var file in d.GetFiles("*.tbd")) {
-      Item item = GetItemFromFile(file.Name);
+      Item item = GetItemFromFile(file.Name);      
       ItemDb.db.Add(item);
     }
   }

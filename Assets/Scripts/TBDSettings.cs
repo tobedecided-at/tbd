@@ -27,6 +27,8 @@ public class TBDSettings : MonoBehaviour {
   [Header("Player Options")]
   public float PlayerSpeed = 6f;
   public float PlayerJumpPower = 850f;
+  public float CarryWeight = 150f;
+  public float PlayerSpeedReduction = .6f;
   public string ItemPickupTag = "Item";
   
   [Header("Camera Options")]

@@ -47,7 +47,7 @@ public class PlayerMovementSystem : ComponentSystem {
         var cLimit = TBDBootstrap.Settings.CameraRotateLimit;
 
         Vector3 camRot = new Vector3(-xRot, 0f, 0f) * TBDBootstrap.Settings.CameraSensitivity;
-        float clamp = Mathf.Clamp(camRot.x, -cLimit, cLimit);
+        // float clamp = Mathf.Clamp(camRot.x, -cLimit, cLimit);
 
         // Debug.Log($"CamRot: {cam.transform.rotation.x}");
         // Debug.Log($"ClampRot: {clamp}");
