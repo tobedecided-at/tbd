@@ -34,4 +34,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-bin/*
+*_Data
+*.exe
