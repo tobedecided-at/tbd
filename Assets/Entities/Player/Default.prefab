@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114512540374141898}
   - component: {fileID: 114272258096165810}
   - component: {fileID: 114688448955925764}
+  - component: {fileID: 114547169545728226}
   m_Layer: 9
   m_Name: Default
   m_TagString: Player
@@ -318,6 +319,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686c4839871b7d1489aac2cd8e5ef4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114547169545728226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1185450662818556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbe86a5aa05ec748a3a5b5976e9f124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 0
 --- !u!114 &114639028571121478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,6 +389,7 @@ MonoBehaviour:
   isOnGround: 0
   pickupBtn: 0
   pickedUp: 0
+  pauseBtn: 0
 --- !u!124 &124371382954453830
 Behaviour:
   m_ObjectHideFlags: 1

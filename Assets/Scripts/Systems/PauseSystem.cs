@@ -24,11 +24,11 @@ public class PauseSystem : ComponentSystem {
 
       if (gameUi.isPaused && !gameUi.added) {
         var paused = data.go[i].GetComponent<Paused>();
-        paused.active = true;
+        paused.flag = true;
         gameUi.added = true;
       } else if (!gameUi.isPaused) {
         var paused = data.go[i].GetComponent<Paused>();
-        paused.active = false;
+        paused.flag = false;
         gameUi.added = false;
       }
     }

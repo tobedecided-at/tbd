@@ -3,7 +3,6 @@ using Unity.Entities;
 
 public class GameUI : MonoBehaviour {
 
-  public GameObject player;
   public GameObject pauseUi;
   public static GameUI instance;
 

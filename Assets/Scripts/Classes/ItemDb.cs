@@ -10,12 +10,13 @@ public class ItemDb : MonoBehaviour {
   private string path;
 
   void Start() {
-    path = Application.dataPath + TBDBootstrap.Settings.ItemPath;
+    path = Application.dataPath + "/StreamingAssets/" + TBDBootstrap.Settings.ItemPath;
     GetItemsFromFile();
   }
 
   Item GetItemFromFile(string filename) {
-    string content = File.ReadAllText(Application.dataPath + TBDBootstrap.Settings.ItemPath + "/" + filename);
+    string content = File.ReadAllText(path + "/" + filename);
+    Debug.Log(path);
     return new Item(JObject.Parse(content));
   }
 
