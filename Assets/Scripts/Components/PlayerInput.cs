@@ -8,4 +8,5 @@ public class PlayerInput : MonoBehaviour {
   public bool isOnGround;
   public bool pickupBtn;
   public bool pickedUp;
+  public bool pauseBtn;
 }

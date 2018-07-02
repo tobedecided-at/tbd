@@ -13,8 +13,6 @@ public class PlayerItemPickupSystem : ComponentSystem {
     float distance = TBDBootstrap.Settings.BasePickupRange * TBDBootstrap.Settings.MultPickupRange;
 
     foreach (var e in GetEntities<Data>()) {
-
-      
       // Item has been picked up and button is held
       if (e.pi.pickedUp && e.pi.pickupBtn) continue;
 
@@ -43,7 +41,7 @@ public class PlayerItemPickupSystem : ComponentSystem {
           var i = hit.transform.GetComponent<ItemComponent>();
           if (i == null)
             return;
-          if (Vector3.Distance(hit.transform.position, hit.point) <= i.pickupRange) {
+          if (Vector3.Distance(hit.transform.position, hit.point) <= i.item.pickupRange) {
             OnPickup(hit.transform.gameObject);
           }
         }
@@ -52,7 +50,8 @@ public class PlayerItemPickupSystem : ComponentSystem {
   }
 
   void OnPickup(GameObject item) {
-    if (item.tag == TBDBootstrap.Settings.ItemPickupTag)
+    if (item.tag == TBDBootstrap.Settings.ItemPickupTag) {
       PlayerInventory.instance.OnPickup(item);
+    }
   }
 }

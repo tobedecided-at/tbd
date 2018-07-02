@@ -1,16 +1,15 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class ItemStats {
   public float iHealth;
-  public float mHealth;
 
   public float iDamage;
   public float mDamage;
   
   public float iArmor;
-  public float mArmor;
   
   public float iFood;
   public float iWater;
@@ -24,9 +23,6 @@ public class ItemStats {
         case "iHealth":
           this.iHealth = (float)stat.Value;
         break;
-        case "mHealth":
-          this.mHealth = (float)stat.Value;
-        break;
         case "iDamage":
           this.iDamage = (float)stat.Value;
         break;
@@ -35,9 +31,6 @@ public class ItemStats {
         break;
         case "iArmor":
           this.iArmor = (float)stat.Value;
-        break;
-        case "mArmor":
-          this.mArmor = (float)stat.Value;
         break;
         case "iFood":
           this.iFood = (float)stat.Value;
@@ -50,5 +43,16 @@ public class ItemStats {
         break;
       }
     }
+  }
+
+  public ItemStats(ItemStats template) {
+
+    this.iHealth = template.iHealth;
+    this.iDamage = template.iDamage;
+    this.mDamage = template.mDamage;
+    this.iArmor = template.iArmor;
+    this.iFood = template.iFood;
+    this.iWater = template.iWater;
+    this.iHeat = template.iHeat;
   }
 }

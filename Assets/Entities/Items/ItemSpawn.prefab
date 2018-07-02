@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSlug: 
   itemPrefab: {fileID: 1169370122953498, guid: dc19ef800dfa1b745ae7956043b7b0e3, type: 2}
+  amount: 1

@@ -5,10 +5,10 @@
 
   "weight" : 100,
   "pickupRange" : 5.0,
-  "stackable" : true,
   "maxStackSize" : 30,
   "rarity" : 9001,
   "value" : 10,
+  "useable" : false,
   "stats" : {
     "iHealth" : 50.0,
     "mHealth" : 2.0,

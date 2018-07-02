@@ -15,10 +15,10 @@ public class TBDSettings : MonoBehaviour {
   public float BaseHealth = 100f;
   public float BaseDamage = 1f;
   public float BaseFirerate = 1f;
-  public float BasePickupRange = 3f;
+  public float BasePickupRange = 10f;
+  public GameObject GameUI;
 
   [Header("Multiplier Options")]
-  public float MultHealth = 1f;
   public float MultDamage = 1f;
   public float MultFirerate = 1f;
   public float MultShotRange = 1f;

@@ -10,13 +10,15 @@ public class PlayerMovementSystem : ComponentSystem {
     public ComponentArray<Player> player;
     public ComponentArray<PlayerInput> pi;
 
-    public SubtractiveComponent<Dead> Dead;
+    public ComponentArray<Paused> paused;
   }
 
   [Inject] private Data data;
 
   protected override void OnUpdate() {
     for (int i = 0; i != data.Length; i++) {
+      if (data.paused[i].flag)
+        continue;
 
       var dt = Time.deltaTime;
       var rb = data.GameObject[i].GetComponentInChildren<Rigidbody>();

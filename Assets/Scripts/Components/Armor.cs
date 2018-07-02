@@ -1,8 +1,6 @@
-using Unity.Entities;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Armor : MonoBehaviour {
   public float max;
   public float value;
-
 }
