@@ -22,6 +22,12 @@ public sealed class TBDBootstrap : MonoBehaviour {
 
   static Entity SpawnPlayer(EntityManager _em) {
     var pSPL = Settings.PlayerSpawnPos;
+    
+    if (Settings.PlayerSpawnPos[0] == null) {
+      Debug.LogWarning("No SpawnPos defined!");
+      return new Entity();
+    }
+
     var pSP = Settings.PlayerSpawnPos[0].transform;
 
     if (Settings.UseRandomSpawn)
