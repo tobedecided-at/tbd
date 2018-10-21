@@ -113,6 +113,70 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &75721457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 75721459}
+  - component: {fileID: 75721458}
+  m_Layer: 0
+  m_Name: Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &75721458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 75721457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d2f438ac2a3e54bb9c3347dabf5f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 0}
+  PlayerSpawnPos: []
+  UseRandomSpawn: 1
+  ItemPath: /json/Items/
+  BaseHealth: 100
+  BaseDamage: 1
+  BaseFirerate: 1
+  BasePickupRange: 10
+  GameUI: {fileID: 0}
+  MultDamage: 1
+  MultFirerate: 1
+  MultShotRange: 1
+  MultPickupRange: 1
+  PlayerSpeed: 6
+  PlayerJumpPower: 850
+  CarryWeight: 150
+  PlayerSpeedReduction: 0.6
+  ItemPickupTag: Item
+  CameraSensitivity: 2.5
+  CameraRotateLimit: 90
+  ShootCooldown: 0.05
+  ShotRange: 100
+  ScorePenalty: 50
+  CameraSmoothing: 5
+--- !u!4 &75721459
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 75721457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 594.7968, y: 272.805, z: -6.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &112306474
 GameObject:
   m_ObjectHideFlags: 0
