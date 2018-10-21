@@ -39,5 +39,7 @@ sysinfo.txt
 *.exe
 
 # Custom
-WinPixEventRuntime.dll
+*EventRuntime.dll
 UnityPlayer.dll
+ProjectSettings/
+Logs/
