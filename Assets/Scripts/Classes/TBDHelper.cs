@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 public class TBDHelper : MonoBehaviour {
   
   void Start() {
+    TBDBootstrap.Init();
     TBDBootstrap.NewGame();
   }
 }

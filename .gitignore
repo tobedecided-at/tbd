@@ -37,3 +37,7 @@ sysinfo.txt
 *.unitypackage
 *_Data
 *.exe
+
+# Custom
+WinPixEventRuntime.dll
+UnityPlayer.dll
