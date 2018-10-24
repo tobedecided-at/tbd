@@ -2,8 +2,9 @@
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System.Collections.Generic;
 
-public sealed class TBDBootstrap : MonoBehaviour {
+public class TBDBootstrap : MonoBehaviour {
   public static TBDSettings Settings;
 
   public static void NewGame() {
@@ -14,18 +15,18 @@ public sealed class TBDBootstrap : MonoBehaviour {
   }
 
   [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-  public static void InitializeWithScene() {
+  public static void Init() {
     var settings = GameObject.Find("Settings");
-    Settings = settings?.GetComponent<TBDSettings>();
+    Settings = settings.GetComponent<TBDSettings>();
     if (!Settings) return;
   }
 
   static Entity SpawnPlayer(EntityManager _em) {
-    var pSPL = Settings.PlayerSpawnPos;
-    var pSP = Settings.PlayerSpawnPos[0].transform;
+    List<Transform> pSPL = Settings.PlayerSpawnPos;
+    Transform pSP = pSPL[0].transform;
 
     if (Settings.UseRandomSpawn)
-      pSP = Settings.PlayerSpawnPos[Random.Range(0, Settings.PlayerSpawnPos.Count)].transform;
+      pSP = pSPL[Random.Range(0, pSPL.Count)].transform;
     
     var player = Object.Instantiate(Settings.PlayerPrefab, pSP.position, pSP.rotation);
     var entity = player.GetComponent<GameObjectEntity>().Entity;
