@@ -26,9 +26,9 @@ public class PlayerMovementSystem : ComponentSystem {
 
       var move = data.pi[i].move;
       var jump = data.pi[i].jump;
+      var walk = data.pi[i].walk;
       var rot = data.pi[i].rotate;
       var rbRot = rb.rotation;
-
       var pSpd = TBDBootstrap.Settings.PlayerSpeed;
       var xRot = rot.y;
       var yRot = rot.x;
@@ -36,11 +36,16 @@ public class PlayerMovementSystem : ComponentSystem {
       var transform = data.GameObject[i].transform;
 
       if (jump)
-        Jump(rb);
+        Jump(rb, data.pi[i].noClip);
 
-      var mHor = transform.right * move.x;
-      var mVert = transform.forward * move.y;
-      var velocity = (mHor + mVert).normalized * pSpd;
+      Vector3 mHor;
+      Vector3 mVert;
+      Vector3 velocity;
+
+      mHor = transform.right * move.x;
+      mVert = transform.forward * move.y;
+      velocity = !walk ? (mHor + mVert).normalized * pSpd : ((mHor + mVert).normalized * pSpd) / 2;
+      Debug.Log(walk);
 
       if (velocity != Vector3.zero) {
         rb.MovePosition(rb.position + velocity * dt);
@@ -64,7 +69,12 @@ public class PlayerMovementSystem : ComponentSystem {
     }
   }
 
-  void Jump(Rigidbody _rb) {
-    _rb.AddForce(new Vector3(0, TBDBootstrap.Settings.PlayerJumpPower, 0), ForceMode.Impulse);
+  void Jump(Rigidbody _rb, bool noClip = false) {
+    if (noClip) {
+      Debug.Log("Called");
+      _rb.MovePosition(new Vector2(_rb.position.x, _rb.position.y + 1f));
+    } else {
+      _rb.AddForce(new Vector3(0, TBDBootstrap.Settings.PlayerJumpPower, 0), ForceMode.Impulse);
+    }
   }
 }
