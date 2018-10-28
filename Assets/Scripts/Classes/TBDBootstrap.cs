@@ -17,7 +17,8 @@ public class TBDBootstrap : MonoBehaviour {
   [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
   public static void Init() {
     var settings = GameObject.Find("Settings");
-    Settings = settings.GetComponent<TBDSettings>();
+    if (settings)
+      Settings = settings.GetComponent<TBDSettings>();
     if (!Settings) return;
   }
 
