@@ -21,8 +21,6 @@ public class TBDSceneManager : MonoBehaviour {
   void Awake() {
     if (!created) {
       created = true;
-    } else {
-      Destroy(this.gameObject);
     }
 
     s_loading = loadingBar.GetComponent<Slider>();

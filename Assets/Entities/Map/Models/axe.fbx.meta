@@ -1,25 +1,20 @@
 fileFormatVersion: 2
-guid: 842515e6565b0a24f9740b46331814cd
+guid: 5a6edf87ee5451047bb32a0d25c7d545
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Area
-    100004: Camera
-    100006: Circle
-    100008: Lamp
+    100002: node_id4
+    100004: node_id6
+    100006: node_id7
     400000: //RootNode
-    400002: Area
-    400004: Camera
-    400006: Circle
-    400008: Lamp
-    2000000: Camera
-    2100000: Material
-    2300000: Circle
-    3300000: Circle
-    4300000: Circle
-    10800000: Area
-    10800002: Lamp
+    400002: node_id4
+    400004: node_id6
+    400006: node_id7
+    2100000: Material_69
+    2300000: node_id4
+    3300000: node_id4
+    4300000: node_id4
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -54,7 +49,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -79,9 +73,6 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
