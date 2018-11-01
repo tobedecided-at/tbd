@@ -18,6 +18,7 @@ public class PlayerInputSystem : ComponentSystem {
       pi.move = new float2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
       pi.rotate = new float2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
       pi.jump = Input.GetButtonDown("Jump");
+      pi.walk = Input.GetButtonDown("Walk");
       pi.pickupBtn = Input.GetButtonDown("Pay Respect");
       pi.pauseBtn = Input.GetButtonDown("Cancel");
     } 

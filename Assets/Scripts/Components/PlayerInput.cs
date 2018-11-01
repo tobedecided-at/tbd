@@ -9,4 +9,8 @@ public class PlayerInput : MonoBehaviour {
   public bool pickupBtn;
   public bool pickedUp;
   public bool pauseBtn;
+  // HACK: Will change to gamemode later
+  // TODO
+  public bool noClip;
+  public bool walk;
 }

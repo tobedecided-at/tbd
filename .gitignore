@@ -37,3 +37,8 @@ sysinfo.txt
 *.unitypackage
 *_Data
 *.exe
+
+# Custom
+*EventRuntime.dll
+UnityPlayer.dll
+Logs/
