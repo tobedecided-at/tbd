@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Unity.Entities;
+using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour {
 
@@ -50,7 +51,7 @@ public class GameUI : MonoBehaviour {
   }
 
   public void OnQuitButton() {
-    Application.Quit();
+    SceneManager.LoadScene("Main");
   }
 
   public void OnBackButton() {
