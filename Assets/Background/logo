@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 301 212">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #707070;
+      }
+    </style>
+  </defs>
+  <g id="Gruppe_2" data-name="Gruppe 2" transform="translate(-277 -205.5)">
+    <g id="Gruppe_1" data-name="Gruppe 1">
+      <line id="Linie_1" data-name="Linie 1" class="cls-1" y2="124" transform="translate(282.5 238.5)"/>
+      <line id="Linie_2" data-name="Linie 2" class="cls-1" y2="130" transform="translate(287.5 238.5)"/>
+      <line id="Linie_3" data-name="Linie 3" class="cls-1" y2="135" transform="translate(292.5 238.5)"/>
+      <line id="Linie_4" data-name="Linie 4" class="cls-1" y2="128" transform="translate(297.5 238.5)"/>
+      <line id="Linie_5" data-name="Linie 5" class="cls-1" y2="124" transform="translate(302.5 238.5)"/>
+      <line id="Linie_6" data-name="Linie 6" class="cls-1" y2="137" transform="translate(307.5 238.5)"/>
+      <path id="Pfad_4" data-name="Pfad 4" class="cls-1" d="M0,114" transform="translate(312.5 233.5)"/>
+      <line id="Linie_12" data-name="Linie 12" class="cls-1" y2="130" transform="translate(337.5 238.5)"/>
+      <line id="Linie_13" data-name="Linie 13" class="cls-1" y2="141" transform="translate(342.5 238.5)"/>
+      <line id="Linie_14" data-name="Linie 14" class="cls-1" y2="137" transform="translate(347.5 238.5)"/>
+      <line id="Linie_15" data-name="Linie 15" class="cls-1" y2="121" transform="translate(352.5 238.5)"/>
+      <line id="Linie_16" data-name="Linie 16" class="cls-1" y2="124" transform="translate(357.5 238.5)"/>
+      <line id="Linie_17" data-name="Linie 17" class="cls-1" y2="133" transform="translate(362.5 238.5)"/>
+      <path id="Pfad_5" data-name="Pfad 5" class="cls-1" d="M80,0" transform="translate(282.5 205.5)"/>
+      <line id="Linie_19" data-name="Linie 19" class="cls-1" y2="29.177" transform="translate(407.5 238.704)"/>
+      <line id="Linie_25" data-name="Linie 25" class="cls-1" y2="23.341" transform="translate(412.5 241.622)"/>
+      <line id="Linie_26" data-name="Linie 26" class="cls-1" y2="19.451" transform="translate(417.5 243.567)"/>
+      <line id="Linie_27" data-name="Linie 27" class="cls-1" y2="13.561" transform="translate(422.5 246.5)"/>
+      <line id="Linie_30" data-name="Linie 30" class="cls-1" y2="5.835" transform="translate(452.5 274.689)"/>
+      <line id="Linie_31" data-name="Linie 31" class="cls-1" y2="17.969" transform="translate(457.5 268.5)"/>
+      <line id="Linie_32" data-name="Linie 32" class="cls-1" y2="27" transform="translate(462.5 263.5)"/>
+      <line id="Linie_33" data-name="Linie 33" class="cls-1" y2="37.859" transform="translate(467.5 258.5)"/>
+      <line id="Linie_34" data-name="Linie 34" class="cls-1" y2="35.596" transform="translate(452.5 337.904)"/>
+      <line id="Linie_35" data-name="Linie 35" class="cls-1" y2="24.486" transform="translate(457.5 334.014)"/>
+      <line id="Linie_36" data-name="Linie 36" class="cls-1" y2="22.376" transform="translate(462.5 330.124)"/>
+      <line id="Linie_37" data-name="Linie 37" class="cls-1" y2="29.266" transform="translate(467.5 326.234)"/>
+      <line id="Linie_42" data-name="Linie 42" class="cls-1" y2="29.177" transform="translate(407.5 289.277)"/>
+      <line id="Linie_43" data-name="Linie 43" class="cls-1" y2="23.341" transform="translate(412.5 292.194)"/>
+      <line id="Linie_44" data-name="Linie 44" class="cls-1" y2="19.451" transform="translate(417.5 294.14)"/>
+      <line id="Linie_45" data-name="Linie 45" class="cls-1" y2="13.146" transform="translate(422.5 297.5)"/>
+      <line id="Linie_46" data-name="Linie 46" class="cls-1" y1="9.726" transform="translate(452.5 210.5)"/>
+      <line id="Linie_47" data-name="Linie 47" class="cls-1" y1="13.616" transform="translate(457.5 210.5)"/>
+      <line id="Linie_48" data-name="Linie 48" class="cls-1" y1="17.506" transform="translate(462.5 210.5)"/>
+      <line id="Linie_49" data-name="Linie 49" class="cls-1" y1="21.396" transform="translate(467.5 210.5)"/>
+      <path id="Pfad_7" data-name="Pfad 7" class="cls-1" d="M0,0V82" transform="translate(507.5 236.5)"/>
+      <line id="Linie_51" data-name="Linie 51" class="cls-1" y2="70" transform="translate(512.5 242.5)"/>
+      <line id="Linie_52" data-name="Linie 52" class="cls-1" y2="56" transform="translate(517.5 249.5)"/>
+      <path id="Pfad_1" data-name="Pfad 1" class="cls-1" d="M0,0V40" transform="translate(522.5 257.5)"/>
+      <line id="Linie_54" data-name="Linie 54" class="cls-1" y2="30" transform="translate(527.5 262.5)"/>
+      <line id="Linie_55" data-name="Linie 55" class="cls-1" y2="20" transform="translate(532.5 267.5)"/>
+      <path id="Pfad_2" data-name="Pfad 2" class="cls-1" d="M0,0V18" transform="translate(552.5 205.5)"/>
+      <line id="Linie_57" data-name="Linie 57" class="cls-1" y2="24" transform="translate(557.5 205.5)"/>
+      <line id="Linie_58" data-name="Linie 58" class="cls-1" y2="30" transform="translate(562.5 205.5)"/>
+      <line id="Linie_59" data-name="Linie 59" class="cls-1" y2="40" transform="translate(567.5 205.5)"/>
+      <line id="Linie_60" data-name="Linie 60" class="cls-1" y2="50" transform="translate(572.5 205.5)"/>
+      <path id="Pfad_3" data-name="Pfad 3" class="cls-1" d="M0,0V44.43" transform="translate(552.5 379) rotate(180)"/>
+      <line id="Linie_62" data-name="Linie 62" class="cls-1" y1="56.99" transform="translate(557.5 328.51)"/>
+      <line id="Linie_63" data-name="Linie 63" class="cls-1" y1="40.05" transform="translate(562.5 322.45)"/>
+      <line id="Linie_64" data-name="Linie 64" class="cls-1" y1="44.15" transform="translate(567.5 312.35)"/>
+      <line id="Linie_65" data-name="Linie 65" class="cls-1" y2="50.5" transform="translate(572.5 352.75) rotate(180)"/>
+      <line id="Linie_66" data-name="Linie 66" class="cls-1" y2="5" transform="translate(282.5 205.5)"/>
+      <line id="Linie_67" data-name="Linie 67" class="cls-1" y2="5" transform="translate(287.5 205.5)"/>
+      <line id="Linie_68" data-name="Linie 68" class="cls-1" y2="5" transform="translate(292.5 205.5)"/>
+      <line id="Linie_69" data-name="Linie 69" class="cls-1" y2="5" transform="translate(297.5 205.5)"/>
+      <line id="Linie_70" data-name="Linie 70" class="cls-1" y2="5" transform="translate(302.5 205.5)"/>
+      <line id="Linie_71" data-name="Linie 71" class="cls-1" y2="5" transform="translate(307.5 205.5)"/>
+      <line id="Linie_72" data-name="Linie 72" class="cls-1" y2="5" transform="translate(312.5 205.5)"/>
+      <line id="Linie_73" data-name="Linie 73" class="cls-1" y2="5" transform="translate(317.5 205.5)"/>
+      <line id="Linie_74" data-name="Linie 74" class="cls-1" y2="5" transform="translate(322.5 205.5)"/>
+      <line id="Linie_75" data-name="Linie 75" class="cls-1" y2="5" transform="translate(327.5 205.5)"/>
+      <line id="Linie_76" data-name="Linie 76" class="cls-1" y2="5" transform="translate(332.5 205.5)"/>
+      <line id="Linie_77" data-name="Linie 77" class="cls-1" y2="5" transform="translate(337.5 205.5)"/>
+      <line id="Linie_78" data-name="Linie 78" class="cls-1" y2="5" transform="translate(342.5 205.5)"/>
+      <line id="Linie_79" data-name="Linie 79" class="cls-1" y2="5" transform="translate(347.5 205.5)"/>
+      <line id="Linie_80" data-name="Linie 80" class="cls-1" y2="5" transform="translate(352.5 205.5)"/>
+      <line id="Linie_81" data-name="Linie 81" class="cls-1" y2="5" transform="translate(357.5 205.5)"/>
+      <line id="Linie_82" data-name="Linie 82" class="cls-1" y2="5" transform="translate(362.5 205.5)"/>
+      <line id="Linie_83" data-name="Linie 83" class="cls-1" y2="5" transform="translate(367.5 205.5)"/>
+      <line id="Linie_84" data-name="Linie 84" class="cls-1" y2="5" transform="translate(372.5 205.5)"/>
+      <line id="Linie_85" data-name="Linie 85" class="cls-1" y2="5" transform="translate(377.5 205.5)"/>
+      <line id="Linie_86" data-name="Linie 86" class="cls-1" y2="5" transform="translate(382.5 205.5)"/>
+      <line id="Linie_87" data-name="Linie 87" class="cls-1" y2="5" transform="translate(387.5 205.5)"/>
+      <line id="Linie_88" data-name="Linie 88" class="cls-1" y2="5" transform="translate(392.5 205.5)"/>
+      <line id="Linie_89" data-name="Linie 89" class="cls-1" y2="5" transform="translate(397.5 205.5)"/>
+      <line id="Linie_90" data-name="Linie 90" class="cls-1" y2="5" transform="translate(402.5 205.5)"/>
+      <line id="Linie_91" data-name="Linie 91" class="cls-1" y2="5" transform="translate(407.5 205.5)"/>
+      <line id="Linie_92" data-name="Linie 92" class="cls-1" y2="5" transform="translate(412.5 205.5)"/>
+      <line id="Linie_93" data-name="Linie 93" class="cls-1" y2="5" transform="translate(417.5 205.5)"/>
+      <line id="Linie_94" data-name="Linie 94" class="cls-1" y2="5" transform="translate(422.5 205.5)"/>
+      <line id="Linie_95" data-name="Linie 95" class="cls-1" y2="5" transform="translate(427.5 205.5)"/>
+      <line id="Linie_96" data-name="Linie 96" class="cls-1" y2="5" transform="translate(432.5 205.5)"/>
+      <line id="Linie_97" data-name="Linie 97" class="cls-1" y2="5" transform="translate(437.5 205.5)"/>
+      <line id="Linie_98" data-name="Linie 98" class="cls-1" y2="5" transform="translate(442.5 205.5)"/>
+      <line id="Linie_99" data-name="Linie 99" class="cls-1" y2="5" transform="translate(447.5 205.5)"/>
+      <line id="Linie_100" data-name="Linie 100" class="cls-1" y2="5" transform="translate(452.5 205.5)"/>
+      <line id="Linie_101" data-name="Linie 101" class="cls-1" y2="5" transform="translate(457.5 205.5)"/>
+      <line id="Linie_102" data-name="Linie 102" class="cls-1" y2="5" transform="translate(462.5 205.5)"/>
+      <line id="Linie_103" data-name="Linie 103" class="cls-1" y2="5" transform="translate(467.5 205.5)"/>
+      <line id="Linie_104" data-name="Linie 104" class="cls-1" y2="5" transform="translate(472.5 205.5)"/>
+      <line id="Linie_105" data-name="Linie 105" class="cls-1" y2="5" transform="translate(477.5 205.5)"/>
+      <line id="Linie_106" data-name="Linie 106" class="cls-1" y2="5" transform="translate(482.5 205.5)"/>
+      <line id="Linie_107" data-name="Linie 107" class="cls-1" y2="5" transform="translate(487.5 205.5)"/>
+      <line id="Linie_108" data-name="Linie 108" class="cls-1" y2="5" transform="translate(492.5 205.5)"/>
+      <line id="Linie_109" data-name="Linie 109" class="cls-1" y2="5" transform="translate(497.5 205.5)"/>
+      <line id="Linie_110" data-name="Linie 110" class="cls-1" y2="5" transform="translate(502.5 205.5)"/>
+      <line id="Linie_111" data-name="Linie 111" class="cls-1" y2="5" transform="translate(507.5 205.5)"/>
+      <line id="Linie_112" data-name="Linie 112" class="cls-1" y2="5" transform="translate(512.5 205.5)"/>
+      <line id="Linie_113" data-name="Linie 113" class="cls-1" y2="5" transform="translate(517.5 205.5)"/>
+      <line id="Linie_114" data-name="Linie 114" class="cls-1" y2="5" transform="translate(522.5 205.5)"/>
+      <line id="Linie_115" data-name="Linie 115" class="cls-1" y2="5" transform="translate(527.5 205.5)"/>
+      <line id="Linie_116" data-name="Linie 116" class="cls-1" y2="5" transform="translate(532.5 205.5)"/>
+      <line id="Linie_117" data-name="Linie 117" class="cls-1" y2="5" transform="translate(537.5 205.5)"/>
+      <line id="Linie_118" data-name="Linie 118" class="cls-1" y2="5" transform="translate(542.5 205.5)"/>
+      <line id="Linie_119" data-name="Linie 119" class="cls-1" y2="5" transform="translate(547.5 205.5)"/>
+      <line id="Linie_120" data-name="Linie 120" class="cls-1" y2="9" transform="translate(547.5 205.5)"/>
+      <line id="Linie_121" data-name="Linie 121" class="cls-1" y2="25" transform="translate(547.5 343.5)"/>
+      <path id="Pfad_6" data-name="Pfad 6" class="cls-1" d="M80,0" transform="translate(282.5 346.5)"/>
+      <line id="Linie_128" data-name="Linie 128" class="cls-1" y2="39" transform="translate(312.5 347.5)"/>
+      <line id="Linie_129" data-name="Linie 129" class="cls-1" y2="60" transform="translate(317.5 347.5)"/>
+      <line id="Linie_130" data-name="Linie 130" class="cls-1" y2="48" transform="translate(322.5 347.5)"/>
+      <line id="Linie_131" data-name="Linie 131" class="cls-1" y2="32" transform="translate(327.5 347.5)"/>
+      <line id="Linie_132" data-name="Linie 132" class="cls-1" y2="12" transform="translate(332.5 347.5)"/>
+      <line id="Linie_139" data-name="Linie 139" class="cls-1" y2="17" transform="translate(367.5 347.5)"/>
+      <line id="Linie_140" data-name="Linie 140" class="cls-1" y2="44" transform="translate(372.5 347.5)"/>
+      <line id="Linie_141" data-name="Linie 141" class="cls-1" y2="57" transform="translate(377.5 347.5)"/>
+      <line id="Linie_142" data-name="Linie 142" class="cls-1" y2="19" transform="translate(382.5 347.5)"/>
+      <line id="Linie_143" data-name="Linie 143" class="cls-1" y2="12" transform="translate(387.5 347.5)"/>
+      <line id="Linie_144" data-name="Linie 144" class="cls-1" y2="8" transform="translate(392.5 347.5)"/>
+      <line id="Linie_145" data-name="Linie 145" class="cls-1" y2="12" transform="translate(397.5 347.5)"/>
+      <line id="Linie_146" data-name="Linie 146" class="cls-1" y2="15" transform="translate(402.5 347.5)"/>
+      <line id="Linie_147" data-name="Linie 147" class="cls-1" y2="10" transform="translate(407.5 347.5)"/>
+      <line id="Linie_148" data-name="Linie 148" class="cls-1" y2="8" transform="translate(412.5 347.5)"/>
+      <line id="Linie_149" data-name="Linie 149" class="cls-1" y2="12" transform="translate(417.5 347.5)"/>
+      <line id="Linie_150" data-name="Linie 150" class="cls-1" y2="19" transform="translate(422.5 347.5)"/>
+      <line id="Linie_151" data-name="Linie 151" class="cls-1" y2="42" transform="translate(427.5 347.5)"/>
+      <line id="Linie_152" data-name="Linie 152" class="cls-1" y2="57" transform="translate(432.5 347.5)"/>
+      <line id="Linie_153" data-name="Linie 153" class="cls-1" y2="70" transform="translate(437.5 347.5)"/>
+      <line id="Linie_154" data-name="Linie 154" class="cls-1" y2="48" transform="translate(442.5 347.5)"/>
+      <line id="Linie_160" data-name="Linie 160" class="cls-1" y2="15" transform="translate(472.5 347.5)"/>
+      <line id="Linie_161" data-name="Linie 161" class="cls-1" y2="22" transform="translate(477.5 347.5)"/>
+      <line id="Linie_162" data-name="Linie 162" class="cls-1" y2="22" transform="translate(482.5 347.5)"/>
+      <line id="Linie_163" data-name="Linie 163" class="cls-1" y2="19" transform="translate(487.5 347.5)"/>
+      <line id="Linie_164" data-name="Linie 164" class="cls-1" y2="11" transform="translate(492.5 347.5)"/>
+      <line id="Linie_165" data-name="Linie 165" class="cls-1" y2="29" transform="translate(497.5 347.5)"/>
+      <line id="Linie_166" data-name="Linie 166" class="cls-1" y2="55" transform="translate(502.5 347.5)"/>
+      <line id="Linie_167" data-name="Linie 167" class="cls-1" y2="42" transform="translate(507.5 347.5)"/>
+      <line id="Linie_168" data-name="Linie 168" class="cls-1" y2="34" transform="translate(512.5 347.5)"/>
+      <line id="Linie_169" data-name="Linie 169" class="cls-1" y2="24" transform="translate(517.5 347.5)"/>
+      <line id="Linie_170" data-name="Linie 170" class="cls-1" y2="8" transform="translate(522.5 347.5)"/>
+      <line id="Linie_171" data-name="Linie 171" class="cls-1" y2="5" transform="translate(527.5 347.5)"/>
+      <line id="Linie_172" data-name="Linie 172" class="cls-1" y2="12" transform="translate(532.5 347.5)"/>
+      <line id="Linie_173" data-name="Linie 173" class="cls-1" y2="17" transform="translate(537.5 347.5)"/>
+      <line id="Linie_174" data-name="Linie 174" class="cls-1" y2="8" transform="translate(542.5 347.5)"/>
+      <line id="Linie_181" data-name="Linie 181" class="cls-1" y2="38" transform="translate(447.5 343.5)"/>
+      <line id="Linie_182" data-name="Linie 182" class="cls-1" y2="4" transform="translate(447.5 210.5)"/>
+      <line id="Linie_183" data-name="Linie 183" class="cls-1" y1="153" transform="translate(577.5 205.5)"/>
+      <line id="Linie_184" data-name="Linie 184" class="cls-1" y2="159" transform="translate(277.5 205.5)"/>
+    </g>
+  </g>
+</svg>
