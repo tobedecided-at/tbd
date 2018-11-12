@@ -7,14 +7,74 @@ ModelImporter:
     100002: node_id4
     100004: node_id6
     100006: node_id7
+    100008: Armature
+    100010: Bone
+    100012: Bone.001
+    100014: Bone.002
+    100016: Bone.003
+    100018: Bone.004
+    100020: Bone.004_end
+    100022: Bone.005
+    100024: Bone.006
+    100026: Bone.007
+    100028: Bone.008
+    100030: Bone.008_end
+    100032: Bone.009
+    100034: Bone.010
+    100036: Bone.011
+    100038: Bone.012
+    100040: Bone.012_end
+    100042: Bone.013
+    100044: Bone.014
+    100046: Bone.015
+    100048: Bone.016
+    100050: Bone.017
+    100052: Bone.018
+    100054: Bone.019
+    100056: Bone.019_end
+    100058: Bone.020
+    100060: Bone.020_end
+    100062: Cylinder.003
     400000: //RootNode
     400002: node_id4
     400004: node_id6
     400006: node_id7
+    400008: Armature
+    400010: Bone
+    400012: Bone.001
+    400014: Bone.002
+    400016: Bone.003
+    400018: Bone.004
+    400020: Bone.004_end
+    400022: Bone.005
+    400024: Bone.006
+    400026: Bone.007
+    400028: Bone.008
+    400030: Bone.008_end
+    400032: Bone.009
+    400034: Bone.010
+    400036: Bone.011
+    400038: Bone.012
+    400040: Bone.012_end
+    400042: Bone.013
+    400044: Bone.014
+    400046: Bone.015
+    400048: Bone.016
+    400050: Bone.017
+    400052: Bone.018
+    400054: Bone.019
+    400056: Bone.019_end
+    400058: Bone.020
+    400060: Bone.020_end
+    400062: Cylinder.003
     2100000: Material_69
+    2100002: No Name
     2300000: node_id4
+    2300002: Cylinder.003
     3300000: node_id4
+    3300002: Cylinder.003
     4300000: node_id4
+    4300002: Cylinder.003
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -49,6 +109,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -73,6 +134,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
