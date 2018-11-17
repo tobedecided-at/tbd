@@ -4,7 +4,7 @@ using Unity.Entities;
 public class PauseSystem : ComponentSystem {
 
   struct Data {
-    public int Length;
+    public readonly int Length;
     public GameObjectArray go;
     public ComponentArray<PlayerInput> pi;
     public ComponentArray<Transform> tr;

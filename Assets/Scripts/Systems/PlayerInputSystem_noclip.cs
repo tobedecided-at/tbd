@@ -4,7 +4,7 @@ using Unity.Mathematics;
 
 public class PlayerInputSystem_noclip : ComponentSystem {
   public struct Data {
-    public int Length;
+    public readonly int Length;
     public ComponentArray<PlayerInput> PlayerInput;
     public ComponentArray<NoClip> nc;
     public SubtractiveComponent<Dead> Dead;
