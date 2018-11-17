@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine.SceneManagement;
 
-public class GameUI : MonoBehaviour {
+public class PauseUI : MonoBehaviour {
 
   public GameObject pauseUi;
 
@@ -10,28 +10,23 @@ public class GameUI : MonoBehaviour {
   public GameObject pause;
   public GameObject settings;
 
-  public static GameUI instance;
-
   public bool isPaused;
   public bool added;
 
 	void Start () {
-    if (instance != null && instance != this)
-      Destroy(this);
-    instance = this;
-
     pauseUi.SetActive(false);
     Disable();
 	}
 
-  void Update() {
-    Cursor.lockState = (isPaused) ? CursorLockMode.None : CursorLockMode.Locked;
-    Cursor.visible = (isPaused) ? true: false;
+  void SetLockMode(bool mode) {
+    Cursor.lockState = (mode) ? CursorLockMode.Locked : CursorLockMode.None;
+    Cursor.visible = !mode;
   }
 	
 	void Disable() {
     pause.SetActive(false);
     settings.SetActive(false);
+    SetLockMode(true);
   }
 
   void Reset() {
@@ -43,6 +38,7 @@ public class GameUI : MonoBehaviour {
     pauseUi.SetActive(!pauseUi.activeSelf);
     pause.SetActive(pauseUi.activeSelf);
     isPaused = pauseUi.activeSelf;
+    SetLockMode(!isPaused);
   }
 
   public void OnSettingsButton() {

@@ -14,15 +14,15 @@ public class PlayerItemPickupSystem : ComponentSystem {
 
     foreach (var e in GetEntities<Data>()) {
       // Item has been picked up and button is held
-      if (e.pi.pickedUp && e.pi.pickupBtn) continue;
+      if (e.pi.pickedUp && e.pi.btnPickup) continue;
 
       // Item has been picked up, button released
-      if (e.pi.pickedUp && !e.pi.pickupBtn) {
+      if (e.pi.pickedUp && !e.pi.btnPickup) {
         e.pi.pickedUp = false;
         continue;
       }
 
-      if (!e.pi.pickupBtn) continue;
+      if (!e.pi.btnPickup) continue;
 
       var go = e.t.gameObject;
       var player = e.player;

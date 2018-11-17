@@ -11,6 +11,7 @@ public class PlayerMovementSystem : ComponentSystem {
     public ComponentArray<PlayerInput> pi;
 
     public ComponentArray<Paused> paused;
+    public ComponentArray<InventoryOpen> inventoryOpen;
   }
 
   [Inject] private Data data;
@@ -49,6 +50,10 @@ public class PlayerMovementSystem : ComponentSystem {
       if (velocity != Vector3.zero) {
         rb.MovePosition(rb.position + velocity * dt);
       }
+      
+      // If the inventory is open, still allow to move but no cam rot
+      if (data.inventoryOpen[i].flag) continue;
+
       if (cam != null) {
         var cLimit = TBDBootstrap.Settings.CameraRotateLimit;
 

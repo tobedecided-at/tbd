@@ -13,9 +13,9 @@ public class PauseSystem : ComponentSystem {
   [Inject] Data data;
 
   protected override void OnUpdate() {
-    GameUI gameUi = TBDBootstrap.Settings.GameUI.GetComponent<GameUI>();
+    PauseUI gameUi = TBDBootstrap.Settings.GameUI.GetComponent<PauseUI>();
     for (int i = 0; i != data.Length; i++) {
-      bool pauseBtn = data.pi[i].pauseBtn;
+      bool pauseBtn = data.pi[i].btnPause;
 
       // If pauseBtn is down
       if (pauseBtn) {
