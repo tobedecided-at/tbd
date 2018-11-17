@@ -1,0 +1,18 @@
+{
+  "slug" : "rebar_rod",
+  "title" : "Rebar Rod",
+  "desc" : "A very sturdy rod, mostly used in Buildings",
+
+  "weight" : 2,
+  "pickupRange" : 5.0,
+  "maxStackSize" : 30,
+  "rarity" : 9001,
+  "value" : 1000,
+  "useable" : false,
+  "stats" : {
+    "iDamage" : 7.0
+  },
+  "components" : {
+    "iron.tbd" : 2
+  }
+}

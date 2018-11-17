@@ -5,9 +5,6 @@ public class TBDSettings : MonoBehaviour {
   public GameObject PlayerPrefab;
   public List<Transform> PlayerSpawnPos;
 
-  // [HideInInspector]
-  // public GameUi GameUi;
-
   public bool UseRandomSpawn = true;
   public string ItemPath = "/json/Items/";
 
@@ -17,6 +14,7 @@ public class TBDSettings : MonoBehaviour {
   public float BaseFirerate = 1f;
   public float BasePickupRange = 10f;
   public GameObject GameUI;
+  public GameObject InventoryUI;
 
   [Header("Multiplier Options")]
   public float MultDamage = 1f;

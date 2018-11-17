@@ -20,8 +20,10 @@ public class PlayerInputSystem_noclip : ComponentSystem {
       pi.rotate = new float2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
       pi.jump = Input.GetButtonDown("Jump");
       pi.walk = Input.GetButton("Walk");
-      pi.pickupBtn = Input.GetButtonDown("Pay Respect");
-      pi.pauseBtn = Input.GetButtonDown("Cancel");
+
+      pi.btnPickup = Input.GetButtonDown("Pay Respect");
+      pi.btnPause = Input.GetButtonDown("Cancel");
+      pi.btnInventory = Input.GetButtonDown("Toggle Inventory");
 
       pi.noClip = true;
     } 
