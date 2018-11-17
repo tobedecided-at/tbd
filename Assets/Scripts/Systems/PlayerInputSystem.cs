@@ -4,7 +4,7 @@ using Unity.Mathematics;
 
 public class PlayerInputSystem : ComponentSystem {
   public struct Data {
-    public int Length;
+    public readonly int Length;
     public ComponentArray<PlayerInput> PlayerInput;
     public SubtractiveComponent<Dead> Dead;
   }

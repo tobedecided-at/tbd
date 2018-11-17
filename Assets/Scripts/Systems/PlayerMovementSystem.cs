@@ -5,7 +5,7 @@ using Unity.Collections;
 
 public class PlayerMovementSystem : ComponentSystem {
   public struct Data {
-    public int Length;
+    public readonly int Length;
     public GameObjectArray GameObject;
     public ComponentArray<Player> player;
     public ComponentArray<PlayerInput> pi;
@@ -45,7 +45,6 @@ public class PlayerMovementSystem : ComponentSystem {
       mHor = transform.right * move.x;
       mVert = transform.forward * move.y;
       velocity = !walk ? (mHor + mVert).normalized * pSpd : ((mHor + mVert).normalized * pSpd) / 2;
-      Debug.Log(walk);
 
       if (velocity != Vector3.zero) {
         rb.MovePosition(rb.position + velocity * dt);
@@ -71,7 +70,6 @@ public class PlayerMovementSystem : ComponentSystem {
 
   void Jump(Rigidbody _rb, bool noClip = false) {
     if (noClip) {
-      Debug.Log("Called");
       _rb.MovePosition(new Vector2(_rb.position.x, _rb.position.y + 1f));
     } else {
       _rb.AddForce(new Vector3(0, TBDBootstrap.Settings.PlayerJumpPower, 0), ForceMode.Impulse);
