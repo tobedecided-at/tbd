@@ -18,6 +18,10 @@ public class TBDSceneManager : MonoBehaviour {
   Image i_black;
   Slider s_loading;
 
+  public void OnQuitButton() {
+    Application.Quit(0);
+  }
+
   void Awake() {
     if (!created) {
       created = true;

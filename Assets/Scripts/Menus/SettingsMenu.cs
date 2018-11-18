@@ -35,7 +35,6 @@ public class SettingsMenu : MonoBehaviour {
 
   void SetResolution(int index) {
     Resolution res = resolutions[index];
-    Debug.Log(res);
     Screen.SetResolution(res.width, res.height, Screen.fullScreen);
   }
 
