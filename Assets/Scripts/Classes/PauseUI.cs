@@ -26,7 +26,6 @@ public class PauseUI : MonoBehaviour {
 	void Disable() {
     pause.SetActive(false);
     settings.SetActive(false);
-    SetLockMode(true);
   }
 
   void Reset() {

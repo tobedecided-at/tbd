@@ -13,8 +13,7 @@ public class TBDSettings : MonoBehaviour {
   public float BaseDamage = 1f;
   public float BaseFirerate = 1f;
   public float BasePickupRange = 10f;
-  public GameObject GameUI;
-  public GameObject InventoryUI;
+  public GameObject UI;
 
   [Header("Multiplier Options")]
   public float MultDamage = 1f;

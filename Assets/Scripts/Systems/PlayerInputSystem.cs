@@ -23,6 +23,7 @@ public class PlayerInputSystem : ComponentSystem {
       pi.btnPickup = Input.GetButtonDown("Pay Respect");
       pi.btnPause = Input.GetButtonDown("Cancel");
       pi.btnInventory = Input.GetButtonDown("Toggle Inventory");
+      pi.btnDebugTakeDamage = Input.GetKeyDown(KeyCode.F11);
     } 
   }
 }

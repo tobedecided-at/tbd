@@ -13,7 +13,7 @@ public class PauseSystem : ComponentSystem {
   [Inject] Data data;
 
   protected override void OnUpdate() {
-    PauseUI gameUi = TBDBootstrap.Settings.GameUI.GetComponent<PauseUI>();
+    PauseUI gameUi = TBDBootstrap.Settings.UI.GetComponent<PauseUI>();
     for (int i = 0; i != data.Length; i++) {
       bool pauseBtn = data.pi[i].btnPause;
 
