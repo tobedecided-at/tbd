@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class Damaged : MonoBehaviour {
-  public List<DamageInfo> hit;
+  public List<DamageInfo> hit = new List<DamageInfo>();
 }
 
 public class DamageInfo {

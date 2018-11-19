@@ -17,12 +17,17 @@ public class PlayerHUDSystem : ComponentSystem {
       var gPlayerHUD = data.gPlayerHUD[i];
       var trPlayer = data.trPlayer[i];
 
-      var cHealth = trPlayer.GetComponent<Health>().value;
-      var cMaxHealth = trPlayer.GetComponent<Health>().max;
+      var cHealth = trPlayer.GetComponent<Health>();
+      var cArmor = trPlayer.GetComponent<Armor>();
 
-      inventoryUI.sHealth.maxValue = cMaxHealth;
-      inventoryUI.sHealth.value = cHealth;
-      inventoryUI.tHealth.text = cHealth.ToString();
+
+      inventoryUI.sHealth.maxValue = cHealth.max;
+      inventoryUI.sHealth.value = cHealth.value;
+      inventoryUI.tHealth.text = cHealth.value.ToString();
+
+      inventoryUI.sArmor.maxValue = cArmor.max;
+      inventoryUI.sArmor.value = cArmor.value;
+      inventoryUI.tArmor.text = cArmor.value.ToString();
     }
   }
 }

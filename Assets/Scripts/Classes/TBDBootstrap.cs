@@ -30,7 +30,7 @@ public class TBDBootstrap : MonoBehaviour {
     var entity = player.GetComponent<GameObjectEntity>().Entity;
     player.GetComponent<Health>().max = Settings.BaseHealth;
     player.GetComponent<Health>().value = Settings.BaseHealth;
-
+    player.GetComponent<Armor>().max = Settings.MaxArmor;
     return entity;
   }
 }

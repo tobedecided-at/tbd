@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 public class ItemDb : MonoBehaviour {
   [SerializeField]
-  private static List<Item> db = new List<Item>();
+  private static List<JObject> db = new List<JObject>();
   private string path;
 
   void Start() {
@@ -14,31 +14,31 @@ public class ItemDb : MonoBehaviour {
     GetItemsFromFile();
   }
 
-  Item GetItemFromFile(string filename) {
+  JObject GetItemDataFromFile(string filename) {
     string content = File.ReadAllText(path + filename);
-    return new Item(JObject.Parse(content));
+    return JObject.Parse(content);
   }
 
   void GetItemsFromFile() {
     DirectoryInfo d = new DirectoryInfo(path);
 
     foreach (var file in d.GetFiles("*.tbd")) {
-      Item item = GetItemFromFile(file.Name);      
-      db.Add(item);
+      JObject itemData = GetItemDataFromFile(file.Name);      
+      db.Add(itemData);
     }
   }
 
-  public static Item GetItemDataBySlug(string slug) {
-    foreach (Item item in ItemDb.db) {
-      if (item.slug == slug)
-        return item;
+  public static JObject GetItemDataBySlug(string slug) {
+    foreach (var itemData in ItemDb.db) {
+      if ((string)itemData["slug"] == slug)
+        return itemData;
     }
     return null;
   }
 
   public static Item GetNewItemBySlug(string slug) {
-    foreach (Item item in db) {
-      if (item.slug == slug)
+    foreach (var item in db) {
+      if ((string)item["slug"] == slug)
         return new Item(item);
     }
     return null;
