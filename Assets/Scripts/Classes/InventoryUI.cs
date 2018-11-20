@@ -2,6 +2,8 @@
 using Unity.Entities;
 using UnityEngine.SceneManagement;
 
+using System.Collections.Generic;
+
 public class InventoryUI : MonoBehaviour {
 
   public GameObject gInventoryUI;
@@ -9,6 +11,9 @@ public class InventoryUI : MonoBehaviour {
   [Header("Parts")]
   public GameObject gInventoryPanel;
   public GameObject gBlur;
+
+  [SerializeField]
+  public List<GameObject> lSlots = new List<GameObject>();
 
   public bool isOpen;
   public bool added;

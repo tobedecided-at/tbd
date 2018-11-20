@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 public class ItemDb : MonoBehaviour {
-  [SerializeField]
   private static List<JObject> db = new List<JObject>();
   private string path;
 
@@ -37,9 +36,9 @@ public class ItemDb : MonoBehaviour {
   }
 
   public static Item GetNewItemBySlug(string slug) {
-    foreach (var item in db) {
-      if ((string)item["slug"] == slug)
-        return new Item(item);
+    foreach (var itemData in db) {
+      if (itemData.slug == slug)
+        return Item.Duplicate(itemData);
     }
     return null;
   }

@@ -3,8 +3,8 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class PlayerInventory : MonoBehaviour {
-  
-  public static List<Item> inventory = new List<Item>();
+  [SerializeField]
+  public List<Item> inventory = new List<Item>();
   public float weight;
   public float speedRed;
   public bool overWeight;
@@ -13,10 +13,6 @@ public class PlayerInventory : MonoBehaviour {
   public static PlayerInventory instance;
 
   void Start() {
-    if (instance != this && instance != null)
-      Destroy(this);
-
-    instance = this;
     speed = TBDBootstrap.Settings.PlayerSpeed;
     speedRed = TBDBootstrap.Settings.PlayerSpeedReduction;
   }

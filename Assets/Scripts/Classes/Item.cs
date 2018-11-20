@@ -1,8 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
+
+using System.IO;
 using System.Collections.Generic;
+
 using Newtonsoft.Json.Linq;
 
 public class Item {
+
+  public static string imgInventoryPath = Application.dataPath + "/StreamingAssets" + TBDBootstrap.Settings.ItemPath;
 
   public string slug;
   public string title;
@@ -19,24 +25,25 @@ public class Item {
   public int stackSize;
   public bool equipped = false;
   public bool usable;
+  public Image imgInventory;
 
-  public Item(JObject item) {
-    this.slug = (string)item["slug"];
-    this.title = (string)item["title"];
-    this.desc = (string)item["desc"];
-    this.weight = (float)item["weight"];
-    this.pickupRange = (float)item["pickupRange"];
-    this.maxStackSize = (int)item["maxStackSize"];
-    this.rarity = (int)item["rarity"];
-    this.stats = new ItemStats(item["stats"]);
-    this.components = new Dictionary<string, int>();
-    this.model = Resources.Load(slug, typeof(GameObject)) as GameObject;
-    this.item = this;
-    this.usable = (bool)item["useable"];
-    this.value = (float)item["value"];
+  public static Item CreateFromJson(JObject json) {
+
+    Item item = json.ToObject<Item>();
+
+    item.stats = new ItemStats(item.stats);
+    item.components = new Dictionary<string, int>();
+    item.model = Resources.Load(item.slug, typeof(GameObject)) as GameObject;
+
+    if (File.Exists(imgInventoryPath + item.slug + ".png")) {
+      var bFileData = File.ReadAllBytes(imgInventoryPath + item.slug + ".png");
+      var t2dtex = new Texture2D(2, 2);
+    } else return null;
     
-    foreach (var cItem in (JObject)item["components"]) {
-      this.components.Add((string)cItem.Key, (int)cItem.Value);
+    foreach (var cItem in item.components) {
+      item.components.Add((string)cItem.Key, (int)cItem.Value);
     }
+
+    return item;
   }
 }
