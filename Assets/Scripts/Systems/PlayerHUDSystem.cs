@@ -19,7 +19,7 @@ public class PlayerHUDSystem : ComponentSystem {
 
       var cHealth = trPlayer.GetComponent<Health>();
       var cArmor = trPlayer.GetComponent<Armor>();
-
+      var rImgCompass = inventoryUI.rImgCompass;
 
       inventoryUI.sHealth.maxValue = cHealth.max;
       inventoryUI.sHealth.value = cHealth.value;
@@ -28,6 +28,8 @@ public class PlayerHUDSystem : ComponentSystem {
       inventoryUI.sArmor.maxValue = cArmor.max;
       inventoryUI.sArmor.value = cArmor.value;
       inventoryUI.tArmor.text = cArmor.value.ToString();
+
+      rImgCompass.uvRect = new Rect(trPlayer.localEulerAngles.y / 360f, 0, 1, 1);
     }
   }
 }

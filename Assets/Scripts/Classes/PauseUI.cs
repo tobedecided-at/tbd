@@ -9,13 +9,13 @@ public class PauseUI : MonoBehaviour {
   [Header("Parts")]
   public GameObject pause;
   public GameObject settings;
+  public GameObject imgDarken;
 
   public bool isPaused;
-  public bool added;
 
 	void Start () {
     pauseUi.SetActive(false);
-    Disable();
+    DisableAll();
 	}
 
   void SetLockMode(bool mode) {
@@ -23,26 +23,36 @@ public class PauseUI : MonoBehaviour {
     Cursor.visible = !mode;
   }
 	
-	void Disable() {
+	void DisableAll() {
+    pause.SetActive(false);
+    settings.SetActive(false);
+    imgDarken.SetActive(false);
+  }
+
+  void Reset() {
     pause.SetActive(false);
     settings.SetActive(false);
   }
 
-  void Reset() {
-    Disable();
-    pause.SetActive(pauseUi.activeSelf);
-  }
+  void TogglePause() {
+    Reset();
 
-  public void OnPauseButton() {
-    pauseUi.SetActive(!pauseUi.activeSelf);
-    pause.SetActive(pauseUi.activeSelf);
-    isPaused = pauseUi.activeSelf;
+    var bPauseUIActive = pauseUi.activeSelf;
+    pauseUi.SetActive(!bPauseUIActive);
+    pause.SetActive(!bPauseUIActive);
+    imgDarken.SetActive(!bPauseUIActive);
+    isPaused = !bPauseUIActive;
+    
     SetLockMode(!isPaused);
   }
 
+  public void OnPauseButton() {
+    TogglePause();
+  }
+
   public void OnSettingsButton() {
-    Disable();
-    settings.SetActive(!settings.activeSelf);
+    Reset();
+    settings.SetActive(true);
   }
 
   public void OnQuitButton() {
@@ -51,5 +61,6 @@ public class PauseUI : MonoBehaviour {
 
   public void OnBackButton() {
     Reset();
+    pause.SetActive(true);
   }
 }

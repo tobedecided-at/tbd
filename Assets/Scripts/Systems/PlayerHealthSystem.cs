@@ -25,14 +25,13 @@ public class PlayerHealthSystem : ComponentSystem {
       var cDamaged = data.cDamaged[i];
 
       if (Input.GetKeyDown(KeyCode.F11)) {
-        cDamaged.hit.Add(new DamageInfo("DEBUG", "SELF", 10));
+        cDamaged.hit.Add(new DamageInfo("BECAUSE", "SELF", 10));
       }
       // TODO: Take care of healing first because of fairness
 
       // Take care of damage
       for (int c = 0; c < cDamaged.hit.Count; c++) {
         var damageToPlayer = cDamaged.hit[c].damageAmount - cArmor.value;
-        Debug.Log("A: " + cDamaged.hit[c].damageAmount + " Armor: "+cArmor.value+" dTP: "+damageToPlayer);
         
         // If the remaining damage is <= 0 then we have blocked 100%
         if (damageToPlayer <= 0) {
@@ -45,7 +44,6 @@ public class PlayerHealthSystem : ComponentSystem {
         }
 
         // DoDamage
-        Debug.Log(string.Format("Took {0} damage from {1}. It felt like {2}", cDamaged.hit[c].damageAmount, cDamaged.hit[c].originName, cDamaged.hit[c].damageType));
         var damageAmount = (cHealth.value - cDamaged.hit[c].damageAmount <= 0) ? -1 : cDamaged.hit[c].damageAmount;
         // If damageAmount == false, we are dead
         if (damageAmount == -1) {
