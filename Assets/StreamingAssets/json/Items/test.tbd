@@ -11,7 +11,8 @@
   "useable" : true,
   "stats" : {
     "iHealth" : 50.0,
-    "iDamage" : 5.0
+    "iDamage" : 5.0,
+    "iArmor" : 50.0
   },
   "components" : {
     "wood.tbd" : 4,

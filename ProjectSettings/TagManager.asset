@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerItemCollider
   - Item
+  - TBDSceneManager
   layers:
   - Default
   - TransparentFX

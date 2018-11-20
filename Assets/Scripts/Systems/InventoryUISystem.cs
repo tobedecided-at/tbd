@@ -13,7 +13,7 @@ public class InventoryUISystem : ComponentSystem {
   [Inject] Data data;
 
   protected override void OnUpdate() {
-    InventoryUI inventoryUI = TBDBootstrap.Settings.InventoryUI.GetComponent<InventoryUI>();
+    InventoryUI inventoryUI = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>();
     for (int i = 0; i != data.Length; i++) {
       bool hasToggled = data.pi[i].btnInventory;
 
@@ -23,15 +23,8 @@ public class InventoryUISystem : ComponentSystem {
       }
 
       if (inventoryUI.isOpen && !inventoryUI.added) {
-        var inventoryOpen = data.go[i].GetComponent<InventoryOpen>();
-        inventoryOpen.flag = true;
-        inventoryUI.added = true;
-      } else if (!inventoryUI.isOpen) {
-        var inventoryOpen = data.go[i].GetComponent<InventoryOpen>();
-        inventoryOpen.flag = false;
-        inventoryUI.added = false;
+
       }
     }
   }
-
 }

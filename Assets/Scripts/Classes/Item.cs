@@ -13,7 +13,7 @@ public class Item {
   public int rarity;
   public ItemStats stats;
   public Dictionary<string, int> components;
-  public Object model;
+  public GameObject model;
   public Item item;
   public float value;
   public int stackSize;
@@ -38,20 +38,5 @@ public class Item {
     foreach (var cItem in (JObject)item["components"]) {
       this.components.Add((string)cItem.Key, (int)cItem.Value);
     }
-
-  }
-  public Item(Item item) {
-    this.slug = item.slug;
-    this.title = item.title;
-    this.desc = item.desc;
-    this.weight = item.weight;
-    this.pickupRange = item.pickupRange;
-    this.maxStackSize = item.maxStackSize;
-    this.rarity = item.rarity;
-    this.stats = new ItemStats(item.stats);
-    this.components = new Dictionary<string, int>();
-    this.model = item.model;
-    this.usable = item.usable;
-    this.value = item.value;
   }
 }
