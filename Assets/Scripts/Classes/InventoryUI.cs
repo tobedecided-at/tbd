@@ -16,6 +16,7 @@ public class InventoryUI : MonoBehaviour {
   public List<GameObject> lSlots = new List<GameObject>();
 
   public GameObject goSlotsParent;
+  public GameObject goSlotsPrefab;
   
   public bool isOpen;
   public bool added;

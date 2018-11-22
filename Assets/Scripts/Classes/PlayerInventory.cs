@@ -26,6 +26,7 @@ public class PlayerInventory : MonoBehaviour {
     iInventorySize = TBDBootstrap.Settings.InventorySize;
 
     goSlotHolder = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>().goSlotsParent;
+    goSlotPrefab = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>().goSlotsPrefab;
 
     GenerateSlots();
   }

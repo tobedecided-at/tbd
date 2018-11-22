@@ -41,8 +41,9 @@ public class Item {
       var t2dtex = new Texture2D(2, 2);
       t2dtex.LoadImage(bFileData);
     } else {
-      Debug.LogWarning(string.Format("Item icon \"{0}\" could not be found!"));
-      return null;
+      var bFileData = File.ReadAllBytes(imgInventoryPath + "default.png");
+      var t2dtex = new Texture2D(2, 2);
+      t2dtex.LoadImage(bFileData);
     }
 
     return item;
