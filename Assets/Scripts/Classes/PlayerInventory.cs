@@ -25,16 +25,8 @@ public class PlayerInventory : MonoBehaviour {
     speedRed = TBDBootstrap.Settings.PlayerSpeedReduction;
     iInventorySize = TBDBootstrap.Settings.InventorySize;
 
-    if (goSlotHolder == null) {
-      Debug.LogError("SlotHolder not assigned!");
-      return;
-    }
+    goSlotHolder = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>().goSlotsParent;
 
-    if (goSlotPrefab == null) {
-      Debug.LogError("SlotPrefab not assigned!");
-      return;
-    }
-    
     GenerateSlots();
   }
 

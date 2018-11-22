@@ -15,6 +15,8 @@ public class InventoryUI : MonoBehaviour {
   [SerializeField]
   public List<GameObject> lSlots = new List<GameObject>();
 
+  public GameObject goSlotsParent;
+  
   public bool isOpen;
   public bool added;
 
