@@ -28,6 +28,7 @@ public class TBDSettings : MonoBehaviour {
   public float CarryWeight = 150f;
   public float PlayerSpeedReduction = .6f;
   public string ItemPickupTag = "Item";
+  public int InventorySize = 30;
   
   [Header("Camera Options")]
   public float CameraSensitivity = 2.5f;
