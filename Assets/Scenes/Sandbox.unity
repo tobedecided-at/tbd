@@ -1353,6 +1353,10 @@ PrefabInstance:
       propertyPath: itemSlug
       value: wood
       objectReference: {fileID: 0}
+    - target: {fileID: 1877861112397088, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}
 --- !u!1 &538412492
@@ -1509,7 +1513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &613683693
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2397,10 +2401,10 @@ RectTransform:
   m_Father: {fileID: 395221587}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 71, y: -278.95}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946567754
 MonoBehaviour:
@@ -3582,7 +3586,7 @@ MonoBehaviour:
   PlayerSpawnPos:
   - {fileID: 1420626143}
   UseRandomSpawn: 1
-  ItemPath: /Items/json/
+  ItemPath: /StreamingAssets/Items/
   BaseHealth: 100
   BaseDamage: 1
   BaseFirerate: 1
@@ -4651,6 +4655,10 @@ PrefabInstance:
     - target: {fileID: 1877861112397088, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}
       propertyPath: m_Name
       value: Test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877861112397088, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}

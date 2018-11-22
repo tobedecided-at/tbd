@@ -19,7 +19,6 @@ public class PauseSystem : ComponentSystem {
 
       // If pauseBtn is down
       if (pauseBtn) {
-        Debug.Log("Run");
         pauseUI.OnPauseButton();
       }
 

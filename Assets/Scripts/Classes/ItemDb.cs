@@ -8,9 +8,11 @@ public class ItemDb : MonoBehaviour {
   private static List<JObject> db = new List<JObject>();
   private string path;
 
+  public string sFileRegex = "*.tbd";
+
   void Start() {
-    path = Application.dataPath + "/StreamingAssets" + TBDBootstrap.Settings.ItemPath;
-    GetItemsFromFile();
+    path = Application.dataPath + TBDBootstrap.Settings.ItemPath + "json/";
+    LoadItems();
   }
 
   JObject GetItemDataFromFile(string filename) {
@@ -18,10 +20,10 @@ public class ItemDb : MonoBehaviour {
     return JObject.Parse(content);
   }
 
-  void GetItemsFromFile() {
+  void LoadItems() {
     DirectoryInfo d = new DirectoryInfo(path);
 
-    foreach (var file in d.GetFiles("*.tbd")) {
+    foreach (var file in d.GetFiles(sFileRegex)) {
       JObject itemData = GetItemDataFromFile(file.Name);      
       db.Add(itemData);
     }
@@ -37,8 +39,8 @@ public class ItemDb : MonoBehaviour {
 
   public static Item GetNewItemBySlug(string slug) {
     foreach (var itemData in db) {
-      if (itemData.slug == slug)
-        return Item.Duplicate(itemData);
+      if ((string)itemData["slug"] == slug)
+        return Item.CreateFromJson(itemData);
     }
     return null;
   }
