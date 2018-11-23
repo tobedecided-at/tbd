@@ -43,7 +43,7 @@ public class PlayerItemPickupSystem : ComponentSystem {
           var i = hit.transform.GetComponent<ItemComponent>();
           if (i == null)
             return;
-          if (Vector3.Distance(hit.transform.position, hit.point) <= i.item.pickupRange) {
+          if (Vector3.Distance(hit.transform.position, go.transform.position) <= i.item.pickupRange) {
             OnPickup(hit.transform.gameObject, gPlayerInv);
           }
         }

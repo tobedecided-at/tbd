@@ -20,8 +20,6 @@ public class PlayerInventory : MonoBehaviour {
 
   float speed;
 
-  public static PlayerInventory instance;
-
   void Start() {
     speed = TBDBootstrap.Settings.PlayerSpeed;
     speedRed = TBDBootstrap.Settings.PlayerSpeedReduction;
@@ -37,7 +35,7 @@ public class PlayerInventory : MonoBehaviour {
 
   void GenerateSlots() {
     GameObject goTempSlot;
-    Color invisible = new Color(0f, 0f, 0f, 0f);
+    Color invisible = new Color(255f, 255f, 255f, 0f);
     for (int i = 0; i < iInventorySize; i++) {
       goTempSlot = Instantiate(goSlotPrefab, goSlotHolder.gameObject.transform);
       goTempSlot.name = string.Format("Slot {0}", i);
@@ -47,7 +45,7 @@ public class PlayerInventory : MonoBehaviour {
   }
 
   void AddItemToUI() {
-
+    
   }
 
   public void OnPickup(GameObject itemGo) {
@@ -55,12 +53,11 @@ public class PlayerInventory : MonoBehaviour {
     var item = itemC.item;
     var added = false;
 
-    itemC.pickedUp = true;
-
     // Safety net
     if (itemC.pickedUp)
       return;
     
+    itemC.pickedUp = true;
 
     // Loop through Inventory to see if we can stack the item
     for (int x = 0; x != inventory.Count; x++) {
@@ -89,6 +86,8 @@ public class PlayerInventory : MonoBehaviour {
       inventory.Add(item);
       added = true;
       inventory[inventory.Count - 1].stackSize++;
+
+      invUI.lSlots[inventory.Count - 1].GetComponent<InventorySlot>().item = item;
     }
 
     Destroy(itemGo);

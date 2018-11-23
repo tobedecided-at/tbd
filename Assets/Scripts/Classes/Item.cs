@@ -40,10 +40,12 @@ public class Item {
       var bFileData = File.ReadAllBytes(imgInventoryPath + item.slug + ".png");
       var t2dtex = new Texture2D(2, 2);
       t2dtex.LoadImage(bFileData);
+      item.imgInventory = t2dtex;
     } else {
       var bFileData = File.ReadAllBytes(imgInventoryPath + "default.png");
       var t2dtex = new Texture2D(2, 2);
       t2dtex.LoadImage(bFileData);
+      item.imgInventory = t2dtex;
     }
 
     return item;
