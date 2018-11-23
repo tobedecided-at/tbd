@@ -1,24 +1,51 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 using System.Collections.Generic;
 
 public class PlayerInventory : MonoBehaviour {
+  [SerializeField]
+  public List<Item> inventory = new List<Item>();
+
+  public GameObject goSlotHolder;
+  public GameObject goSlotPrefab;
   
-  public static List<Item> inventory = new List<Item>();
   public float weight;
   public float speedRed;
+  
   public bool overWeight;
+
+  public int iInventorySize {get; private set;}
+  public InventoryUI invUI {get; private set;}
+
   float speed;
 
-  public static PlayerInventory instance;
-
   void Start() {
-    if (instance != this && instance != null)
-      Destroy(this);
-
-    instance = this;
     speed = TBDBootstrap.Settings.PlayerSpeed;
     speedRed = TBDBootstrap.Settings.PlayerSpeedReduction;
+    iInventorySize = TBDBootstrap.Settings.InventorySize;
+
+    invUI = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>();
+
+    goSlotHolder = invUI.goSlotsParent;
+    goSlotPrefab = invUI.goSlotsPrefab;
+
+    GenerateSlots();
+  }
+
+  void GenerateSlots() {
+    GameObject goTempSlot;
+    Color invisible = new Color(255f, 255f, 255f, 0f);
+    for (int i = 0; i < iInventorySize; i++) {
+      goTempSlot = Instantiate(goSlotPrefab, goSlotHolder.gameObject.transform);
+      goTempSlot.name = string.Format("Slot {0}", i);
+      goTempSlot.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
+      invUI.lSlots.Add(goTempSlot);
+    }
+  }
+
+  void AddItemToUI() {
+    
   }
 
   public void OnPickup(GameObject itemGo) {
@@ -26,8 +53,7 @@ public class PlayerInventory : MonoBehaviour {
     var item = itemC.item;
     var added = false;
 
-    Destroy(itemGo);
-
+    // Safety net
     if (itemC.pickedUp)
       return;
     
@@ -49,28 +75,38 @@ public class PlayerInventory : MonoBehaviour {
     } // End For
     
     if (!added) {
-      // If the item is not yet in the inventory OR the Stack is full
-      // Increase it's stacksize and add it to the inventory
+      // If the item is not yet in the inventory OR the stack is full
+      // If the inventory is full
+      if (inventory.Count == iInventorySize) {
+        // Do nothing
+        Debug.LogWarning("Inventory is full!");
+        return;  
+      }
+      // Add it to the inventory and increase the stacksize from 0 to 1;
       inventory.Add(item);
       added = true;
       inventory[inventory.Count - 1].stackSize++;
+
+      invUI.lSlots[inventory.Count - 1].GetComponent<InventorySlot>().item = item;
     }
+
+    Destroy(itemGo);
 
     if (added) {
       GiveStat(item.stats);
     }
-
     weight += item.weight;
   }
 
   public void OnThrow(GameObject item) {
+    // Safety
     var i = item.GetComponent<ItemComponent>();
     if (!i.pickedUp)
       return;
 
     inventory.Remove(i.item);
     weight -= i.item.weight;
-    // TODO
+    // TODO:
     // Instantiate Item infront of Player, add force
   }
 

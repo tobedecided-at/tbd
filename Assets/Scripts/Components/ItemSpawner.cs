@@ -15,6 +15,7 @@ public class ItemSpawner : MonoBehaviour {
     item = ItemDb.GetNewItemBySlug(itemSlug);
     
     if (item == null) {
+      Debug.LogWarning(string.Format("Item {0} could not be found!", itemSlug));
       return;
     }
     

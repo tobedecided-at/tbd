@@ -9,7 +9,7 @@ public class PauseUI : MonoBehaviour {
   [Header("Parts")]
   public GameObject pause;
   public GameObject settings;
-  public GameObject imgDarken;
+  public GameObject shadeBlur;
 
   public bool isPaused;
 
@@ -26,7 +26,7 @@ public class PauseUI : MonoBehaviour {
 	void DisableAll() {
     pause.SetActive(false);
     settings.SetActive(false);
-    imgDarken.SetActive(false);
+    shadeBlur.SetActive(false);
   }
 
   void Reset() {
@@ -40,7 +40,7 @@ public class PauseUI : MonoBehaviour {
     var bPauseUIActive = pauseUi.activeSelf;
     pauseUi.SetActive(!bPauseUIActive);
     pause.SetActive(!bPauseUIActive);
-    imgDarken.SetActive(!bPauseUIActive);
+    shadeBlur.SetActive(!bPauseUIActive);
     isPaused = !bPauseUIActive;
     
     SetLockMode(!isPaused);
