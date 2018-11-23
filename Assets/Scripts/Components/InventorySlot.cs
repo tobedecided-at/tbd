@@ -6,4 +6,5 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour {
     public Texture2D t2dIcon;
+    public RawImage rimgIconHolder;
 }

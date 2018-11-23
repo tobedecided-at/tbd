@@ -10,6 +10,8 @@ public class ItemSystem : ComponentSystem {
   protected override void OnUpdate() {
     foreach (var e in GetEntities<Data>()) {
       var i = e.item;
+      if (e.tr.gameObject.tag == TBDBootstrap.Settings.ItemPickupTag)
+        continue;
       e.tr.gameObject.tag = TBDBootstrap.Settings.ItemPickupTag;
     }
   }

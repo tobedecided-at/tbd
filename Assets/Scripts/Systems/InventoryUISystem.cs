@@ -22,9 +22,14 @@ public class InventoryUISystem : ComponentSystem {
         inventoryUI.OnInventoryButton();
       }
 
-      if (inventoryUI.isOpen && !inventoryUI.added) {
-
+      if (inventoryUI.isOpen) {
+        var invOpen = data.go[i].GetComponent<InventoryOpen>();
+        invOpen.flag = true;
+      } else {
+        var invOpen = data.go[i].GetComponent<InventoryOpen>();
+        invOpen.flag = false;
       }
+      
     }
   }
 }

@@ -18,9 +18,4 @@ public class ItemStats {
   public float iWater;
   public float iHeat; // @future
 
-  public ItemStats(JToken token) {
-    JObject stats = (JObject)token;
-
-    Debug.Log(this.GetType());
-  }
 }

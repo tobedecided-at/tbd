@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 using System.Collections.Generic;
 
@@ -15,6 +16,7 @@ public class PlayerInventory : MonoBehaviour {
   public bool overWeight;
 
   public int iInventorySize {get; private set;}
+  public InventoryUI invUI {get; private set;}
 
   float speed;
 
@@ -25,18 +27,27 @@ public class PlayerInventory : MonoBehaviour {
     speedRed = TBDBootstrap.Settings.PlayerSpeedReduction;
     iInventorySize = TBDBootstrap.Settings.InventorySize;
 
-    goSlotHolder = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>().goSlotsParent;
-    goSlotPrefab = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>().goSlotsPrefab;
+    invUI = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>();
+
+    goSlotHolder = invUI.goSlotsParent;
+    goSlotPrefab = invUI.goSlotsPrefab;
 
     GenerateSlots();
   }
 
   void GenerateSlots() {
     GameObject goTempSlot;
+    Color invisible = new Color(0f, 0f, 0f, 0f);
     for (int i = 0; i < iInventorySize; i++) {
       goTempSlot = Instantiate(goSlotPrefab, goSlotHolder.gameObject.transform);
       goTempSlot.name = string.Format("Slot {0}", i);
+      goTempSlot.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
+      invUI.lSlots.Add(goTempSlot);
     }
+  }
+
+  void AddItemToUI() {
+
   }
 
   public void OnPickup(GameObject itemGo) {
