@@ -44,10 +44,6 @@ public class PlayerInventory : MonoBehaviour {
     }
   }
 
-  void AddItemToUI() {
-    
-  }
-
   public void OnPickup(GameObject itemGo) {
     var itemC = itemGo.GetComponent<ItemComponent>();
     var item = itemC.item;
@@ -68,6 +64,7 @@ public class PlayerInventory : MonoBehaviour {
         // If the stack size of the Item in the Inventory is smaller than MaxStackSize
         if (i.stackSize < i.maxStackSize) {
           // Increase StackSize of Saved Item
+          Debug.Log("Inc ss of saved");
           i.stackSize++;
           added = true;
         } else continue; // Continue to search through inv
@@ -75,6 +72,7 @@ public class PlayerInventory : MonoBehaviour {
     } // End For
     
     if (!added) {
+      Debug.Log("!Added");
       // If the item is not yet in the inventory OR the stack is full
       // If the inventory is full
       if (inventory.Count == iInventorySize) {
@@ -85,9 +83,10 @@ public class PlayerInventory : MonoBehaviour {
       // Add it to the inventory and increase the stacksize from 0 to 1;
       inventory.Add(item);
       added = true;
-      inventory[inventory.Count - 1].stackSize++;
 
+      inventory[inventory.Count - 1].stackSize++;
       invUI.lSlots[inventory.Count - 1].GetComponent<InventorySlot>().item = item;
+      Debug.Log(inventory[inventory.Count - 1].uid);
     }
 
     Destroy(itemGo);

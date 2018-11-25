@@ -11,15 +11,14 @@ public class ItemSpawner : MonoBehaviour {
   }
 
   void Update() {
-
-    item = ItemDb.GetNewItemBySlug(itemSlug);
     
-    if (item == null) {
+    if (ItemDb.GetItemDataBySlug(itemSlug) == null) {
       Debug.LogWarning(string.Format("Item {0} could not be found!", itemSlug));
       return;
     }
     
     for (int x = 1; x <= amount; x++) {
+      item = ItemDb.GetNewItemBySlug(itemSlug);
       var pos = this.gameObject.transform.position;
       var rot = this.gameObject.transform.rotation;
     

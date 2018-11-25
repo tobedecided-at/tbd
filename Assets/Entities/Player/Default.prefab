@@ -130,9 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ce30c7a12664e49a7d258a700c5a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lHitType: []
-  lHitName: []
-  lHitDamage: 
 --- !u!114 &114375760905159984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dbce4397cb3ed4fbac3c715bacdc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sFileRegex: '*.tbd'
 --- !u!114 &114639028571121478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tHealth: {fileID: 0}
+  tArmor: {fileID: 0}
   sHealth: {fileID: 0}
+  sArmor: {fileID: 0}
+  rImgCompass: {fileID: 0}
 --- !u!114 &114437919883810664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0175f148cbe7e5a48aec1bf4a01245bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goSlotHolder: {fileID: 0}
+  goSlotPrefab: {fileID: 0}
   weight: 0
   speedRed: 0
   overWeight: 0
@@ -398,13 +401,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360413564656014}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.19605577, y: -0, z: -0, w: 0.9805928}
   m_LocalPosition: {x: 0, y: 0.8, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4816203802990378}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.613, y: 0, z: 0}
 --- !u!20 &20023700386221930
 Camera:
   m_ObjectHideFlags: 0
