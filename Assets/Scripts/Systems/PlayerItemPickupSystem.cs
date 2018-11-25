@@ -36,8 +36,6 @@ public class PlayerItemPickupSystem : ComponentSystem {
 
       pi.pickedUp = true;
       
-      Debug.DrawRay(cam.transform.position, cam.transform.forward * distance, Color.green);
-
       if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, distance)) {
         if (hit.transform.gameObject.tag == TBDBootstrap.Settings.ItemPickupTag) {
           var i = hit.transform.GetComponent<ItemComponent>();

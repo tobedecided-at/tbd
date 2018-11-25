@@ -3519,6 +3519,7 @@ MonoBehaviour:
   BasePickupRange: 10
   MaxArmor: 100
   UI: {fileID: 773691192}
+  TBDsm: {fileID: 947326471}
   MultDamage: 1
   MultFirerate: 1
   MultShotRange: 1
