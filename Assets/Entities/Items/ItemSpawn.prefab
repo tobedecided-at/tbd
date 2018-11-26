@@ -40,9 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1877861112397088}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 4e16c3de1a51af74b93e86c3f41a4277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSlug: test
-  itemPrefab: {fileID: 1523754891998886, guid: 0ab1fcd82befb8d4d905497fbf502745, type: 3}
+  itemPrefab: {fileID: 1169370122953498, guid: dc19ef800dfa1b745ae7956043b7b0e3, type: 3}
   amount: 2

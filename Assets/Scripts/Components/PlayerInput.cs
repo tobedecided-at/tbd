@@ -6,10 +6,12 @@ public class PlayerInput : MonoBehaviour {
   public float2 rotate;
   public bool jump;
   public bool isOnGround;
+  public bool pickedUp;
+
   public bool btnPickup;
   public bool btnInventory;
-  public bool pickedUp;
   public bool btnPause;
+  public bool btnDebugTakeDamage;
   // HACK: Will change to gamemode later
   // TODO
   public bool noClip;

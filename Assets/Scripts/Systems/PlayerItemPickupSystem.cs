@@ -4,6 +4,7 @@ using Unity.Entities;
 public class PlayerItemPickupSystem : ComponentSystem {
   struct Data {
     public Player player;
+    public PlayerInventory piInventory;
     public PlayerInput pi;
     public Transform t;
   }
@@ -28,6 +29,7 @@ public class PlayerItemPickupSystem : ComponentSystem {
       var player = e.player;
       var pi = e.pi;
       var cam = go.GetComponentInChildren<Camera>().gameObject;
+      var gPlayerInv = e.piInventory;
 
       if (cam == null)
         continue;
@@ -41,17 +43,17 @@ public class PlayerItemPickupSystem : ComponentSystem {
           var i = hit.transform.GetComponent<ItemComponent>();
           if (i == null)
             return;
-          if (Vector3.Distance(hit.transform.position, hit.point) <= i.item.pickupRange) {
-            OnPickup(hit.transform.gameObject);
+          if (Vector3.Distance(hit.transform.position, go.transform.position) <= i.item.pickupRange) {
+            OnPickup(hit.transform.gameObject, gPlayerInv);
           }
         }
       }
     }
   }
 
-  void OnPickup(GameObject item) {
+  void OnPickup(GameObject item, PlayerInventory inv) {
     if (item.tag == TBDBootstrap.Settings.ItemPickupTag) {
-      PlayerInventory.instance.OnPickup(item);
+      inv.OnPickup(item);
     }
   }
 }

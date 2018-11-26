@@ -9,8 +9,6 @@ public class TBDBootstrap : MonoBehaviour {
   public static void NewGame() {
     var entityManager = World.Active.GetExistingManager<EntityManager>();
     var entity = SpawnPlayer(entityManager);
-
-    // Settings.GameUi = GameObject.Find("GameUi").GetComponent<GameUi>();
   }
 
   [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -30,7 +28,9 @@ public class TBDBootstrap : MonoBehaviour {
     
     var player = Object.Instantiate(Settings.PlayerPrefab, pSP.position, pSP.rotation);
     var entity = player.GetComponent<GameObjectEntity>().Entity;
-
+    player.GetComponent<Health>().max = Settings.BaseHealth;
+    player.GetComponent<Health>().value = Settings.BaseHealth;
+    player.GetComponent<Armor>().max = Settings.MaxArmor;
     return entity;
   }
 }
