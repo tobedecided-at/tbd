@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2406474536623287997}
   - component: {fileID: 2406474536623287999}
   - component: {fileID: 5702645176330537005}
+  - component: {fileID: 4551302903954426886}
   m_Layer: 5
   m_Name: InventorySlot
   m_TagString: Untagged
@@ -61,9 +62,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3dfe82479fbfc14d930500ae3e0e3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iStackSize: 0
   tmproStackSize: {fileID: 2164755277057888268}
   rimgIconHolder: {fileID: 1316474333073400130}
+--- !u!114 &4551302903954426886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406474536623287996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ff9a12039d61bd14abb007ccb65c4192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLeft:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onRight:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onMiddle:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &7842590471186897363
 GameObject:
   m_ObjectHideFlags: 0

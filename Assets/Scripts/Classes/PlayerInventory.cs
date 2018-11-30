@@ -18,6 +18,14 @@ public class PlayerInventory : MonoBehaviour {
   public int iInventorySize {get; private set;}
   public InventoryUI invUI {get; private set;}
 
+  public delegate void OnItemPickup(Item item);
+  public delegate void OnItemEquip();
+  public delegate void OnItemThrow();
+
+  public OnItemPickup onItemPickupCB;
+  public OnItemEquip onItemEquipCB;
+  public OnItemThrow onItemThrowCB;
+
   float speed;
 
   void Start() {
@@ -87,14 +95,14 @@ public class PlayerInventory : MonoBehaviour {
     }
 
     Destroy(itemGo);
-
-    if (added) {
-      GiveStat(item.stats);
-    }
     weight += item.weight;
+
+    // Emit event that an Item was picked up
+    if (onItemPickupCB != null)
+      onItemPickupCB.Invoke(item);
   }
 
-  public void OnThrow(GameObject item) {
+  public void OnThrow(Item item) {
     // Safety
     var i = item.GetComponent<ItemComponent>();
     if (!i.pickedUp)
@@ -154,7 +162,5 @@ public class PlayerInventory : MonoBehaviour {
       TBDBootstrap.Settings.PlayerSpeed = speed;
       overWeight = false;
     }
-
-    // Loop through all Items with Stats
   }
 }

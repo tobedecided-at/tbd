@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json.Linq;
 
-public class Item {
+public class Item : IItem {
 
   public static string imgInventoryPath = Application.dataPath + TBDBootstrap.Settings.ItemPath + "img/";
   public static readonly System.Random rng = new System.Random();
