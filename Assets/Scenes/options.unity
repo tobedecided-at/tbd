@@ -2239,7 +2239,7 @@ GameObject:
   - component: {fileID: 785556109}
   - component: {fileID: 785556108}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: text_p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2314,8 +2314,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 33
-  m_fontSizeBase: 33
+  m_fontSize: 31
+  m_fontSizeBase: 31
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
