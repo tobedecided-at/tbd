@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsMenu : MonoBehaviour {
 
   public AudioMixer mixer;
   public Dropdown dd_res;
+  public TMP_Text tVolumeProcent;
   
   Resolution[] resolutions;
 
@@ -39,6 +41,9 @@ public class SettingsMenu : MonoBehaviour {
   }
 
   void SetVolume(float volume) {
+    float iAdjusted = Mathf.RoundToInt(volume + 80);
+    float sPercentage = (iAdjusted * 100) / 80;
+    tVolumeProcent.text = Mathf.RoundToInt(sPercentage).ToString() + "%";
     mixer.SetFloat("vMaster", volume);
   }
 
