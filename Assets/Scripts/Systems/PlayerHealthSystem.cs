@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class PlayerHealthSystem : ComponentSystem {
   public struct Data {
     public readonly int Length;
-    public ComponentArray<Damaged> cDamaged;
     public ComponentArray<Transform> trPlayer;
     public ComponentArray<Player> gPlayer;
   }
@@ -14,20 +13,35 @@ public class PlayerHealthSystem : ComponentSystem {
   [Inject] private Data data;
 
   TBDSceneManager sceneManager;
+  bool run = false;
 
   protected override void OnUpdate() {
+    if (sceneManager == null)
+      sceneManager = TBDBootstrap.Settings.TBDsm;
+
     for (int i = 0; i != data.Length; i++) {
+      var cDamaged = data.trPlayer[i].GetComponent<Damaged>();
+      var cHealed = data.trPlayer[i].GetComponent<Healed>();
+
       var cHealth = data.trPlayer[i].GetComponent<Health>();
       var cArmor = data.trPlayer[i].GetComponent<Armor>();
-
-      sceneManager = GameObject.FindWithTag("TBDSceneManager").GetComponent<TBDSceneManager>();
-
-      var cDamaged = data.cDamaged[i];
 
       if (Input.GetKeyDown(KeyCode.F11)) {
         cDamaged.hit.Add(new DamageInfo("BECAUSE", "SELF", 10));
       }
+      if (Input.GetKeyDown(KeyCode.F12)) {
+        cHealed.hit.Add(new HealInfo("BECAUSE", "GOD", 10));
+      }
+
       // TODO: Take care of healing first because of fairness
+      for (int h = 0; h < cHealed.hit.Count; h++) {
+        var healAmount = cHealed.hit[i].healAmount;
+        
+        // Heal without limits
+        cHealth.value += healAmount;
+        // Maximize health value, better against cheating
+        cHealth.value = (cHealth.value > TBDBootstrap.Settings.BaseHealth) ? TBDBootstrap.Settings.BaseHealth : cHealth.value;
+      }
 
       // Take care of damage
       for (int c = 0; c < cDamaged.hit.Count; c++) {
@@ -53,6 +67,7 @@ public class PlayerHealthSystem : ComponentSystem {
         }
       }
       cDamaged.hit.Clear();
+      cHealed.hit.Clear();
     }
   }
 }

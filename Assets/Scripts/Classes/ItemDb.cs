@@ -1,8 +1,12 @@
 using UnityEngine;
+
 using System.IO;
 using System.Collections.Generic;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
+using TBD.Items;
 
 public class ItemDb : MonoBehaviour {
   private static List<JObject> db = new List<JObject>();

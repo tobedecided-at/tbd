@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 using System.Collections.Generic;
 
+using TBD.Items;
+
 public class PlayerInventory : MonoBehaviour {
   [SerializeField]
   public List<Item> inventory = new List<Item>();
@@ -17,6 +19,14 @@ public class PlayerInventory : MonoBehaviour {
 
   public int iInventorySize {get; private set;}
   public InventoryUI invUI {get; private set;}
+
+  public delegate void OnItemPickup(Item item);
+  public delegate void OnItemEquip();
+  public delegate void OnItemThrow();
+
+  public OnItemPickup onItemPickupCB;
+  public OnItemEquip onItemEquipCB;
+  public OnItemThrow onItemThrowCB;
 
   float speed;
 
@@ -42,10 +52,6 @@ public class PlayerInventory : MonoBehaviour {
       goTempSlot.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
       invUI.lSlots.Add(goTempSlot);
     }
-  }
-
-  void AddItemToUI() {
-    
   }
 
   public void OnPickup(GameObject itemGo) {
@@ -85,33 +91,15 @@ public class PlayerInventory : MonoBehaviour {
       // Add it to the inventory and increase the stacksize from 0 to 1;
       inventory.Add(item);
       added = true;
-      inventory[inventory.Count - 1].stackSize++;
 
+      inventory[inventory.Count - 1].stackSize++;
       invUI.lSlots[inventory.Count - 1].GetComponent<InventorySlot>().item = item;
     }
 
     Destroy(itemGo);
-
-    if (added) {
-      GiveStat(item.stats);
-    }
     weight += item.weight;
-  }
 
-  public void OnThrow(GameObject item) {
-    // Safety
-    var i = item.GetComponent<ItemComponent>();
-    if (!i.pickedUp)
-      return;
-
-    inventory.Remove(i.item);
-    weight -= i.item.weight;
-    // TODO:
-    // Instantiate Item infront of Player, add force
-  }
-
-  public void OnEquip(GameObject item) {
-    GiveStat(item.GetComponent<ItemComponent>().item.stats);
+    item.specific.OnPickup();
   }
 
   void GiveOneTimeStat(ItemStats stats) {
@@ -158,7 +146,5 @@ public class PlayerInventory : MonoBehaviour {
       TBDBootstrap.Settings.PlayerSpeed = speed;
       overWeight = false;
     }
-
-    // Loop through all Items with Stats
   }
 }

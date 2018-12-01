@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
+
 using UnityEngine.UI;
 
 public class TBDSceneManager : MonoBehaviour {
@@ -39,6 +41,8 @@ public class TBDSceneManager : MonoBehaviour {
   }
 
   public void LoadScene(string toLoad) {
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
     LoadScene(toLoad, LoadMode.CutFade);
   }
 
