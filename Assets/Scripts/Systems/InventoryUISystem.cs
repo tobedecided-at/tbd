@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Unity.Entities;
 
+using TBD.Items;
 public class InventoryUISystem : ComponentSystem {
 
   struct Data {

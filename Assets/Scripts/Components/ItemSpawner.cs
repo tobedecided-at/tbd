@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using TBD.Items;
+
 public class ItemSpawner : MonoBehaviour {
   public string itemSlug;
   public GameObject itemPrefab;
@@ -27,7 +29,10 @@ public class ItemSpawner : MonoBehaviour {
 
       iGo.name = item.slug + " " + x;
       var iComp = iGo.AddComponent<ItemComponent>();
-      
+
+      item.specific = System.Activator.CreateInstance(System.Type.GetType("TBD.Items."+item.slug));
+      item.specific.data = item;
+
       iComp.pickedUp = false;
       iComp.item = item;
     }

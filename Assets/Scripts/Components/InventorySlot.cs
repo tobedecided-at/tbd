@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
+using TBD.Items;
 
 public class InventorySlot : MonoBehaviour {
   public Item item;

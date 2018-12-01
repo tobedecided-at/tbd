@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 using System.Collections.Generic;
 
+using TBD.Items;
+
 public class PlayerInventory : MonoBehaviour {
   [SerializeField]
   public List<Item> inventory = new List<Item>();
@@ -97,9 +99,13 @@ public class PlayerInventory : MonoBehaviour {
     Destroy(itemGo);
     weight += item.weight;
 
+<<<<<<< Updated upstream
     // Emit event that an Item was picked up
     if (onItemPickupCB != null)
       onItemPickupCB.Invoke(item);
+=======
+    item.specific.OnPickup();
+>>>>>>> Stashed changes
   }
 
   public void OnThrow(Item item) {
