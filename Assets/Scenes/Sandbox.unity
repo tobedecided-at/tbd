@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3519,6 +3519,7 @@ MonoBehaviour:
   BasePickupRange: 10
   MaxArmor: 100
   UI: {fileID: 773691192}
+  TBDsm: {fileID: 947326471}
   MultDamage: 1
   MultFirerate: 1
   MultShotRange: 1
@@ -4508,11 +4509,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1877861112397088, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}
       propertyPath: m_Name
-      value: Test2
+      value: Test5
       objectReference: {fileID: 0}
     - target: {fileID: 1877861112397088, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641478362919662, guid: 0c7423655c2ec154d955166c28bedc7d,
+        type: 3}
+      propertyPath: amount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c7423655c2ec154d955166c28bedc7d, type: 3}

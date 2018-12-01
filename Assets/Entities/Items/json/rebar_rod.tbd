@@ -13,6 +13,6 @@
     "iDamage" : 7.0
   },
   "components" : {
-    "iron.tbd" : 2
+    "iron" : 2
   }
 }

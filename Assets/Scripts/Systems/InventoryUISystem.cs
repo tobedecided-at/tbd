@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Unity.Entities;
 
+using TBD.Items;
 public class InventoryUISystem : ComponentSystem {
 
   struct Data {
@@ -40,16 +41,28 @@ public class InventoryUISystem : ComponentSystem {
         InventorySlot slot = inventoryUI.lSlots[b].GetComponent<InventorySlot>();
 
         // If slot is empty (aka no item in this slot)
-        if (slot.item == null) continue;
+        if (slot.item == null) {
+          if (slot.tmproStackSize.gameObject.activeSelf)
+            slot.tmproStackSize.gameObject.SetActive(false);
+          continue;
+        }
+
+        if (!slot.tmproStackSize.gameObject.activeSelf) {
+          slot.tmproStackSize.gameObject.SetActive(true);
+        }
 
         // There is an Item in the slot
         Item item = slot.item;
         // If the icon is not set
-        if (slot.rimgIconHolder.texture == null)
+        if (slot.rimgIconHolder.texture == null) {
           // Set the alpha back to 255f
           slot.rimgIconHolder.color = fullAlpha;
           // Set the icon to the items image
           slot.rimgIconHolder.texture = slot.item.imgInventory;
+        }
+
+        // Adjust the displayed stacksize
+        slot.tmproStackSize.text = item.stackSize.ToString();
       }
     }
   }

@@ -36,13 +36,12 @@ public class PlayerItemPickupSystem : ComponentSystem {
 
       pi.pickedUp = true;
       
-      Debug.DrawRay(cam.transform.position, cam.transform.forward * distance, Color.green);
-
       if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, distance)) {
         if (hit.transform.gameObject.tag == TBDBootstrap.Settings.ItemPickupTag) {
           var i = hit.transform.GetComponent<ItemComponent>();
           if (i == null)
             return;
+          i.item.specific.inventory = e.piInventory;
           if (Vector3.Distance(hit.transform.position, go.transform.position) <= i.item.pickupRange) {
             OnPickup(hit.transform.gameObject, gPlayerInv);
           }

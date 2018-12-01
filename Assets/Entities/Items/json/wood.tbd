@@ -15,7 +15,7 @@
     "iDamage" : 5.0
   },
   "components" : {
-    "wood.tbd" : 4,
-    "iron.tbd" : 1
+    "wood" : 4,
+    "iron" : 1
   }
 }

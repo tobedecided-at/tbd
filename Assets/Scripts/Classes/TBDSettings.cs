@@ -15,6 +15,7 @@ public class TBDSettings : MonoBehaviour {
   public float BasePickupRange = 10f;
   public float MaxArmor = 10000;
   public GameObject UI;
+  public TBDSceneManager TBDsm;
 
   [Header("Multiplier Options")]
   public float MultDamage = 1f;
