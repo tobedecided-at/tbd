@@ -8,10 +8,6 @@ public class ItemSpawner : MonoBehaviour {
   public Item item;
   public int amount;
 
-  void Start() {
-
-  }
-
   void Update() {
     
     if (ItemDb.GetItemDataBySlug(itemSlug) == null) {

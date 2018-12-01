@@ -13,12 +13,12 @@ public class PlayerHealthSystem : ComponentSystem {
   [Inject] private Data data;
 
   TBDSceneManager sceneManager;
-
-  void Start() {
-    sceneManager = TBDBootstrap.Settings.TBDsm;
-  }
+  bool run = false;
 
   protected override void OnUpdate() {
+    if (sceneManager == null)
+      sceneManager = TBDBootstrap.Settings.TBDsm;
+
     for (int i = 0; i != data.Length; i++) {
       var cDamaged = data.trPlayer[i].GetComponent<Damaged>();
       var cHealed = data.trPlayer[i].GetComponent<Healed>();

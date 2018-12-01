@@ -99,29 +99,7 @@ public class PlayerInventory : MonoBehaviour {
     Destroy(itemGo);
     weight += item.weight;
 
-<<<<<<< Updated upstream
-    // Emit event that an Item was picked up
-    if (onItemPickupCB != null)
-      onItemPickupCB.Invoke(item);
-=======
     item.specific.OnPickup();
->>>>>>> Stashed changes
-  }
-
-  public void OnThrow(Item item) {
-    // Safety
-    var i = item.GetComponent<ItemComponent>();
-    if (!i.pickedUp)
-      return;
-
-    inventory.Remove(i.item);
-    weight -= i.item.weight;
-    // TODO:
-    // Instantiate Item infront of Player, add force
-  }
-
-  public void OnEquip(GameObject item) {
-    GiveStat(item.GetComponent<ItemComponent>().item.stats);
   }
 
   void GiveOneTimeStat(ItemStats stats) {

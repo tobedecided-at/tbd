@@ -8,50 +8,6 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json.Linq;
 
-<<<<<<< Updated upstream:Assets/Scripts/Classes/Items/Item.cs
-public class Item : IItem {
-
-  public static string imgInventoryPath = Application.dataPath + TBDBootstrap.Settings.ItemPath + "img/";
-  public static readonly System.Random rng = new System.Random();
-
-  public int uid;
-  public string slug;
-  public string title;
-  public string desc;
-  public float weight;
-  public float pickupRange;
-  public int maxStackSize;
-  public int rarity;
-  public ItemStats stats;
-  public Dictionary<string, int> components;
-  public GameObject model;
-  public Item item;
-  public float value;
-  public int stackSize;
-  public bool equipped = false;
-  public bool usable;
-  public Texture2D imgInventory;
-
-  public static Item CreateFromJson(JObject json) {
-
-    Item item = json.ToObject<Item>();
-
-    item.stats = json["stats"].ToObject<ItemStats>();
-    item.components = json["components"].ToObject<Dictionary<string, int>>();
-    item.model = Resources.Load(item.slug, typeof(GameObject)) as GameObject;
-    item.uid = rng.Next(100000, 999999);
-
-    if (File.Exists(imgInventoryPath + item.slug + ".png")) {
-      var bFileData = File.ReadAllBytes(imgInventoryPath + item.slug + ".png");
-      var t2dtex = new Texture2D(2, 2);
-      t2dtex.LoadImage(bFileData);
-      item.imgInventory = t2dtex;
-    } else {
-      var bFileData = File.ReadAllBytes(imgInventoryPath + "default.png");
-      var t2dtex = new Texture2D(2, 2);
-      t2dtex.LoadImage(bFileData);
-      item.imgInventory = t2dtex;
-=======
 namespace TBD.Items {
   public class Item {
 
@@ -64,10 +20,9 @@ namespace TBD.Items {
     public float pickupRange;
     public int maxStackSize;
     public int rarity;
-    public ItemStats stats;
+    public Dictionary<string, float> stats = new Dictionary<string, float>();
     public Dictionary<string, int> components;
     public GameObject model;
-    public Item item;
     public float value;
     public int stackSize;
     public bool equipped = false;
@@ -79,7 +34,7 @@ namespace TBD.Items {
 
       Item item = json.ToObject<Item>();
 
-      item.stats = json["stats"].ToObject<ItemStats>();
+      item.stats = json["stats"].ToObject<Dictionary<string, float>>();
       item.components = json["components"].ToObject<Dictionary<string, int>>();
       item.model = Resources.Load(item.slug, typeof(GameObject)) as GameObject;
 
@@ -96,7 +51,6 @@ namespace TBD.Items {
       }
 
       return item;
->>>>>>> Stashed changes:Assets/Scripts/Classes/Item.cs
     }
   }
 }

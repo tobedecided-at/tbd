@@ -41,6 +41,7 @@ public class PlayerItemPickupSystem : ComponentSystem {
           var i = hit.transform.GetComponent<ItemComponent>();
           if (i == null)
             return;
+          i.item.specific.inventory = e.piInventory;
           if (Vector3.Distance(hit.transform.position, go.transform.position) <= i.item.pickupRange) {
             OnPickup(hit.transform.gameObject, gPlayerInv);
           }

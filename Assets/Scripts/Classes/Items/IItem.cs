@@ -1,6 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
-public interface IItem {
+namespace TBD.Items {
+    public abstract class IItem {
+        Item data {get;}
+        PlayerInventory inventory {get;}
+
+        public abstract void OnPickup();
+        public abstract void OnUse();
+        public abstract void OnAction();
+    }
 
 }
