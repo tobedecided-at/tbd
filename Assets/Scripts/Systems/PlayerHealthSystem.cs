@@ -36,7 +36,7 @@ public class PlayerHealthSystem : ComponentSystem {
       // TODO: Take care of healing first because of fairness
       for (int h = 0; h < cHealed.hit.Count; h++) {
         var healAmount = cHealed.hit[i].healAmount;
-        
+
         // Heal without limits
         cHealth.value += healAmount;
         // Maximize health value, better against cheating
@@ -46,13 +46,13 @@ public class PlayerHealthSystem : ComponentSystem {
       // Take care of damage
       for (int c = 0; c < cDamaged.hit.Count; c++) {
         var damageToPlayer = cDamaged.hit[c].damageAmount - cArmor.value;
-        
+
         // If the remaining damage is <= 0 then we have blocked 100%
         if (damageToPlayer <= 0) {
           cArmor.value -= cDamaged.hit[c].damageAmount;
           continue;
         }
-        
+
         if (cArmor.value < 0) {
           cArmor.value = 0;
         }
