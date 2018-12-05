@@ -36,6 +36,7 @@ public class InventoryUISystem : ComponentSystem {
       // Loads the item's icon into the slot if available
       // Loop through all Inventory slots
       Color fullAlpha = new Color(255f, 255f, 255f, 255f);
+      Color noAlpha = new Color(255f, 255f, 255f, 0f);
 
       for (int b = 0; b < inventoryUI.lSlots.Count; b++) {
         InventorySlot slot = inventoryUI.lSlots[b].GetComponent<InventorySlot>();
@@ -44,6 +45,11 @@ public class InventoryUISystem : ComponentSystem {
         if (slot.item == null) {
           if (slot.tmproStackSize.gameObject.activeSelf)
             slot.tmproStackSize.gameObject.SetActive(false);
+<<<<<<< HEAD
+            slot.rimgIconHolder.texture = null;
+            slot.rimgIconHolder.color = noAlpha;
+=======
+>>>>>>> master
           continue;
         }
 
