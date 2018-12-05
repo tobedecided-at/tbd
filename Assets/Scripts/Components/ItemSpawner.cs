@@ -6,12 +6,10 @@ public class ItemSpawner : MonoBehaviour {
   public string itemSlug;
   public Item item;
   public int amount;
-  public static System.Random rng;
 
   static GameObject goItemHolder;
 
   void Start() {
-    rng = new System.Random();
     goItemHolder = (GameObject)Resources.Load("ItemHolder");
   }
 
@@ -38,7 +36,7 @@ public class ItemSpawner : MonoBehaviour {
     GameObject iGo = Object.Instantiate(goItemHolder, pos, rot);
     GameObject model = Object.Instantiate((GameObject)toSpawn.model, iGo.transform.position, iGo.transform.rotation, iGo.transform);
 
-    iGo.name = toSpawn.slug + " " + rng.Next();
+    iGo.name = "I/" + toSpawn.uid;
     var iComp = iGo.AddComponent<ItemComponent>();
 
     toSpawn.specific = System.Activator.CreateInstance(System.Type.GetType("TBD.Items."+toSpawn.slug));

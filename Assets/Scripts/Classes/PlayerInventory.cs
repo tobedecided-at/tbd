@@ -20,9 +20,9 @@ public class PlayerInventory : MonoBehaviour {
   public int iInventorySize {get; private set;}
   public InventoryUI invUI {get; private set;}
 
-  public delegate void OnItemPickup(Item item);
-  public delegate void OnItemEquip(Item item);
-  public delegate void OnItemThrow(Item item);
+  public delegate void OnItemPickup(Item i);
+  public delegate void OnItemEquip(Item i);
+  public delegate void OnItemThrow(Item i);
 
   public OnItemPickup onItemPickupCB;
   public OnItemEquip onItemEquipCB;
@@ -53,6 +53,7 @@ public class PlayerInventory : MonoBehaviour {
       goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
 
       invUI.lSlots.Add(goTempSlot);
+      inventory.Add(null);
     }
   }
 
@@ -60,60 +61,75 @@ public class PlayerInventory : MonoBehaviour {
     bool added = false;
 
     // If the Item is already in the inventory
-    if (inventory.Contains(item)) {
-      Debug.Log("Item in inv");
+    foreach (Item invItem in inventory) {
+      if (!item.Equals(invItem)) continue;
       // List<T>.IndexOf returns the index of the first found instance
       // Should only ever be one because of how .Equals works
       int iIndex = inventory.IndexOf(item);
-      Item invItem = inventory[iIndex];
 
       // If the stacksize of the item in the inventory + stacksize of picked up item
       // is less than the max allowed stacksize for that Item
-      if ((invItem.stackSize + item.stackSize) < item.maxStackSize) {
-        Debug.Log("stackable");
+      if ((invItem.stackSize + item.stackSize) <= item.maxStackSize) {
         // We can stack it without problems
         invItem.stackSize += item.stackSize;
         // And with that the item was "added" to the inventory
         // Return out
+        added = true;
         return true;
-      } // Else the Item would stack too much, so we add a new Item
+      }
+      // Else the Item would stack too much, so we add a new Item
       // Since this is the same as adding a completely new item, we will
       // do it in one step
-
-    } else {
-      Debug.Log("New Item");
+    }
+    
+    if (!added) {
       // The Item is not present in the inventory
       // So we add a new one
-      inventory.Add(item);
-      inventory[inventory.Count - 1].stackSize += item.stackSize;
-      invUI.lSlots[inventory.Count - 1].GetComponent<InventorySlot>().item = item;
+      int nextFreeIndex = GetNextFreeSlot();
+      inventory[nextFreeIndex] = item;
+      invUI.lSlots[nextFreeIndex].GetComponent<InventorySlot>().item = item;
     }
 
     if (onItemPickupCB != null)
-      onItemEquipCB(item);
+      onItemPickupCB(item);
 
     return true;
   }
 
+  int GetNextFreeSlot() {
+    foreach (Item i in inventory) {
+      if (i == null) {
+        return inventory.IndexOf(i);
+      } // Free slot found, return
+      else // Slot occupied
+        continue;
+    }
+    
+    // No more free slots
+    return -1;
+  }
+
   public Item RemoveFromInventory(Item item) {
-    if (inventory.Contains(item)) {
-      int iIndex = inventory.IndexOf(item);
-      GameObject iUISlot = invUI.lSlots[iIndex];
+    for (int i = 0; i < inventory.Count; i++) {
+      Item invItem = inventory[i];
 
-      // Take care of stacksize, else we leak inventory space
+      // Do UID-based comparison because really has to be the same Item
+      // And not the same type
+      if ((item == null || invItem == null) || item.uid != invItem.uid) continue;
+
+      InventorySlot iUISlot = invUI.lSlots[i].GetComponent<InventorySlot>();
+
       // TODO: We throw away the whole stack (for now, maybe change later)
-        /*if (item.stackSize > 1) {
-          item.stackSize -= 1;
-        }*/
 
-      inventory.RemoveAt(iIndex);
-      iUISlot.GetComponent<InventorySlot>().item = null;
+      inventory[i] = null;
+      iUISlot.item = null;
 
       if (onItemThrowCB != null)
         onItemThrowCB(item);
       
       return item;
     }
+    Debug.Log("failed");
     return null;
   }
 
@@ -134,6 +150,8 @@ public class PlayerInventory : MonoBehaviour {
 
   public void OnThrow(Item item) {
     // Throws away whole stack for now
+
+    // If the Item couldn't be removed (for some reason)
     if (RemoveFromInventory(item) == null)
       return;
 
@@ -153,7 +171,8 @@ public class PlayerInventory : MonoBehaviour {
     float fCalculatedWeight = 0f;
     
     foreach (Item item in inventory) {
-      fCalculatedWeight += (item.weight * item.stackSize);
+      if (item != null)
+        fCalculatedWeight += (item.weight * item.stackSize);
     }
 
     weight = fCalculatedWeight;

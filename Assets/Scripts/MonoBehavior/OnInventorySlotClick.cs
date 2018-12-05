@@ -8,13 +8,16 @@ using TBD.Items;
 public class OnInventorySlotClick : MonoBehaviour, IPointerClickHandler {
   public PlayerInventory pInventory;
 
+  InventorySlot slot;
   Item item;
 
   void Start() {
-    this.item = this.gameObject.GetComponent<InventorySlot>().item;
+    this.slot = this.gameObject.GetComponent<InventorySlot>();
   }
 
   public void OnPointerClick(PointerEventData eventData) {
+    this.item = this.slot.item;
+    
     if (this.item == null)
       return;
 
@@ -23,6 +26,7 @@ public class OnInventorySlotClick : MonoBehaviour, IPointerClickHandler {
     } else if (eventData.button == PointerEventData.InputButton.Right) {
       pInventory.OnEquip(this.item);
     } else if (eventData.button == PointerEventData.InputButton.Middle) {
+      Debug.Log(this.item.uid);
       pInventory.OnThrow(this.item);
     }
   }
