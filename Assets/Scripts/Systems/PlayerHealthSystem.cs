@@ -36,11 +36,7 @@ public class PlayerHealthSystem : ComponentSystem {
       // TODO: Take care of healing first because of fairness
       for (int h = 0; h < cHealed.hit.Count; h++) {
         var healAmount = cHealed.hit[i].healAmount;
-<<<<<<< HEAD
         
-=======
-
->>>>>>> master
         // Heal without limits
         cHealth.value += healAmount;
         // Maximize health value, better against cheating

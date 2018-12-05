@@ -45,11 +45,8 @@ public class InventoryUISystem : ComponentSystem {
         if (slot.item == null) {
           if (slot.tmproStackSize.gameObject.activeSelf)
             slot.tmproStackSize.gameObject.SetActive(false);
-<<<<<<< HEAD
             slot.rimgIconHolder.texture = null;
             slot.rimgIconHolder.color = noAlpha;
-=======
->>>>>>> master
           continue;
         }
 
