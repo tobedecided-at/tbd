@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 252c62b2752e18d4e8258beaff561e9f
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 24
   fileIDToRecycleName:
     100000: Camera
     100002: Cylinder
@@ -35,6 +35,38 @@ ModelImporter:
     100058: Plane.025
     100060: Plane.026
     100062: Plane.027
+    100064: node_id10
+    100066: node_id12
+    100068: node_id14
+    100070: node_id16
+    100072: node_id18
+    100074: node_id20
+    100076: node_id22
+    100078: node_id24
+    100080: node_id26
+    100082: node_id28
+    100084: node_id30
+    100086: node_id32
+    100088: node_id34
+    100090: node_id36
+    100092: node_id38
+    100094: node_id4
+    100096: node_id40
+    100098: node_id42
+    100100: node_id44
+    100102: node_id46
+    100104: node_id48
+    100106: node_id50
+    100108: node_id52
+    100110: node_id54
+    100112: node_id56
+    100114: node_id58
+    100116: node_id6
+    100118: node_id60
+    100120: node_id62
+    100122: node_id63
+    100124: node_id64
+    100126: node_id8
     400000: Camera
     400002: Cylinder
     400004: Cylinder.001
@@ -67,8 +99,69 @@ ModelImporter:
     400058: Plane.025
     400060: Plane.026
     400062: Plane.027
+    400064: node_id10
+    400066: node_id12
+    400068: node_id14
+    400070: node_id16
+    400072: node_id18
+    400074: node_id20
+    400076: node_id22
+    400078: node_id24
+    400080: node_id26
+    400082: node_id28
+    400084: node_id30
+    400086: node_id32
+    400088: node_id34
+    400090: node_id36
+    400092: node_id38
+    400094: node_id4
+    400096: node_id40
+    400098: node_id42
+    400100: node_id44
+    400102: node_id46
+    400104: node_id48
+    400106: node_id50
+    400108: node_id52
+    400110: node_id54
+    400112: node_id56
+    400114: node_id58
+    400116: node_id6
+    400118: node_id60
+    400120: node_id62
+    400122: node_id63
+    400124: node_id64
+    400126: node_id8
     2000000: Camera
     2100000: No Name
+    2100002: Material_125
+    2100004: Material_127
+    2100006: Material_129
+    2100008: Material_131
+    2100010: Material_133
+    2100012: Material_135
+    2100014: Material_137
+    2100016: Material_139
+    2100018: Material_141
+    2100020: Material_143
+    2100022: Material_145
+    2100024: Material_147
+    2100026: Material_149
+    2100028: Material_151
+    2100030: Material_153
+    2100032: Material_155
+    2100034: Material_157
+    2100036: Material_159
+    2100038: Material_161
+    2100040: Material_163
+    2100042: Material_165
+    2100044: Material_167
+    2100046: Material_169
+    2100048: Material_171
+    2100050: Material_173
+    2100052: Material_175
+    2100054: Material_177
+    2100056: Material_179
+    2100058: Material_181
     2300000: Cylinder
     2300002: Cylinder.001
     2300004: Plane.001
@@ -98,6 +191,35 @@ ModelImporter:
     2300052: Plane.025
     2300054: Plane.026
     2300056: Plane.027
+    2300058: node_id10
+    2300060: node_id12
+    2300062: node_id14
+    2300064: node_id16
+    2300066: node_id18
+    2300068: node_id20
+    2300070: node_id22
+    2300072: node_id24
+    2300074: node_id26
+    2300076: node_id28
+    2300078: node_id30
+    2300080: node_id32
+    2300082: node_id34
+    2300084: node_id36
+    2300086: node_id38
+    2300088: node_id4
+    2300090: node_id40
+    2300092: node_id42
+    2300094: node_id44
+    2300096: node_id46
+    2300098: node_id48
+    2300100: node_id50
+    2300102: node_id52
+    2300104: node_id54
+    2300106: node_id56
+    2300108: node_id58
+    2300110: node_id6
+    2300112: node_id60
+    2300114: node_id8
     3300000: Cylinder
     3300002: Cylinder.001
     3300004: Plane.001
@@ -127,6 +249,35 @@ ModelImporter:
     3300052: Plane.025
     3300054: Plane.026
     3300056: Plane.027
+    3300058: node_id10
+    3300060: node_id12
+    3300062: node_id14
+    3300064: node_id16
+    3300066: node_id18
+    3300068: node_id20
+    3300070: node_id22
+    3300072: node_id24
+    3300074: node_id26
+    3300076: node_id28
+    3300078: node_id30
+    3300080: node_id32
+    3300082: node_id34
+    3300084: node_id36
+    3300086: node_id38
+    3300088: node_id4
+    3300090: node_id40
+    3300092: node_id42
+    3300094: node_id44
+    3300096: node_id46
+    3300098: node_id48
+    3300100: node_id50
+    3300102: node_id52
+    3300104: node_id54
+    3300106: node_id56
+    3300108: node_id58
+    3300110: node_id6
+    3300112: node_id60
+    3300114: node_id8
     4300000: Plane.027
     4300002: Plane.026
     4300004: Plane.025
@@ -156,6 +307,35 @@ ModelImporter:
     4300052: Plane.001
     4300054: Cylinder.001
     4300056: Cylinder
+    4300058: node_id4
+    4300060: node_id6
+    4300062: node_id8
+    4300064: node_id10
+    4300066: node_id12
+    4300068: node_id14
+    4300070: node_id16
+    4300072: node_id18
+    4300074: node_id20
+    4300076: node_id22
+    4300078: node_id24
+    4300080: node_id26
+    4300082: node_id28
+    4300084: node_id30
+    4300086: node_id32
+    4300088: node_id34
+    4300090: node_id36
+    4300092: node_id38
+    4300094: node_id40
+    4300096: node_id42
+    4300098: node_id44
+    4300100: node_id46
+    4300102: node_id48
+    4300104: node_id50
+    4300106: node_id52
+    4300108: node_id54
+    4300110: node_id56
+    4300112: node_id58
+    4300114: node_id60
     10800000: Lamp
   externalObjects: {}
   materials:
@@ -199,10 +379,10 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

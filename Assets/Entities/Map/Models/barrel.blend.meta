@@ -1,34 +1,16 @@
 fileFormatVersion: 2
-guid: 4a34bd3cfda5e2a41b64b44d563f97eb
+guid: adda48c561f84724ba487230109384dc
 ModelImporter:
   serializedVersion: 24
   fileIDToRecycleName:
     100000: //RootNode
-    100002: node_id5
-    100004: node_id6
-    100006: node_id8
-    100008: node_id9
-    100010: Camera
-    100012: Circle
-    100014: Lamp
     400000: //RootNode
-    400002: node_id5
-    400004: node_id6
-    400006: node_id8
-    400008: node_id9
-    400010: Camera
-    400012: Circle
-    400014: Lamp
-    2000000: Camera
-    2100000: Material_70
-    2100002: No Name
-    2300000: node_id6
-    2300002: Circle
-    3300000: node_id6
-    3300002: Circle
-    4300000: node_id6
-    4300002: Circle
-    10800000: Lamp
+    2100000: Material_001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -82,7 +64,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -109,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
