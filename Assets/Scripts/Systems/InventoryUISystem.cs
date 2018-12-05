@@ -39,7 +39,7 @@ public class InventoryUISystem : ComponentSystem {
       Color noAlpha = new Color(255f, 255f, 255f, 0f);
 
       for (int b = 0; b < inventoryUI.lSlots.Count; b++) {
-        InventorySlot slot = inventoryUI.lSlots[b].GetComponent<InventorySlot>();
+        InventorySlot slot = inventoryUI.lSlots[b];
 
         // If slot is empty (aka no item in this slot)
         if (slot.item == null) {
@@ -56,13 +56,10 @@ public class InventoryUISystem : ComponentSystem {
 
         // There is an Item in the slot
         Item item = slot.item;
-        // If the icon is not set
-        if (slot.rimgIconHolder.texture == null) {
-          // Set the alpha back to 255f
-          slot.rimgIconHolder.color = fullAlpha;
-          // Set the icon to the items image
-          slot.rimgIconHolder.texture = slot.item.imgInventory;
-        }
+        // Set the alpha back to 255f
+        slot.rimgIconHolder.color = fullAlpha;
+        // Set the icon to the items image
+        slot.rimgIconHolder.texture = slot.item.imgInventory;
 
         // Adjust the displayed stacksize
         slot.tmproStackSize.text = item.stackSize.ToString();

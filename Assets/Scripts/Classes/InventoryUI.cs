@@ -14,7 +14,7 @@ public class InventoryUI : MonoBehaviour {
   public GameObject gBlur;
 
   [SerializeField]
-  public List<GameObject> lSlots = new List<GameObject>();
+  public List<InventorySlot> lSlots = new List<InventorySlot>();
 
   public GameObject goSlotsParent;
   public GameObject goSlotsPrefab;

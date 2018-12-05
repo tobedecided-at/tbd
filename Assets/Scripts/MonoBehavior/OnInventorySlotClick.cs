@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 using TBD.Items; 
 
-public class OnInventorySlotClick : MonoBehaviour, IPointerClickHandler {
+public class OnInventorySlotClick : MonoBehaviour,
+  IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
   public PlayerInventory pInventory;
 
   InventorySlot slot;
@@ -17,9 +18,6 @@ public class OnInventorySlotClick : MonoBehaviour, IPointerClickHandler {
 
   public void OnPointerClick(PointerEventData eventData) {
     this.item = this.slot.item;
-    
-    if (this.item == null)
-      return;
 
     if (eventData.button == PointerEventData.InputButton.Left) {
       pInventory.MousePickup(this.item);
@@ -28,5 +26,17 @@ public class OnInventorySlotClick : MonoBehaviour, IPointerClickHandler {
     } else if (eventData.button == PointerEventData.InputButton.Middle) {
       pInventory.OnThrow(this.item);
     }
+  }
+
+  public void OnPointerEnter(PointerEventData eventData) {
+    pInventory.isUnderMouse = this.slot;
+  }
+
+  public void OnPointerExit(PointerEventData eventData) {
+    pInventory.isUnderMouse = null;
+  }
+
+  void Update() {
+
   }
 }

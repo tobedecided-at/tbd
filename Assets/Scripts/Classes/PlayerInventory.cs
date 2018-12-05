@@ -8,6 +8,8 @@ using TBD.Items;
 public class PlayerInventory : MonoBehaviour {
   [SerializeField]
   public List<Item> inventory = new List<Item>();
+  public Item iOnMouse;
+  public InventorySlot isUnderMouse;
 
   public GameObject goSlotHolder;
   public GameObject goSlotPrefab;
@@ -52,7 +54,7 @@ public class PlayerInventory : MonoBehaviour {
       goTempSlot.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
       goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
 
-      invUI.lSlots.Add(goTempSlot);
+      invUI.lSlots.Add(goTempSlot.GetComponent<InventorySlot>());
       inventory.Add(null);
     }
   }
@@ -87,7 +89,7 @@ public class PlayerInventory : MonoBehaviour {
       // So we add a new one
       int nextFreeIndex = GetNextFreeSlot();
       inventory[nextFreeIndex] = item;
-      invUI.lSlots[nextFreeIndex].GetComponent<InventorySlot>().item = item;
+      invUI.lSlots[nextFreeIndex].item = item;
     }
 
     if (onItemPickupCB != null)
@@ -117,7 +119,7 @@ public class PlayerInventory : MonoBehaviour {
       // And not the same type
       if ((item == null || invItem == null) || item.uid != invItem.uid) continue;
 
-      InventorySlot iUISlot = invUI.lSlots[i].GetComponent<InventorySlot>();
+      InventorySlot iUISlot = invUI.lSlots[i];
 
       // TODO: We throw away the whole stack (for now, maybe change later)
 
@@ -161,8 +163,60 @@ public class PlayerInventory : MonoBehaviour {
     var spawned = ItemSpawner.SpawnItem(item, new Vector3(pos.x, pos.y+0.5f, pos.z), rot, 150f);
   }
 
+  bool AddToMouse(Item item) {
+    if (item == null)
+      return false;
+
+    iOnMouse = item;
+    RemoveFromInventory(item);
+
+    return true;
+  }
+
+  bool RemoveFromMouse() {
+    if (iOnMouse == null)
+      return false;
+
+    iOnMouse = null;
+    return true;
+  }
+
   public void MousePickup(Item item) {
-    Debug.LogWarning("TODO!");
+    // If there is no Item currently in the "mouse" slot
+    if (iOnMouse == null) {
+      // If that somehow failed
+      if (AddToMouse(item) == null)
+        Debug.LogError("Failed, should not happen!");
+
+      return;
+    }
+    // No else since we return
+    // If there is an Item currently in "mouse" slot
+
+    // Swap item with underMouse
+    if (isUnderMouse != null) { // If there is a slot under the cursor
+      Item i = isUnderMouse.item; // Try get it's item
+      if (i == null) { // If the slot under the cursor is empty
+        // Add the Item to the slot under the cursor
+        int iSlot = invUI.lSlots.IndexOf(isUnderMouse);
+        inventory[iSlot] = iOnMouse;
+        invUI.lSlots[iSlot].item = iOnMouse;
+        RemoveFromMouse();
+      } else { // Else the slot under the cursor is occupied
+        // So we switch the Items
+        int iSlot = invUI.lSlots.IndexOf(isUnderMouse);
+
+        Item temp = inventory[iSlot];
+        inventory[iSlot] = iOnMouse;
+        invUI.lSlots[iSlot].item = iOnMouse;
+
+        iOnMouse = temp;
+      }
+    } else { // No slot under cursor
+      // Throw Item on ground
+      RemoveFromMouse();
+      OnThrow(item);
+    }
   }
 
   void Update() {
@@ -170,9 +224,9 @@ public class PlayerInventory : MonoBehaviour {
 
     float fCalculatedWeight = 0f;
     
-    foreach (Item item in inventory) {
-      if (item != null)
-        fCalculatedWeight += (item.weight * item.stackSize);
+    for (int i = 0; i < inventory.Count; i++) {
+      if (inventory[i] == null) continue;
+      fCalculatedWeight += (inventory[i].weight * inventory[i].stackSize);
     }
 
     weight = fCalculatedWeight;
