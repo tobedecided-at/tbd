@@ -37,7 +37,6 @@ namespace TBD.Items {
       item.stats = json["stats"].ToObject<Dictionary<string, float>>();
       item.components = json["components"].ToObject<Dictionary<string, int>>();
       item.model = Resources.Load(item.slug, typeof(GameObject)) as GameObject;
-      item.stackSize = 1;
 
       if (File.Exists(imgInventoryPath + item.slug + ".png")) {
         var bFileData = File.ReadAllBytes(imgInventoryPath + item.slug + ".png");

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseUI : MonoBehaviour {
 
   public GameObject pauseUi;
+  InventoryUI invUI;
 
   [Header("Parts")]
   public GameObject pause;
@@ -14,6 +15,7 @@ public class PauseUI : MonoBehaviour {
   public bool isPaused;
 
 	void Start () {
+    invUI = this.gameObject.GetComponent<InventoryUI>();
     pauseUi.SetActive(false);
     DisableAll();
 	}
@@ -35,6 +37,11 @@ public class PauseUI : MonoBehaviour {
   }
 
   void TogglePause() {
+    if (invUI.isOpen) {
+      invUI.Disable();
+      return;
+    }
+
     Reset();
 
     var bPauseUIActive = pauseUi.activeSelf;

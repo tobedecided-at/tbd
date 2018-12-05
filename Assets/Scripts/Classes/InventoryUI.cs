@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class InventoryUI : MonoBehaviour {
 
   public GameObject gInventoryUI;
+  PauseUI pauseUI;
 
   [Header("Parts")]
   public GameObject gInventoryPanel;
@@ -23,6 +24,7 @@ public class InventoryUI : MonoBehaviour {
 
 	void Start () {
     Disable();
+    pauseUI = this.gameObject.GetComponent<PauseUI>();
 	}
 
   void SetLockMode(bool mode) {
@@ -30,14 +32,18 @@ public class InventoryUI : MonoBehaviour {
     Cursor.visible = !mode;
   }
 	
-	void Disable() {
+	public void Disable() {
     gInventoryPanel.SetActive(false);
     gInventoryUI.SetActive(false);
     gBlur.SetActive(false);
+    isOpen = false;
     SetLockMode(true);
   }
 
   public void OnInventoryButton() {
+    // We shouldn't open the inventory while the game is paused
+    // Weird things happen
+    if (pauseUI.isPaused) return;
     gInventoryPanel.SetActive(!gInventoryPanel.activeSelf);
     gInventoryUI.SetActive(gInventoryPanel.activeSelf);
     gBlur.SetActive(gInventoryPanel.activeSelf);
