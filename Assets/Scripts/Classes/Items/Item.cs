@@ -37,6 +37,7 @@ namespace TBD.Items {
       item.stats = json["stats"].ToObject<Dictionary<string, float>>();
       item.components = json["components"].ToObject<Dictionary<string, int>>();
       item.model = Resources.Load(item.slug, typeof(GameObject)) as GameObject;
+      item.stackSize = 1;
 
       if (File.Exists(imgInventoryPath + item.slug + ".png")) {
         var bFileData = File.ReadAllBytes(imgInventoryPath + item.slug + ".png");
@@ -49,8 +50,15 @@ namespace TBD.Items {
         t2dtex.LoadImage(bFileData);
         item.imgInventory = t2dtex;
       }
-
       return item;
+    }
+
+    public override bool Equals(object obj) {
+      if (obj == null) return false;
+      Item temp = (Item)obj;
+      if (this.slug == temp.slug)
+        return true;
+      return false;
     }
   }
 }

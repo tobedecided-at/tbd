@@ -3,22 +3,27 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
+using TBD.Items; 
+
 public class OnInventorySlotClick : MonoBehaviour, IPointerClickHandler {
-  public UnityEvent onLeft;
-  public UnityEvent onRight;
-  public UnityEvent onMiddle;
+  public PlayerInventory pInventory;
+
+  Item item;
 
   void Start() {
-    
+    this.item = this.gameObject.GetComponent<InventorySlot>().item;
   }
 
   public void OnPointerClick(PointerEventData eventData) {
+    if (this.item == null)
+      return;
+
     if (eventData.button == PointerEventData.InputButton.Left) {
-      onLeft.Invoke();
+      pInventory.MousePickup(this.item);
     } else if (eventData.button == PointerEventData.InputButton.Right) {
-      onRight.Invoke();
+      pInventory.OnEquip(this.item);
     } else if (eventData.button == PointerEventData.InputButton.Middle) {
-      onMiddle.Invoke();
+      pInventory.OnThrow(this.item);
     }
   }
 }
