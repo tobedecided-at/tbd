@@ -20,9 +20,15 @@ public class PlayerInventory : MonoBehaviour {
   public int iInventorySize {get; private set;}
   public InventoryUI invUI {get; private set;}
 
+<<<<<<< HEAD
   public delegate void OnItemPickup(Item i);
   public delegate void OnItemEquip(Item i);
   public delegate void OnItemThrow(Item i);
+=======
+  public delegate void OnItemPickup(Item item);
+  public delegate void OnItemEquip();
+  public delegate void OnItemThrow();
+>>>>>>> master
 
   public OnItemPickup onItemPickupCB;
   public OnItemEquip onItemEquipCB;
@@ -57,6 +63,7 @@ public class PlayerInventory : MonoBehaviour {
     }
   }
 
+<<<<<<< HEAD
   public bool AddToInventory(Item item) {
     bool added = false;
 
@@ -133,11 +140,14 @@ public class PlayerInventory : MonoBehaviour {
     return null;
   }
 
+=======
+>>>>>>> master
   public void OnPickup(GameObject itemGo) {
     var itemC = itemGo.GetComponent<ItemComponent>();
     var item = itemC.item;
     var added = false;
     
+<<<<<<< HEAD
     AddToInventory(item);
     Destroy(itemGo);
 
@@ -159,6 +169,45 @@ public class PlayerInventory : MonoBehaviour {
     var rot = this.gameObject.transform.rotation;
 
     var spawned = ItemSpawner.SpawnItem(item, new Vector3(pos.x, pos.y+0.5f, pos.z), rot, 150f);
+=======
+    itemC.pickedUp = true;
+
+    // Loop through Inventory to see if we can stack the item
+    for (int x = 0; x != inventory.Count; x++) {
+      var i = inventory[x];
+
+      // If the Item is already in the Inventory
+      if (i.slug == item.slug) {
+        // If the stack size of the Item in the Inventory is smaller than MaxStackSize
+        if (i.stackSize < i.maxStackSize) {
+          // Increase StackSize of Saved Item
+          i.stackSize++;
+          added = true;
+        } else continue; // Continue to search through inv
+      }
+    } // End For
+    
+    if (!added) {
+      // If the item is not yet in the inventory OR the stack is full
+      // If the inventory is full
+      if (inventory.Count == iInventorySize) {
+        // Do nothing
+        Debug.LogWarning("Inventory is full!");
+        return;  
+      }
+      // Add it to the inventory and increase the stacksize from 0 to 1;
+      inventory.Add(item);
+      added = true;
+
+      inventory[inventory.Count - 1].stackSize++;
+      invUI.lSlots[inventory.Count - 1].GetComponent<InventorySlot>().item = item;
+    }
+
+    Destroy(itemGo);
+    weight += item.weight;
+
+    item.specific.OnPickup();
+>>>>>>> master
   }
 
   public void MousePickup(Item item) {

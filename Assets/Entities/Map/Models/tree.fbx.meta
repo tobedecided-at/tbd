@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 3121ac2ded7f3144f8d3acb2b9bad562
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 24
   fileIDToRecycleName:
     100000: node_id10
     100002: node_id12
@@ -50,6 +50,19 @@ ModelImporter:
     2100020: Material_139
     2100022: Material_141
     2100024: Material_143
+    2100026: Material_93
+    2100028: Material_95
+    2100030: Material_97
+    2100032: Material_99
+    2100034: Material_101
+    2100036: Material_103
+    2100038: Material_105
+    2100040: Material_107
+    2100042: Material_109
+    2100044: Material_111
+    2100046: Material_113
+    2100048: Material_115
+    2100050: Material_117
     2300000: node_id10
     2300002: node_id12
     2300004: node_id14
@@ -131,10 +144,10 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
