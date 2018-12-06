@@ -70,16 +70,24 @@ public class InventoryUISystem : ComponentSystem {
 
       // If the parent is active
       if (inventoryUI.goMouseSlot.activeSelf) {
-        // If there is no item in the slot, skip
-        if (inventoryUI.mouseInventorySlot.item == null) continue;
-
-        // Set the item texture
-        inventoryUI.mouseInventorySlot.rimgIconHolder.color = fullAlpha;
-        inventoryUI.mouseInventorySlot.rimgIconHolder.texture = inventoryUI.mouseInventorySlot.item.imgInventory;
+        // If there is no item in the slot and the texture is cleared, skip
+        if (inventoryUI.mouseInventorySlot.item == null &&
+            inventoryUI.mouseInventorySlot.rimgIconHolder.texture != null) {
+              inventoryUI.mouseInventorySlot.rimgIconHolder.color = noAlpha;
+              inventoryUI.mouseInventorySlot.rimgIconHolder.texture = null;
+              continue;
+        }
 
         // Transform the mouseInventory along the mouse cursor
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         inventoryUI.goMouseSlot.transform.position = mousePos;
+
+        if (inventoryUI.mouseInventorySlot.item == null) continue;
+        
+        // Set the item texture
+        inventoryUI.mouseInventorySlot.rimgIconHolder.color = fullAlpha;
+        inventoryUI.mouseInventorySlot.rimgIconHolder.texture = inventoryUI.mouseInventorySlot.item.imgInventory;
+
       } else {
         
       }

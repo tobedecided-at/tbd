@@ -31,7 +31,6 @@ public class InventoryUI : MonoBehaviour {
 	void Start () {
     Disable();
     pauseUI = gameObject.GetComponent<PauseUI>();
-    mouseInventorySlot = goMouseSlot.GetComponent<MouseInventorySlot>();
 	}
 
   void SetLockMode(bool mode) {
@@ -64,7 +63,7 @@ public class InventoryUI : MonoBehaviour {
   }
 
   public void HideMouseSlot() {
-    goMouseSlot.SetActive(true);
+    goMouseSlot.SetActive(false);
   }
 
   public void SetMouseSlotItem(Item item) {

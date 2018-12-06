@@ -190,10 +190,8 @@ public class PlayerInventory : MonoBehaviour {
   public void MousePickup(Item item) {
     // If there is no Item currently in the "mouse" slot
     if (iOnMouse == null) {
-      // If that somehow failed
-      if (!AddToMouse(item))
-        Debug.LogError("Failed, should not happen!");
-
+      AddToMouse(item);
+      
       return;
     }
     // No else since we return

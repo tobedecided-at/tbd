@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -649,9 +649,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2191282347503212427}
   - {fileID: 319388898}
   - {fileID: 395221587}
+  - {fileID: 2191282347503212427}
   m_Father: {fileID: 613683693}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1063,7 +1063,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 183485097}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1292,7 +1292,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 183485097}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1320,8 +1320,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 80, y: 80}
-  m_Spacing: {x: 10, y: 55}
+  m_CellSize: {x: 50, y: 50}
+  m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &482635108
@@ -1959,7 +1959,7 @@ MonoBehaviour:
   goMouseSlot: {fileID: 2191282347503212426}
   isOpen: 0
   added: 0
-  mouseInventorySlot: {fileID: 0}
+  mouseInventorySlot: {fileID: 2191282347503212428}
 --- !u!114 &773691197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4785,6 +4785,19 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4056285988608386293}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2191282347503212428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2191282347503212428, guid: c1e5f1490d6982d45a4b8d22f6ba6f4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4056285988608386293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191282347503212426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b7b2621a939f8d1479d870cf505b66ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4056285988608386293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4830,7 +4843,7 @@ PrefabInstance:
     - target: {fileID: 2747808419580146558, guid: c1e5f1490d6982d45a4b8d22f6ba6f4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2747808419580146558, guid: c1e5f1490d6982d45a4b8d22f6ba6f4f,
         type: 3}
@@ -4926,6 +4939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rimgIconHolder
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747808419580146559, guid: c1e5f1490d6982d45a4b8d22f6ba6f4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5216421224763364846, guid: c1e5f1490d6982d45a4b8d22f6ba6f4f, type: 3}
