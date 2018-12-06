@@ -168,6 +168,10 @@ public class PlayerInventory : MonoBehaviour {
       return false;
 
     iOnMouse = item;
+
+    invUI.SetMouseSlotItem(item);
+    invUI.ShowMouseSlot();
+    
     RemoveFromInventory(item);
 
     return true;
@@ -178,6 +182,8 @@ public class PlayerInventory : MonoBehaviour {
       return false;
 
     iOnMouse = null;
+    invUI.HideMouseSlot();
+    invUI.SetMouseSlotItem(null);
     return true;
   }
 
@@ -185,7 +191,7 @@ public class PlayerInventory : MonoBehaviour {
     // If there is no Item currently in the "mouse" slot
     if (iOnMouse == null) {
       // If that somehow failed
-      if (AddToMouse(item) == null)
+      if (!AddToMouse(item))
         Debug.LogError("Failed, should not happen!");
 
       return;

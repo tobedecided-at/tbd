@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 using System.Collections.Generic;
 
+using TBD.Items;
+
 public class InventoryUI : MonoBehaviour {
 
   public GameObject gInventoryUI;
@@ -18,13 +20,18 @@ public class InventoryUI : MonoBehaviour {
 
   public GameObject goSlotsParent;
   public GameObject goSlotsPrefab;
+
+  public GameObject goMouseSlot;
   
   public bool isOpen;
   public bool added;
 
+  public MouseInventorySlot mouseInventorySlot;
+
 	void Start () {
     Disable();
-    pauseUI = this.gameObject.GetComponent<PauseUI>();
+    pauseUI = gameObject.GetComponent<PauseUI>();
+    mouseInventorySlot = goMouseSlot.GetComponent<MouseInventorySlot>();
 	}
 
   void SetLockMode(bool mode) {
@@ -36,6 +43,7 @@ public class InventoryUI : MonoBehaviour {
     gInventoryPanel.SetActive(false);
     gInventoryUI.SetActive(false);
     gBlur.SetActive(false);
+    goMouseSlot.SetActive(false);
     isOpen = false;
     SetLockMode(true);
   }
@@ -49,5 +57,17 @@ public class InventoryUI : MonoBehaviour {
     gBlur.SetActive(gInventoryPanel.activeSelf);
     isOpen = gInventoryPanel.activeSelf;
     SetLockMode(!isOpen);
+  }
+
+  public void ShowMouseSlot() {
+    goMouseSlot.SetActive(true);
+  }
+
+  public void HideMouseSlot() {
+    goMouseSlot.SetActive(true);
+  }
+
+  public void SetMouseSlotItem(Item item) {
+    mouseInventorySlot.item = item;
   }
 }

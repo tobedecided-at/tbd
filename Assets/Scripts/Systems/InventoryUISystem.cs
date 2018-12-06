@@ -64,6 +64,25 @@ public class InventoryUISystem : ComponentSystem {
         // Adjust the displayed stacksize
         slot.tmproStackSize.text = item.stackSize.ToString();
       }
+
+      Player player = data.go[i].GetComponent<Player>();
+      Camera cam = data.go[i].GetComponentInChildren<Camera>();
+
+      // If the parent is active
+      if (inventoryUI.goMouseSlot.activeSelf) {
+        // If there is no item in the slot, skip
+        if (inventoryUI.mouseInventorySlot.item == null) continue;
+
+        // Set the item texture
+        inventoryUI.mouseInventorySlot.rimgIconHolder.color = fullAlpha;
+        inventoryUI.mouseInventorySlot.rimgIconHolder.texture = inventoryUI.mouseInventorySlot.item.imgInventory;
+
+        // Transform the mouseInventory along the mouse cursor
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        inventoryUI.goMouseSlot.transform.position = mousePos;
+      } else {
+        
+      }
     }
   }
 }
