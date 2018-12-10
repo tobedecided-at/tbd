@@ -7,11 +7,15 @@ using System.Collections.Generic;
 using TBD.Items;
 
 public class InventoryUI : MonoBehaviour {
+  
+  [Header("Hotbar")]
+  public GameObject goHotbar;
 
+  [Header("Inventory UI")]
   public GameObject gInventoryUI;
   PauseUI pauseUI;
 
-  [Header("Parts")]
+  [Header("Inventory Parts")]
   public GameObject gInventoryPanel;
   public GameObject gBlur;
 
@@ -20,13 +24,15 @@ public class InventoryUI : MonoBehaviour {
 
   public GameObject goSlotsParent;
   public GameObject goSlotsPrefab;
+  public GameObject goHotbarSlotPrefab;
 
+  [Header("Mouse Slot")]
   public GameObject goMouseSlot;
+  public MouseInventorySlot mouseInventorySlot;
   
   public bool isOpen;
   public bool added;
 
-  public MouseInventorySlot mouseInventorySlot;
 
 	void Start () {
     Disable();

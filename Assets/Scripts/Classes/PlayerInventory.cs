@@ -13,6 +13,7 @@ public class PlayerInventory : MonoBehaviour {
 
   public GameObject goSlotHolder;
   public GameObject goSlotPrefab;
+  public GameObject goHotbarSlotPrefab;
   
   public float weight;
   public float speedRed;
@@ -20,7 +21,10 @@ public class PlayerInventory : MonoBehaviour {
   public bool overWeight;
 
   public int iInventorySize {get; private set;}
+  public int iHotbarSize {get; private set;}
+
   public InventoryUI invUI {get; private set;}
+  public Hotbar hotbar {get; private set;}
 
   public delegate void OnItemPickup(Item i);
   public delegate void OnItemEquip(Item i);
@@ -36,25 +40,51 @@ public class PlayerInventory : MonoBehaviour {
     speed = TBDBootstrap.Settings.PlayerSpeed;
     speedRed = TBDBootstrap.Settings.PlayerSpeedReduction;
     iInventorySize = TBDBootstrap.Settings.InventorySize;
+    iHotbarSize = TBDBootstrap.Settings.HotbarSize;
 
     invUI = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>();
+    hotbar = TBDBootstrap.Settings.UI.GetComponent<Hotbar>();
 
     goSlotHolder = invUI.goSlotsParent;
     goSlotPrefab = invUI.goSlotsPrefab;
+    goHotbarSlotPrefab = invUI.goHotbarSlotPrefab;
 
     GenerateSlots();
   }
 
   void GenerateSlots() {
+    // First create the Hotbar slots so that ID 0 = Hotbar Slot 1
+    // Then generate Inventory slots
+
     GameObject goTempSlot;
     Color invisible = new Color(255f, 255f, 255f, 0f);
-    for (int i = 0; i < iInventorySize; i++) {
-      goTempSlot = Instantiate(goSlotPrefab, goSlotHolder.gameObject.transform);
-      goTempSlot.name = string.Format("Slot {0}", i);
-      goTempSlot.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
-      goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
 
-      invUI.lSlots.Add(goTempSlot.GetComponent<InventorySlot>());
+    int total = 0;
+    // Generate Hotbar Slots
+    for (; total < iHotbarSize; total++) {
+      goTempSlot = Instantiate(goHotbarSlotPrefab, hotbar.goSlotHolder.gameObject.transform);
+      goTempSlot.name = $"Slot {total}";
+      
+      var isTemp = goTempSlot.GetComponent<InventorySlot>();
+      isTemp.id = total;
+      isTemp.isHotbarSlot = true;
+      isTemp.rimgIconHolder.color = invisible;
+
+      goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
+      invUI.lSlots.Add(isTemp);
+      inventory.Add(null);
+    }
+
+    for (; total < iInventorySize; total++) {
+      goTempSlot = Instantiate(goSlotPrefab, goSlotHolder.gameObject.transform);
+      goTempSlot.name = $"Slot {total}";
+
+      var isTemp = goTempSlot.GetComponent<InventorySlot>();
+      isTemp.id = total;
+      isTemp.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
+      
+      goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
+      invUI.lSlots.Add(isTemp);
       inventory.Add(null);
     }
   }

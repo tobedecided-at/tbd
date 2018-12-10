@@ -11,9 +11,7 @@ public class PlayerInput : MonoBehaviour {
   public bool btnPickup;
   public bool btnInventory;
   public bool btnPause;
-  public bool btnDebugTakeDamage;
-  // HACK: Will change to gamemode later
-  // TODO
+  public int iHotbarScrollDir;
   public bool noClip;
   public bool walk;
 }

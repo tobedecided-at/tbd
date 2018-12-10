@@ -30,6 +30,7 @@ public class TBDSettings : MonoBehaviour {
   public float PlayerSpeedReduction = .6f;
   public string ItemPickupTag = "Item";
   public int InventorySize = 30;
+  public int HotbarSize = 9;
   
   [Header("Camera Options")]
   public float CameraSensitivity = 2.5f;
