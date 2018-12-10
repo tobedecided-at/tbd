@@ -20,7 +20,10 @@ public class PlayerInventory : MonoBehaviour {
   public bool overWeight;
 
   public int iInventorySize {get; private set;}
+  public int iHotbarSize {get; private set;}
+
   public InventoryUI invUI {get; private set;}
+  public Hotbar hotbar {get; private set;}
 
   public delegate void OnItemPickup(Item i);
   public delegate void OnItemEquip(Item i);
@@ -36,8 +39,10 @@ public class PlayerInventory : MonoBehaviour {
     speed = TBDBootstrap.Settings.PlayerSpeed;
     speedRed = TBDBootstrap.Settings.PlayerSpeedReduction;
     iInventorySize = TBDBootstrap.Settings.InventorySize;
+    iHotbarSize = TBDBootstrap.Settings.HotbarSize;
 
     invUI = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>();
+    hotbar = TBDBootstrap.Settings.UI.GetComponent<Hotbar>();
 
     goSlotHolder = invUI.goSlotsParent;
     goSlotPrefab = invUI.goSlotsPrefab;
@@ -46,17 +51,45 @@ public class PlayerInventory : MonoBehaviour {
   }
 
   void GenerateSlots() {
+    // First create the Hotbar slots so that ID 0 = Hotbar Slot 1
+    // Then generate Inventory slots
+
     GameObject goTempSlot;
     Color invisible = new Color(255f, 255f, 255f, 0f);
+
+    int total = 0;
+    // Generate Hotbar Slots
+    for (int i = 0; i < iHotbarSize; i++) {
+      goTempSlot = Instantiate(goSlotPrefab, hotbar.goSlotHolder.gameObject.transform);
+      goTempSlot.name = $"Slot {total}";
+      
+      var isTemp = goTempSlot.GetComponent<InventorySlot>();
+      isTemp.id = total;
+      isTemp.rimgIconHolder.color = invisible;
+
+      goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
+
+      inventory.Add(null);
+      total++;
+    }
+
     for (int i = 0; i < iInventorySize; i++) {
       goTempSlot = Instantiate(goSlotPrefab, goSlotHolder.gameObject.transform);
-      goTempSlot.name = string.Format("Slot {0}", i);
-      goTempSlot.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
+      goTempSlot.name = $"Slot {total}";
+
+      var isTemp = goTempSlot.GetComponent<InventorySlot>();
+      isTemp.id = total;
+      isTemp.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
+      
       goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
 
       invUI.lSlots.Add(goTempSlot.GetComponent<InventorySlot>());
       inventory.Add(null);
+
+      total++;
     }
+
+    Debug.Log("Total: " + total);
   }
 
   public bool AddToInventory(Item item) {

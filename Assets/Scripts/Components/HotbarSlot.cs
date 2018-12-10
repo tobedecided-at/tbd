@@ -7,8 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using TBD.Items;
 
-public class InventorySlot : MonoBehaviour {
-  public int id;
+public class HotbarSlot : MonoBehaviour {
   public Item item;
   public TMP_Text tmproStackSize;
   public RawImage rimgIconHolder;
