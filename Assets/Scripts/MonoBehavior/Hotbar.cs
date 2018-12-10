@@ -15,9 +15,6 @@ public class Hotbar : MonoBehaviour {
 
   }
 
-  void GenerateSlots() {
-  }
-
   public void SetSlot(int index, Item toSet) {
     
   }

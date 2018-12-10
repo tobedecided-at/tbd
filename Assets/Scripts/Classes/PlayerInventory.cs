@@ -59,7 +59,7 @@ public class PlayerInventory : MonoBehaviour {
 
     int total = 0;
     // Generate Hotbar Slots
-    for (int i = 0; i < iHotbarSize; i++) {
+    for (; total < iHotbarSize; total++) {
       goTempSlot = Instantiate(goSlotPrefab, hotbar.goSlotHolder.gameObject.transform);
       goTempSlot.name = $"Slot {total}";
       
@@ -68,12 +68,11 @@ public class PlayerInventory : MonoBehaviour {
       isTemp.rimgIconHolder.color = invisible;
 
       goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
-
+      invUI.lSlots.Add(isTemp);
       inventory.Add(null);
-      total++;
     }
 
-    for (int i = 0; i < iInventorySize; i++) {
+    for (; total < iInventorySize; total++) {
       goTempSlot = Instantiate(goSlotPrefab, goSlotHolder.gameObject.transform);
       goTempSlot.name = $"Slot {total}";
 
@@ -82,14 +81,9 @@ public class PlayerInventory : MonoBehaviour {
       isTemp.GetComponent<InventorySlot>().rimgIconHolder.color = invisible;
       
       goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;
-
-      invUI.lSlots.Add(goTempSlot.GetComponent<InventorySlot>());
+      invUI.lSlots.Add(isTemp);
       inventory.Add(null);
-
-      total++;
     }
-
-    Debug.Log("Total: " + total);
   }
 
   public bool AddToInventory(Item item) {

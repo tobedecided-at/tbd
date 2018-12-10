@@ -365,8 +365,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: 0e9b56e5c1daf3848a1a566ae09b1cf9, type: 3}
+  m_Script: {fileID: 11500000, guid: d3dfe82479fbfc14d930500ae3e0e3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmproStackSize: {fileID: 1311264106023161498}
-  rimgIconHolder: {fileID: 6307170008273350532}
+  id: 0
+  tmproStackSize: {fileID: 0}
+  rimgIconHolder: {fileID: 0}

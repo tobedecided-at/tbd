@@ -10,7 +10,6 @@ public class InventoryUI : MonoBehaviour {
   
   [Header("Hotbar")]
   public GameObject goHotbar;
-  public List<HotbarSlot> lHotbarSlots;
 
   [Header("Inventory UI")]
   public GameObject gInventoryUI;
