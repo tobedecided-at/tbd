@@ -24,6 +24,7 @@ public class InventoryUI : MonoBehaviour {
 
   public GameObject goSlotsParent;
   public GameObject goSlotsPrefab;
+  public GameObject goHotbarSlotPrefab;
 
   [Header("Mouse Slot")]
   public GameObject goMouseSlot;

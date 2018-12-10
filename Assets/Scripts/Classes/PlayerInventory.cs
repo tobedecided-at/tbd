@@ -13,6 +13,7 @@ public class PlayerInventory : MonoBehaviour {
 
   public GameObject goSlotHolder;
   public GameObject goSlotPrefab;
+  public GameObject goHotbarSlotPrefab;
   
   public float weight;
   public float speedRed;
@@ -46,6 +47,7 @@ public class PlayerInventory : MonoBehaviour {
 
     goSlotHolder = invUI.goSlotsParent;
     goSlotPrefab = invUI.goSlotsPrefab;
+    goHotbarSlotPrefab = invUI.goHotbarSlotPrefab;
 
     GenerateSlots();
   }
@@ -60,11 +62,12 @@ public class PlayerInventory : MonoBehaviour {
     int total = 0;
     // Generate Hotbar Slots
     for (; total < iHotbarSize; total++) {
-      goTempSlot = Instantiate(goSlotPrefab, hotbar.goSlotHolder.gameObject.transform);
+      goTempSlot = Instantiate(goHotbarSlotPrefab, hotbar.goSlotHolder.gameObject.transform);
       goTempSlot.name = $"Slot {total}";
       
       var isTemp = goTempSlot.GetComponent<InventorySlot>();
       isTemp.id = total;
+      isTemp.isHotbarSlot = true;
       isTemp.rimgIconHolder.color = invisible;
 
       goTempSlot.GetComponent<OnInventorySlotClick>().pInventory = this;

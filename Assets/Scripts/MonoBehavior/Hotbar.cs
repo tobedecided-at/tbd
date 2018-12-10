@@ -5,25 +5,8 @@ using UnityEngine;
 using TBD.Items;
 
 public class Hotbar : MonoBehaviour {
-
-  public List<InventorySlot> lHotbarSlots = new List<InventorySlot>();
+  public GameObject goHotbar;
   public GameObject goSlotHolder;
+  public int selected;
 
-  public InventorySlot isUnderMouse;
-
-  void Start() {
-
-  }
-
-  public void SetSlot(int index, Item toSet) {
-    
-  }
-
-  public void HideHotbar() {
-    goSlotHolder.SetActive(false);
-  }
-
-  public void ShowHotbar() {
-    goSlotHolder.SetActive(true);
-  }
 }

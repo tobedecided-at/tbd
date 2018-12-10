@@ -2056,6 +2056,8 @@ MonoBehaviour:
   goSlotsParent: {fileID: 395221586}
   goSlotsPrefab: {fileID: 2406474536623287996, guid: c9ad9ef1b9a5763478d3d8a634a2c12d,
     type: 3}
+  goHotbarSlotPrefab: {fileID: 2406474536623287996, guid: 3a504077b6660304fbcf26c98ec9be53,
+    type: 3}
   goMouseSlot: {fileID: 2191282347503212426}
   mouseInventorySlot: {fileID: 2191282347503212428}
   isOpen: 0
@@ -2136,9 +2138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb208b8b554ded040b2cecc7583eb557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lHotbarSlots: []
+  goHotbar: {fileID: 0}
   goSlotHolder: {fileID: 254379616}
-  isUnderMouse: {fileID: 0}
+  selected: 0
 --- !u!1 &776004491
 GameObject:
   m_ObjectHideFlags: 0

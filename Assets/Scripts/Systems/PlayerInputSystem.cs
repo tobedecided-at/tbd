@@ -23,7 +23,8 @@ public class PlayerInputSystem : ComponentSystem {
       pi.btnPickup = Input.GetButtonDown("Pay Respect");
       pi.btnPause = Input.GetButtonDown("Cancel");
       pi.btnInventory = Input.GetButtonDown("Toggle Inventory");
-      pi.btnDebugTakeDamage = Input.GetKeyDown(KeyCode.F11);
+      pi.iHotbarScrollDir = Input.mouseScrollDelta.y > 0f ? 1 :
+                            Input.mouseScrollDelta.y < 0f ? -1 : 0;
     } 
   }
 }
