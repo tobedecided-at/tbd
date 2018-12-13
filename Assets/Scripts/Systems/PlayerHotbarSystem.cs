@@ -26,11 +26,11 @@ public class PlayerHotbarSystem : ComponentSystem {
       if (hotbar.selected == null) hotbar.selected = 0;
       
       // Right
-      if (hotbarScrollDir == 1) {
+      if (hotbarScrollDir == -1) {
         if (hotbar.selected + 1 >= inventory.iHotbarSize) continue;
           hotbar.selected++;
 
-      } else if (hotbarScrollDir == -1) { // Left
+      } else if (hotbarScrollDir == 1) { // Left
         if (hotbar.selected - 1 >= 0) {
           hotbar.selected--;
         }

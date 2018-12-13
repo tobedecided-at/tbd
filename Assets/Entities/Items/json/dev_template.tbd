@@ -1,14 +1,15 @@
 {
-  "slug" : "wood",
-  "title" : "Wood Log",
-  "desc" : "A Log of Wood",
+  "slug" : "dev_template",
+  "title" : "TEMPLATE_ITEM",
+  "desc" : "TEMPLATE_DESCRIPTION",
 
   "weight" : 100,
   "pickupRange" : 5.0,
   "maxStackSize" : 30,
   "rarity" : 9001,
   "value" : 10,
-  "wearable" : false,
+  "wearable" : true,
+  "wearable_slot" : "Head",
   "stats" : {
     "iHealth" : 50.0,
     "mHealth" : 2.0,

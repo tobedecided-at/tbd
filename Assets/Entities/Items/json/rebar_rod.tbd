@@ -8,7 +8,7 @@
   "maxStackSize" : 30,
   "rarity" : 9001,
   "value" : 1000,
-  "useable" : false,
+  "wearable" : false,
   "stats" : {
     "iDamage" : 7.0
   },

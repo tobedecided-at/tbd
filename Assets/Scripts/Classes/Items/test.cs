@@ -8,12 +8,18 @@ namespace TBD.Items {
     public Item data {get; set;}
     public PlayerInventory inventory {get; set;}
 
-    public override void OnPickup() {
+    public override void OnEquip() {
       Player player = inventory.gameObject.GetComponentInParent<Player>();
-      Healed healed = player.GetComponent<Healed>();
-      healed.hit.Add(new HealInfo("HEAL", "TEST ITEM", Mathf.RoundToInt(data.stats["iHealth"])));
+      Health health = player.GetComponent<Health>();
+      health.max += (float)data.stats["iHealth"];
     }
-    public override void OnUse() {}
+
+    public override void OnUnequip() {
+      Player player = inventory.gameObject.GetComponentInParent<Player>();
+      Health health = player.GetComponent<Health>();
+      health.max -= (float)data.stats["iHealth"];
+    }
+
     public override void OnAction() {}
   }
 }

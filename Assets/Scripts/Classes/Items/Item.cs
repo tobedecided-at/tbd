@@ -28,7 +28,7 @@ namespace TBD.Items {
     public float value;
     public int stackSize;
     public bool equipped = false;
-    public bool usable;
+    public bool wearable;
     public Texture2D imgInventory;
     public dynamic specific;
 
@@ -42,17 +42,19 @@ namespace TBD.Items {
       item.stackSize = 1;
       item.uid = rng.Next();
 
+      // Load the items picture if it exists
       if (File.Exists(imgInventoryPath + item.slug + ".png")) {
         var bFileData = File.ReadAllBytes(imgInventoryPath + item.slug + ".png");
         var t2dtex = new Texture2D(2, 2);
         t2dtex.LoadImage(bFileData);
         item.imgInventory = t2dtex;
-      } else {
+      } else { // Fallback to default.png (maybe something funny to show that we messed up)
         var bFileData = File.ReadAllBytes(imgInventoryPath + "default.png");
         var t2dtex = new Texture2D(2, 2);
         t2dtex.LoadImage(bFileData);
         item.imgInventory = t2dtex;
       }
+      
       return item;
     }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace TBD.Items {
-  public class TEMPLATE_ITEM : IItem {
+  public class rebar_rod : IItem {
 
     #region Properties
     

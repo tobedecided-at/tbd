@@ -1,13 +1,16 @@
 using UnityEngine;
 
 namespace TBD.Items {
-    public abstract class IItem {
-        Item data {get;}
-        PlayerInventory inventory {get;}
+  public class IItem {
+    Item data {get;}
+    PlayerInventory inventory {get;}
 
-        public abstract void OnPickup();
-        public abstract void OnUse();
-        public abstract void OnAction();
-    }
+    public virtual void OnPickup()  {}
+    
+    public virtual void OnUse()     {}
+    public virtual void OnAction()  {}
 
+    public virtual void OnEquip()   {}
+    public virtual void OnUnequip() {}
+  }
 }
