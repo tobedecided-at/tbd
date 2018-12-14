@@ -29,6 +29,7 @@ namespace TBD.Items {
     public int stackSize;
     public bool equipped = false;
     public bool wearable;
+    public EquipmentSlot wearable_slot;
     public Texture2D imgInventory;
     public dynamic specific;
 
@@ -40,6 +41,8 @@ namespace TBD.Items {
       item.components = json["components"].ToObject<Dictionary<string, int>>();
       item.model = Resources.Load(item.slug, typeof(GameObject)) as GameObject;
       item.stackSize = 1;
+      if (item.wearable)
+        item.wearable_slot = (EquipmentSlot)Enum.Parse(typeof(EquipmentSlot), (string)json["wearable_slot"], true);
       item.uid = rng.Next();
 
       // Load the items picture if it exists

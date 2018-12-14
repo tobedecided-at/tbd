@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4816203802990378}
   - component: {fileID: 114707486136350758}
   - component: {fileID: 54847339686299990}
+  - component: {fileID: 1228199771191351183}
   - component: {fileID: 114513693045969276}
   - component: {fileID: 5098982188302205673}
   - component: {fileID: 114870873805520414}
@@ -77,6 +78,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1228199771191351183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185450662818556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e26f4c4144107f048a15de031a8ccc2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114513693045969276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +142,7 @@ MonoBehaviour:
   btnPickup: 0
   btnInventory: 0
   btnPause: 0
-  btnDebugTakeDamage: 0
+  iHotbarScrollDir: 0
   noClip: 0
   walk: 0
 --- !u!114 &3201840633744625697
@@ -188,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tHealth: {fileID: 0}
   tArmor: {fileID: 0}
+  tCompassDir: {fileID: 0}
   sHealth: {fileID: 0}
   sArmor: {fileID: 0}
   rImgCompass: {fileID: 0}
@@ -204,8 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0175f148cbe7e5a48aec1bf4a01245bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUnderMouse: {fileID: 0}
   goSlotHolder: {fileID: 0}
   goSlotPrefab: {fileID: 0}
+  goHotbarSlotPrefab: {fileID: 0}
   weight: 0
   speedRed: 0
   overWeight: 0
