@@ -1,21 +1,31 @@
 fileFormatVersion: 2
 guid: d4f3ea2408a53e248b8ad5d41006cf3b
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 24
   fileIDToRecycleName:
     100000: //RootNode
     100002: Camera
     100004: Cylinder
     100006: Lamp
+    100008: node_id4
+    100010: node_id6
+    100012: node_id7
     400000: //RootNode
     400002: Camera
     400004: Cylinder
     400006: Lamp
+    400008: node_id4
+    400010: node_id6
+    400012: node_id7
     2000000: Camera
     2100000: Material.001
+    2100002: Material_69
     2300000: Cylinder
+    2300002: node_id4
     3300000: Cylinder
+    3300002: node_id4
     4300000: Cylinder
+    4300002: node_id4
     10800000: Lamp
   externalObjects: {}
   materials:
@@ -59,10 +69,10 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
