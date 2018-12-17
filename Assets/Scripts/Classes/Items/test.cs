@@ -12,7 +12,6 @@ namespace TBD.Items {
       Player player = inventory.gameObject.GetComponentInParent<Player>();
       Healed healed = player.GetComponent<Healed>();
       healed.hit.Add(new HealInfo("HEAL", "TEST ITEM", Mathf.RoundToInt(data.stats["iHealth"])));
-      Debug.Log("Picked up " + data.slug + " and applied "+ Mathf.RoundToInt(data.stats["iHealth"]) +" Health");
     }
     public override void OnUse() {}
     public override void OnAction() {}

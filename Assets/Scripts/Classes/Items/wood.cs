@@ -6,10 +6,7 @@ namespace TBD.Items {
     public Item data {get; set;}
     public PlayerInventory inventory {get; set;}
 
-    public override void OnPickup() {
-      Debug.Log("Picked up " + data.slug);
-    }
-
+    public override void OnPickup() {}
     public override void OnUse() {}
     public override void OnAction() {}
   }

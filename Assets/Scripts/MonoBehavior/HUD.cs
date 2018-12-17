@@ -8,6 +8,7 @@ public class HUD : MonoBehaviour {
 
   public TextMeshProUGUI tHealth;
   public TextMeshProUGUI tArmor;
+  public TextMeshProUGUI tCompassDir;
 
   public Slider sHealth;
   public Slider sArmor;
