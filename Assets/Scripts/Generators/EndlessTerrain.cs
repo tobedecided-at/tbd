@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EndlessTerrain : MonoBehaviour {
-  const float scale = .5f;
+  const float scale = 3f;
   const float playerMoveThresh = 25f;
   const float sqrplayerMoveThresh = playerMoveThresh * playerMoveThresh;
 	public static float maxViewDist;
@@ -75,9 +75,11 @@ public class EndlessTerrain : MonoBehaviour {
     Bounds bounds;
     MeshRenderer meshRenderer;
     MeshFilter meshFilter;
+    MeshCollider meshCollider;
 
     LODInfo[] details;
     LODMesh[] lodMeshes;
+    LODMesh collisionMesh;
 
     MapData mapData;
     bool mapDataGot;
@@ -95,6 +97,7 @@ public class EndlessTerrain : MonoBehaviour {
       meshObject = new GameObject("Chunk " + id);
       meshRenderer = meshObject.AddComponent<MeshRenderer>();
       meshFilter = meshObject.AddComponent<MeshFilter>();
+      meshCollider = meshObject.AddComponent<MeshCollider>();
       meshRenderer.material = mat;
 
       meshObject.transform.position = pos3 * scale;
@@ -105,6 +108,8 @@ public class EndlessTerrain : MonoBehaviour {
       lodMeshes = new LODMesh[details.Length];
       for (int i = 0; i < details.Length; i++) {
         lodMeshes[i] = new LODMesh(details[i].lod, UpdateChunk);
+        if (details[i].useForCollider)
+          collisionMesh = lodMeshes[i];
       }
 
       mapGenerator.RequestMapData(pos, OnMapDataReceived);
@@ -143,6 +148,14 @@ public class EndlessTerrain : MonoBehaviour {
             }
             else if (!lodMesh.hasRequested) {
               lodMesh.RequestMesh(mapData);
+            }
+          }
+
+          if (lod == 0) {
+            if (collisionMesh.hasGot) {
+              meshCollider.sharedMesh = collisionMesh.mesh;
+            } else if (!collisionMesh.hasRequested) {
+              collisionMesh.RequestMesh(mapData);
             }
           }
 
@@ -191,6 +204,7 @@ public class EndlessTerrain : MonoBehaviour {
   public struct LODInfo {
     public int lod;
     public float visibleDistThresh;
+    public bool useForCollider;
   }
 }
 

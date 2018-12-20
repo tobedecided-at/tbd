@@ -18,7 +18,7 @@ public class MapGenerator : MonoBehaviour {
   [Range(0,6)]
   public int previewLod;
 
-  public const int chunkSize = 241;
+  public const int chunkSize = 239;
   
   public Vector2 offset;
 
@@ -111,7 +111,7 @@ public class MapGenerator : MonoBehaviour {
   }
 
   MapData GenerateMapData(Vector2 center) {
-    float[,] noiseMap = Noise.GenerateNoisemap(chunkSize, chunkSize, seed, scale, octaves, persistance, lacunarity, center + offset, normal);
+    float[,] noiseMap = Noise.GenerateNoisemap(chunkSize + 2, chunkSize + 2, seed, scale, octaves, persistance, lacunarity, center + offset, normal);
     Color[] colorMap = new Color[chunkSize * chunkSize];
 
     for (int y = 0; y < chunkSize; y++) {
