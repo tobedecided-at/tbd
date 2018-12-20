@@ -4,13 +4,52 @@ ModelImporter:
   serializedVersion: 24
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Armature
+    100004: Bone_000_L
+    100006: Bone_000_R
+    100008: Bone_001_L
+    100010: Bone_001_R
+    100012: Bone_002_L
+    100014: Bone_002_L_001_L
+    100016: Bone_002_L_001_L_001
+    100018: Bone_002_R
+    100020: Bone_002_R_001
+    100022: Bone_002_R_002
+    100024: Bone_003
+    100026: Bone_004
+    100028: Bone_005
+    100030: Bone_006_L
+    100032: Bone_006_R
+    100034: Bone_007_L
+    100036: Bone_007_R
+    100038: Cube
     400000: //RootNode
+    400002: Armature
+    400004: Bone_000_L
+    400006: Bone_000_R
+    400008: Bone_001_L
+    400010: Bone_001_R
+    400012: Bone_002_L
+    400014: Bone_002_L_001_L
+    400016: Bone_002_L_001_L_001
+    400018: Bone_002_R
+    400020: Bone_002_R_001
+    400022: Bone_002_R_002
+    400024: Bone_003
+    400026: Bone_004
+    400028: Bone_005
+    400030: Bone_006_L
+    400032: Bone_006_R
+    400034: Bone_007_L
+    400036: Bone_007_R
+    400038: Cube
     2100000: Material
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
     7400000: Default Take
     9500000: //RootNode
+    13700000: Cube
   externalObjects: {}
   materials:
     importMaterials: 1
