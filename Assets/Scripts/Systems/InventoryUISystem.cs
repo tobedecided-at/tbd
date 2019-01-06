@@ -36,14 +36,17 @@ public class InventoryUISystem : ComponentSystem {
       // Loads the item's icon into the slot if available
       // Loop through all Inventory slots
       Color fullAlpha = new Color(255f, 255f, 255f, 255f);
+      Color noAlpha = new Color(255f, 255f, 255f, 0f);
 
       for (int b = 0; b < inventoryUI.lSlots.Count; b++) {
-        InventorySlot slot = inventoryUI.lSlots[b].GetComponent<InventorySlot>();
+        InventorySlot slot = inventoryUI.lSlots[b];
 
         // If slot is empty (aka no item in this slot)
         if (slot.item == null) {
           if (slot.tmproStackSize.gameObject.activeSelf)
             slot.tmproStackSize.gameObject.SetActive(false);
+            slot.rimgIconHolder.texture = null;
+            slot.rimgIconHolder.color = noAlpha;
           continue;
         }
 
@@ -53,16 +56,40 @@ public class InventoryUISystem : ComponentSystem {
 
         // There is an Item in the slot
         Item item = slot.item;
-        // If the icon is not set
-        if (slot.rimgIconHolder.texture == null) {
-          // Set the alpha back to 255f
-          slot.rimgIconHolder.color = fullAlpha;
-          // Set the icon to the items image
-          slot.rimgIconHolder.texture = slot.item.imgInventory;
-        }
+        // Set the alpha back to 255f
+        slot.rimgIconHolder.color = fullAlpha;
+        // Set the icon to the items image
+        slot.rimgIconHolder.texture = slot.item.imgInventory;
 
         // Adjust the displayed stacksize
         slot.tmproStackSize.text = item.stackSize.ToString();
+      }
+
+      Player player = data.go[i].GetComponent<Player>();
+      Camera cam = data.go[i].GetComponentInChildren<Camera>();
+
+      // If the parent is active
+      if (inventoryUI.goMouseSlot.activeSelf) {
+        // If there is no item in the slot and the texture is cleared, skip
+        if (inventoryUI.mouseInventorySlot.item == null &&
+            inventoryUI.mouseInventorySlot.rimgIconHolder.texture != null) {
+              inventoryUI.mouseInventorySlot.rimgIconHolder.color = noAlpha;
+              inventoryUI.mouseInventorySlot.rimgIconHolder.texture = null;
+              continue;
+        }
+
+        // Transform the mouseInventory along the mouse cursor
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        inventoryUI.goMouseSlot.transform.position = mousePos;
+
+        if (inventoryUI.mouseInventorySlot.item == null) continue;
+        
+        // Set the item texture
+        inventoryUI.mouseInventorySlot.rimgIconHolder.color = fullAlpha;
+        inventoryUI.mouseInventorySlot.rimgIconHolder.texture = inventoryUI.mouseInventorySlot.item.imgInventory;
+
+      } else {
+        
       }
     }
   }

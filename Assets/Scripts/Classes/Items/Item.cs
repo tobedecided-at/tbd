@@ -11,8 +11,10 @@ using Newtonsoft.Json.Linq;
 namespace TBD.Items {
   public class Item {
 
+    public static System.Random rng = new System.Random();
     public static string imgInventoryPath = Application.dataPath + TBDBootstrap.Settings.ItemPath + "img/";
 
+    public int uid;
     public string slug;
     public string title;
     public string desc;
@@ -37,6 +39,8 @@ namespace TBD.Items {
       item.stats = json["stats"].ToObject<Dictionary<string, float>>();
       item.components = json["components"].ToObject<Dictionary<string, int>>();
       item.model = Resources.Load(item.slug, typeof(GameObject)) as GameObject;
+      item.stackSize = 1;
+      item.uid = rng.Next();
 
       if (File.Exists(imgInventoryPath + item.slug + ".png")) {
         var bFileData = File.ReadAllBytes(imgInventoryPath + item.slug + ".png");
@@ -49,8 +53,15 @@ namespace TBD.Items {
         t2dtex.LoadImage(bFileData);
         item.imgInventory = t2dtex;
       }
-
       return item;
+    }
+
+    public override bool Equals(object obj) {
+      if (obj == null) return false;
+      Item temp = (Item)obj;
+      if (this.slug == temp.slug)
+        return true;
+      return false;
     }
   }
 }

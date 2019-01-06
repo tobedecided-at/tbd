@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 public class MapGenerator : MonoBehaviour {
 
-  public enum DrawMode {NoiseMap, ColorMap, Mesh}
+  public enum DrawMode {NoiseMap, ColorMap, Mesh, FallofMap}
 
   public DrawMode drawMode;
 
@@ -18,7 +18,7 @@ public class MapGenerator : MonoBehaviour {
   [Range(0,6)]
   public int previewLod;
 
-  public const int chunkSize = 241;
+  public const int chunkSize = 239;
   
   public Vector2 offset;
 
@@ -27,6 +27,8 @@ public class MapGenerator : MonoBehaviour {
   public float lacunarity;
   public float scale;
   public float heightScale;
+
+  public bool useFalloffMap;
   
   public AnimationCurve heightCurve;
 
@@ -34,8 +36,14 @@ public class MapGenerator : MonoBehaviour {
 
   public TerrainType[] regions;
 
+  float[,] falloffMap;
+
   Queue<MapThreadInfo<MapData>> mapDataThreadInfoQueue = new Queue<MapThreadInfo<MapData>>();
   Queue<MapThreadInfo<MeshData>> meshDataThreadInfoQueue = new Queue<MapThreadInfo<MeshData>>();
+
+  void Awake() {
+    falloffMap = FalloffGenerator.GenerateFalloffMap(chunkSize);
+  }
 
   public void DrawInEditor() {
     MapDisplay display = FindObjectOfType<MapDisplay>();
@@ -50,6 +58,9 @@ public class MapGenerator : MonoBehaviour {
       break;
       case DrawMode.Mesh:
         display.DrawMesh(MeshGenerator.GenerateTerrainmesh(mapData.heightMap, heightScale, heightCurve, previewLod), TextureGenerator.TextureFromColorMap(mapData.colorMap, chunkSize, chunkSize));
+      break;
+      case DrawMode.FallofMap:
+        display.DrawTexture(TextureGenerator.TextureFromHeightMap(FalloffGenerator.GenerateFalloffMap(chunkSize)));
       break;
     }
   }
@@ -100,11 +111,15 @@ public class MapGenerator : MonoBehaviour {
   }
 
   MapData GenerateMapData(Vector2 center) {
-    float[,] noiseMap = Noise.GenerateNoisemap(chunkSize, chunkSize, seed, scale, octaves, persistance, lacunarity, center + offset, normal);
+    float[,] noiseMap = Noise.GenerateNoisemap(chunkSize + 2, chunkSize + 2, seed, scale, octaves, persistance, lacunarity, center + offset, normal);
     Color[] colorMap = new Color[chunkSize * chunkSize];
 
     for (int y = 0; y < chunkSize; y++) {
       for (int x = 0; x < chunkSize; x++) {
+        if (useFalloffMap) {
+          noiseMap[x,y] = Mathf.Clamp01(noiseMap[x,y] - falloffMap[x,y]);
+        }
+
         float height = noiseMap[x, y];
 
         foreach (var region in regions) {
@@ -122,6 +137,7 @@ public class MapGenerator : MonoBehaviour {
 	void OnValidate() {
     lacunarity = lacunarity < 1 ? 1 : lacunarity;
     octaves = octaves < 1 ? 1 : octaves;
+    falloffMap = FalloffGenerator.GenerateFalloffMap(chunkSize);
   }
 
   struct MapThreadInfo<T> {

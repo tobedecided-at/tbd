@@ -31,6 +31,10 @@ public class TBDBootstrap : MonoBehaviour {
     player.GetComponent<Health>().max = Settings.BaseHealth;
     player.GetComponent<Health>().value = Settings.BaseHealth;
     player.GetComponent<Armor>().max = Settings.MaxArmor;
+
+    var endlessTerrain = GameObject.Find("MapGenerator").GetComponent<EndlessTerrain>();
+    endlessTerrain.player = player.transform;
+    
     return entity;
   }
 }

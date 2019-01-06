@@ -1,22 +1,42 @@
 fileFormatVersion: 2
 guid: 4a34bd3cfda5e2a41b64b44d563f97eb
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 24
   fileIDToRecycleName:
     100000: //RootNode
     100002: node_id5
     100004: node_id6
     100006: node_id8
     100008: node_id9
+    100010: Camera
+    100012: Circle
+    100014: Lamp
+    100016: node_id4
+    100018: node_id7
     400000: //RootNode
     400002: node_id5
     400004: node_id6
     400006: node_id8
     400008: node_id9
+    400010: Camera
+    400012: Circle
+    400014: Lamp
+    400016: node_id4
+    400018: node_id7
+    2000000: Camera
     2100000: Material_70
+    2100002: No Name
+    2100004: Material_71
     2300000: node_id6
+    2300002: Circle
+    2300004: node_id4
     3300000: node_id6
+    3300002: Circle
+    3300004: node_id4
     4300000: node_id6
+    4300002: Circle
+    4300004: node_id4
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -59,10 +79,10 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

@@ -86,7 +86,7 @@ public class TBDSceneManager : MonoBehaviour {
     while (!load.isDone || progress < 1f) {
       // progress = Mathf.Clamp01(load.progress / .9f);
       progress += 0.05f;
-      percentage.text = progress + "%";
+      percentage.text = (progress * 100) + "%";
 
       s_loading.value = progress;
 
