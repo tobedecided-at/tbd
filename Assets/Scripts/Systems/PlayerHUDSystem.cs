@@ -25,8 +25,8 @@ public class PlayerHUDSystem : ComponentSystem {
 
       var cHealth = trPlayer.GetComponent<Health>();
       var cArmor = trPlayer.GetComponent<Armor>();
-      var rImgCompass = hud.rImgCompass;
-      var tCompassDir = hud.tCompassDir;
+      var rImgCompass = inventoryUI.rImgCompass;
+      var tCompassDir = inventoryUI.tCompassDir;
 
       hud.sHealth.maxValue = cHealth.max;
       hud.sHealth.value = cHealth.value;
