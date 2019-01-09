@@ -8,8 +8,7 @@ using TBD.Items;
 
 public class InventoryUI : MonoBehaviour {
   
-  [Header("Hotbar")]
-  public GameObject goHotbar;
+  GameObject goHotbar;
 
   [Header("Inventory UI")]
   public GameObject gInventoryUI;
@@ -19,7 +18,6 @@ public class InventoryUI : MonoBehaviour {
   public GameObject gInventoryPanel;
   public GameObject gBlur;
 
-  [SerializeField]
   public List<InventorySlot> lSlots = new List<InventorySlot>();
 
   public GameObject goSlotsParent;
@@ -35,6 +33,9 @@ public class InventoryUI : MonoBehaviour {
 
 
 	void Start () {
+    pauseUI = gameObject.GetComponent<PauseUI>();
+    goHotbar = GetComponent<Hotbar>().goHotbar;
+    
     Disable();
     pauseUI = gameObject.GetComponent<PauseUI>();
 	}

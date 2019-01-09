@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5443858298708604310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5443858298708604308}
+  - component: {fileID: 5443858298708604309}
+  - component: {fileID: 5443858298708604305}
+  - component: {fileID: 5443858298708604306}
+  - component: {fileID: 290752262}
+  m_Layer: 0
+  m_Name: Helper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5443858298708604308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443858298708604310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 594.7968, y: 272.805, z: -6.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5443858298708604309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443858298708604310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f6d2f438ac2a3e54bb9c3347dabf5f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Globals: {fileID: 5443858298708604306}
+  PlayerPrefab: {fileID: 1185450662818556, guid: 732117d7255dfd344a49e817c6de43d3,
+    type: 3}
+  PlayerSpawnPos:
+  - {fileID: 0}
+  UseRandomSpawn: 1
+  ItemPath: /Entities/Items/
+  BaseHealth: 100
+  BaseDamage: 1
+  BaseFirerate: 1
+  BasePickupRange: 10
+  MaxArmor: 10000
+  UI: {fileID: 0}
+  TBDsm: {fileID: 0}
+  MultDamage: 1
+  MultFirerate: 1
+  MultShotRange: 1
+  MultPickupRange: 1
+  PlayerSpeed: 6
+  PlayerJumpPower: 850
+  CarryWeight: 150
+  PlayerSpeedReduction: 0.6
+  ItemPickupTag: Item
+  InventorySize: 30
+  HotbarSize: 9
+  CameraSensitivity: 2.5
+  CameraRotateLimit: 90
+  ShootCooldown: 0.05
+  ShotRange: 100
+  ScorePenalty: 50
+  CameraSmoothing: 5
+--- !u!114 &5443858298708604305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443858298708604310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: aada6f5c4221c0448889cf205597a746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5443858298708604306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443858298708604310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ed39dc069b0b18b4d9e7da350849a6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goPlayer: {fileID: 0}
+--- !u!114 &290752262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443858298708604310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 91533d13f3ef0564abb33fc3aaa95e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

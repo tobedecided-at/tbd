@@ -6,17 +6,15 @@ using System.Collections.Generic;
 public class TBDBootstrap : MonoBehaviour {
   public static TBDSettings Settings;
 
+  void Start() {
+    TBDBootstrap.Settings = GetComponent<TBDSettings>();
+    if (TBDBootstrap.Settings == null)
+      Debug.LogError("No TBDSettings component found on "+gameObject.name+" !");
+  }
+
   public static void NewGame() {
     var entityManager = World.Active.GetExistingManager<EntityManager>();
     var entity = SpawnPlayer(entityManager);
-  }
-
-  [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-  public static void Init() {
-    var settings = GameObject.Find("Settings");
-    if (settings)
-      Settings = settings.GetComponent<TBDSettings>();
-    if (!Settings) return;
   }
 
   static Entity SpawnPlayer(EntityManager _em) {
@@ -32,9 +30,15 @@ public class TBDBootstrap : MonoBehaviour {
     player.GetComponent<Health>().value = Settings.BaseHealth;
     player.GetComponent<Armor>().max = Settings.MaxArmor;
 
-    var endlessTerrain = GameObject.Find("MapGenerator").GetComponent<EndlessTerrain>();
-    endlessTerrain.player = player.transform;
+    try {
+      var endlessTerrain = GameObject.Find("MapGenerator").GetComponent<EndlessTerrain>();
+      if (endlessTerrain != null)
+        endlessTerrain.player = player.transform;
+    } catch {
+      Debug.LogWarning("No MapGenerator found");
+    };
     
+    Settings.Globals.goPlayer = player;
     return entity;
   }
 }

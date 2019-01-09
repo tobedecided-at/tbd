@@ -6,8 +6,12 @@ using Newtonsoft.Json.Linq;
 public class TBDHelper : MonoBehaviour {
   
   void Start() {
-    TBDBootstrap.Init();
+    Setup();
     TBDBootstrap.NewGame();
+  }
+
+  void Setup() {
+    TBDBootstrap.Settings = GetComponent<TBDSettings>();
   }
 }
 

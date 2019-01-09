@@ -10,8 +10,8 @@ public class HUD : MonoBehaviour {
   public TextMeshProUGUI tArmor;
   public TextMeshProUGUI tCompassDir;
 
-  public Slider sHealth;
-  public Slider sArmor;
+  public Image imgHealth;
+  public Image imgArmor;
 
   public RawImage rImgCompass;
 }

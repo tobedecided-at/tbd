@@ -28,13 +28,34 @@ public class PlayerHUDSystem : ComponentSystem {
       var rImgCompass = inventoryUI.rImgCompass;
       var tCompassDir = inventoryUI.tCompassDir;
 
-      hud.sHealth.maxValue = cHealth.max;
-      hud.sHealth.value = cHealth.value;
-      hud.tHealth.text = cHealth.value.ToString();
+      #region Health
 
-      hud.sArmor.maxValue = cArmor.max;
-      hud.sArmor.value = cArmor.value;
-      hud.tArmor.text = cArmor.value.ToString();
+      float fHealthMaxValue = cHealth.max;
+      float fHealthValue = cHealth.value;
+      
+      // Normalize the health between 0 and 1 for easy scaling of the image
+      float fHealthValueNormalized = fHealthValue.Map(0f, fHealthMaxValue, 0f, 1f);
+      inventoryUI.imgHealth.transform.localScale = new Vector3(fHealthValueNormalized, 1f, 1f);
+
+      // Check for null, just to be sure
+      if (inventoryUI.tHealth != null)
+        inventoryUI.tHealth.text = cHealth.value.ToString();
+      
+      #endregion
+      #region Armor
+
+      float fArmorMaxValue = cArmor.max;
+      float fArmorValue = cArmor.value;
+
+      // Normalize the armor between 0 and 1 for easy scaling of the image
+      float fArmorValueNormalized = fArmorValue.Map(0f, fArmorMaxValue, 0f, 1f);
+      inventoryUI.imgArmor.transform.localScale = new Vector3(fArmorValueNormalized, 1f, 1f);
+
+      if (inventoryUI.tArmor != null)
+        inventoryUI.tArmor.text = cArmor.value.ToString();
+      
+      #endregion
+      #region Compass
 
       rImgCompass.uvRect = new Rect(trPlayer.localEulerAngles.y / 360f, 0, 1, 1);
 
@@ -79,6 +100,8 @@ public class PlayerHUDSystem : ComponentSystem {
           tCompassDir.text = headingAngle.ToString ();
           break;
       }
+
+      #endregion
     }
   }
 }

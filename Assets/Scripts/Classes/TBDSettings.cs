@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TBDSettings : MonoBehaviour {
+  public Globals Globals;
   public GameObject PlayerPrefab;
   public List<Transform> PlayerSpawnPos;
 

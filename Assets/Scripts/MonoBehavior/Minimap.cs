@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class minimap : MonoBehaviour
+public class Minimap : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
+
+    bool bPlayerFound = false;
    
-    void Start ()
-    {
-        player = TBDBootstrap.Settings.UI.GetComponentInParent<Player>().gameObject;
+    void Update() {
+      if (!bPlayerFound)
+        player = TBDBootstrap.Settings.Globals.goPlayer;
     }
 
-    void LateUpdate ()
-    {
-        Vector3 newPosition = player.transform.position;
-        newPosition.y = transform.position.y;
-        transform.position = newPosition;
+    void LateUpdate() {
+      if (!bPlayerFound) return;
+      
+      Vector3 newPosition = player.transform.position;
+      newPosition.y = transform.position.y;
+      transform.position = newPosition;
     }
 }
