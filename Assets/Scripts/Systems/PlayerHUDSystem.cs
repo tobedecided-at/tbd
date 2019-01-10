@@ -25,8 +25,8 @@ public class PlayerHUDSystem : ComponentSystem {
 
       var cHealth = trPlayer.GetComponent<Health>();
       var cArmor = trPlayer.GetComponent<Armor>();
-      var rImgCompass = inventoryUI.rImgCompass;
-      var tCompassDir = inventoryUI.tCompassDir;
+      var rImgCompass = hud.rImgCompass;
+      var tCompassDir = hud.tCompassDir;
 
       #region Health
 
@@ -35,11 +35,11 @@ public class PlayerHUDSystem : ComponentSystem {
       
       // Normalize the health between 0 and 1 for easy scaling of the image
       float fHealthValueNormalized = fHealthValue.Map(0f, fHealthMaxValue, 0f, 1f);
-      inventoryUI.imgHealth.transform.localScale = new Vector3(fHealthValueNormalized, 1f, 1f);
+      hud.imgHealth.transform.localScale = new Vector3(fHealthValueNormalized, 1f, 1f);
 
       // Check for null, just to be sure
-      if (inventoryUI.tHealth != null)
-        inventoryUI.tHealth.text = cHealth.value.ToString();
+      if (hud.tHealth != null)
+        hud.tHealth.text = cHealth.value.ToString();
       
       #endregion
       #region Armor
@@ -49,10 +49,10 @@ public class PlayerHUDSystem : ComponentSystem {
 
       // Normalize the armor between 0 and 1 for easy scaling of the image
       float fArmorValueNormalized = fArmorValue.Map(0f, fArmorMaxValue, 0f, 1f);
-      inventoryUI.imgArmor.transform.localScale = new Vector3(fArmorValueNormalized, 1f, 1f);
+      hud.imgArmor.transform.localScale = new Vector3(fArmorValueNormalized, 1f, 1f);
 
-      if (inventoryUI.tArmor != null)
-        inventoryUI.tArmor.text = cArmor.value.ToString();
+      if (hud.tArmor != null)
+        hud.tArmor.text = cArmor.value.ToString();
       
       #endregion
       #region Compass
