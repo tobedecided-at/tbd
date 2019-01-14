@@ -1,5 +1,5 @@
-using Unity.Entities;
 using UnityEngine;
+using Unity.Entities;
 
 public class ItemSystem : ComponentSystem {
   struct Data {

@@ -168,7 +168,6 @@ public class PlayerInventory : MonoBehaviour {
   public void OnPickup(GameObject itemGo) {
     var itemC = itemGo.GetComponent<ItemComponent>();
     var item = itemC.item;
-    var added = false;
     
     AddToInventory(item);
     Destroy(itemGo);

@@ -21,8 +21,8 @@ set cscPath=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe -lib:%libPat
 copy ..\tbd-dll\tbd.dll %libPath%\
 
 rem Make
-%cscPath% -appconfig:%client%.config -target:exe -r:Newtonsoft.Json.dll -r:websocket-sharp.dll -r:tbd.dll -r:JWT.dll -out:%dataPath%\..\%client% %dataPath%\tbdmc\main.cs
-%cscPath% -appconfig:%server%.config -target:exe -r:Newtonsoft.Json.dll -r:websocket-sharp.dll -r:tbd.dll -r:JWT.dll -out:%dataPath%\..\%server% %dataPath%\tbdms\main.cs
+%cscPath% -appconfig:%client%.config -target:exe -r:Newtonsoft.Json.dll -r:websocket-sharp.dll -r:tbd.dll -out:%dataPath%\..\%client% %dataPath%\tbdmc\main.cs
+%cscPath% -appconfig:%server%.config -target:exe -r:Newtonsoft.Json.dll -r:websocket-sharp.dll -r:tbd.dll -out:%dataPath%\..\%server% %dataPath%\tbdms\main.cs
 
 rem Run TBDMS.exe
 %dataPath%\..\%server%
