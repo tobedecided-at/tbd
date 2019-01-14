@@ -36,4 +36,8 @@ public class WindowManager : MonoBehaviour {
     SetWindowActive(0);
   }
 
+  public void ShowLobby() {
+    SetWindowActive(3);
+  }
+
 }
