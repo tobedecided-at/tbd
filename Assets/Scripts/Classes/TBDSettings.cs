@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TBDSettings : MonoBehaviour {
-  public Globals Globals;
+  public GameObject LocalPlayer;
   public GameObject PlayerPrefab;
   public List<Transform> PlayerSpawnPos;
 
@@ -16,7 +16,7 @@ public class TBDSettings : MonoBehaviour {
   public float BasePickupRange = 10f;
   public float MaxArmor = 10000;
   public GameObject UI;
-  public TBDSceneManager TBDsm;
+  public TBDSceneManager SceneManager;
 
   [Header("Multiplier Options")]
   public float MultDamage = 1f;

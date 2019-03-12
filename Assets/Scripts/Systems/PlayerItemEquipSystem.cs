@@ -16,10 +16,11 @@ public class PlayerItemEquipSystem : ComponentSystem {
     for (int i = 0; i != data.Length; i++) {
       var inventory = data.pi[i];
 
-      // If the hotbar item != null
-      Item selected = inventory.inventory[inventory.hotbar.selected];      
+			// If the hotbar item != null
+			if (inventory.hotbar == null) continue;
+      Item selected = inventory.inventory[inventory.hotbar.selected];
       if (selected != null) {
-        Debug.Log("Item " + selected.slug);
+        // TODO:
       }
     } 
   }

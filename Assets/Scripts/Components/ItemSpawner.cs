@@ -22,19 +22,19 @@ public class ItemSpawner : MonoBehaviour {
     
     for (int x = 1; x <= amount; x++) {
       item = ItemDb.GetNewItemBySlug(itemSlug);
-      var pos = this.gameObject.transform.position;
-      var rot = this.gameObject.transform.rotation;
+      var pos = gameObject.transform.position;
+      var rot = gameObject.transform.rotation;
 
       SpawnItem(item, pos, rot);
     }
 
-    Object.Destroy(this.gameObject);
+    Destroy(gameObject);
   }
 
   public static GameObject SpawnItem(Item toSpawn, Vector3 pos, Quaternion rot, float force = 0f) {
 
-    GameObject iGo = Object.Instantiate(goItemHolder, pos, rot);
-    GameObject model = Object.Instantiate((GameObject)toSpawn.model, iGo.transform.position, iGo.transform.rotation, iGo.transform);
+    GameObject iGo = Instantiate(goItemHolder, pos, rot);
+    GameObject model = Instantiate(toSpawn.model, iGo.transform.position, iGo.transform.rotation, iGo.transform);
 
     iGo.name = "I/" + toSpawn.uid;
     var iComp = iGo.AddComponent<ItemComponent>();

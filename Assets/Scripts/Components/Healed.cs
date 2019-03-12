@@ -1,10 +1,13 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 public class Healed : MonoBehaviour {
+	[SerializeField]
   public List<HealInfo> hit = new List<HealInfo>();
 }
 
+[Serializable]
 public class HealInfo {
   public string healType;
   public string originName;

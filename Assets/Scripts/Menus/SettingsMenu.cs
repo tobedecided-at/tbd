@@ -12,24 +12,27 @@ public class SettingsMenu : MonoBehaviour {
   public TMP_Text tVolumeProcent;
   
   Resolution[] resolutions;
+  List<string> options = new List<string>();
 
   void Start() {
     resolutions = Screen.resolutions;
 
     dd_res.ClearOptions();
-
-    List<string> options = new List<string>();
+		options.Clear();
     
     int currentRes = 0;
     int i = 0;
-    foreach (var entry in resolutions) {
-      string option = entry.width + " x " + entry.height;
+
+		foreach (var entry in resolutions) {
+      string option = entry.width + "x" + entry.height;
       options.Add(option);
+
       if (entry.width == Screen.currentResolution.width &&
           entry.height == Screen.currentResolution.height) currentRes = i;
       
       i++;
     }
+
     dd_res.AddOptions(options);
     dd_res.value = currentRes;
     dd_res.RefreshShownValue();

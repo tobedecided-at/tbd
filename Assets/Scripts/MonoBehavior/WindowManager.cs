@@ -7,37 +7,29 @@ public class WindowManager : MonoBehaviour {
   
   [SerializeField]
   public List<GameObject> windows = new List<GameObject>();
+	public int CurrentIndex { get; private set; }
 
   void Start() {
-    // Make sure that we start on the main screen
-    ShowPressAny();
+		CurrentIndex = 0;
+
+		// Make sure that we start on the main screen
+		SwitchWindow(CurrentIndex);
   }
   
-  void SetWindowActive(int index) {
-    DisableAll();
+  public void SetWindowActive(int index) {
     windows[index].SetActive(true);
+		CurrentIndex = index;
   }
+
+	public void SwitchWindow(int index) {
+    DisableAll();
+		windows[index].SetActive(true);
+		CurrentIndex = index;
+	}
 
   void DisableAll() {
     foreach (var window in windows) {
       window.SetActive(false);
     }
   }
-
-  public void ShowSettings() {
-    SetWindowActive(2);
-  }
-
-  public void ShowMain() {
-    SetWindowActive(1);
-  }
-
-  public void ShowPressAny() {
-    SetWindowActive(0);
-  }
-
-  public void ShowLobby() {
-    SetWindowActive(3);
-  }
-
 }

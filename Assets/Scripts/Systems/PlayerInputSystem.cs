@@ -2,17 +2,22 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
 
+using TBD.Networking;
+
 public class PlayerInputSystem : ComponentSystem {
   public struct Data {
     public readonly int Length;
     public ComponentArray<PlayerInput> PlayerInput;
     public SubtractiveComponent<Dead> Dead;
+		public GameObjectArray GameObject;
   }
 
   [Inject] private Data data;
 
   protected override void OnUpdate() {
     for (int i = 0; i != data.Length; i++) {
+			if (!TBDNetworking.IsLocalPlayer(data.GameObject[i])) continue;
+
       var pi = data.PlayerInput[i];
 
       pi.move = new float2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));

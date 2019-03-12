@@ -9,6 +9,11 @@ using UnityEngine.UI;
 
 public class TBDSceneManager : MonoBehaviour {
 
+	public delegate void OnSceneLoaded(string name);
+
+	public static TBDSceneManager instance;
+	public static OnSceneLoaded onSceneLoaded;
+
   public GameObject p_black;
   public GameObject frame;
   public GameObject loadingBar;
@@ -20,11 +25,22 @@ public class TBDSceneManager : MonoBehaviour {
   Image i_black;
   Slider s_loading;
 
+	public string GetActiveSceneName() {
+		return SceneManager.GetActiveScene().name;
+	}
+
   public void OnQuitButton() {
     Application.Quit(0);
   }
 
   void Awake() {
+		DontDestroyOnLoad(this);
+		// Destroy new SceneManager
+		if (instance != this && instance != null)
+			Destroy(this);
+
+		instance = this; 
+
     if (!created) {
       created = true;
     }
@@ -84,8 +100,7 @@ public class TBDSceneManager : MonoBehaviour {
     }
 
     while (!load.isDone || progress < 1f) {
-      // progress = Mathf.Clamp01(load.progress / .9f);
-      progress += 0.05f;
+      progress = Mathf.Clamp01(load.progress / .9f);
       percentage.text = (progress * 100) + "%";
 
       s_loading.value = progress;
@@ -112,6 +127,8 @@ public class TBDSceneManager : MonoBehaviour {
         FadeIn();
       break;
     }
+
+		onSceneLoaded?.Invoke(toLoad);
   }
 
   void HidePercentage() {
@@ -155,7 +172,3 @@ public class TBDSceneManager : MonoBehaviour {
     FadeFade, 
   }
 }
-
-// Cut to loading
-// Load scene async additive
-// Fade to scene when done

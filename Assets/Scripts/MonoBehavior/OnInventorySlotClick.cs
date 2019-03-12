@@ -20,16 +20,16 @@ public class OnInventorySlotClick : MonoBehaviour,
     this.item = this.slot.item;
 
     if (eventData.button == PointerEventData.InputButton.Left) {
-      pInventory.MousePickup(this.item);
+      pInventory.MousePickup(item);
     } else if (eventData.button == PointerEventData.InputButton.Right) {
-      pInventory.OnEquip(this.item);
+      pInventory.OnEquip(item);
     } else if (eventData.button == PointerEventData.InputButton.Middle) {
-      pInventory.OnThrow(this.item);
+      pInventory.OnThrow(item);
     }
   }
 
   public void OnPointerEnter(PointerEventData eventData) {
-    pInventory.isUnderMouse = this.slot;
+    pInventory.isUnderMouse = slot;
   }
 
   public void OnPointerExit(PointerEventData eventData) {

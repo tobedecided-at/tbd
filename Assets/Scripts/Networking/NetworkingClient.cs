@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using System.Net.Sockets;
+using System.IO;
 
 using UnityEngine;
 
 using TBD.WS;
-using TBD.Client.Behavior;
+using TBD.IO;
+using TBD.Client.WSBehaviorsClient;
 
 namespace TBD.Networking {
   public static class NetworkingClient {
@@ -15,37 +17,64 @@ namespace TBD.Networking {
     public delegate void OnClientStateChange(bool state);
     public static OnClientStateChange onClientStateChange;
 
-    public static bool bServerRunning = false;
     public static bool bReady = false;
+		public static bool BClientConnected {
+			get { return bClientConnected; }
+			set {
+				if (bClientConnected != value) {
+					bClientConnected = value;
+					onClientStateChange?.Invoke(value);
+				}
+			}
+		}
 
-    public static void Init(string _ip) {
+		static Client_Authenticate authSocket;
+		static Client_TBDGame gameSocket;
+
+		static string token;
+    static bool bClientConnected = false;
+
+    public static async Task<string> Init(string _ip) {
+
+			TBDNetworking.OfflineMode = false;
+
+			if (bClientConnected) {
+				authSocket?.Close();
+				gameSocket?.Close();
+			}
+
       if (!IsHostUp(_ip)) {
         Debug.LogWarning("Cannot connect to Server!");
-        return;
+        return "ERROR_SERVER_UNREACHABLE";
       }
 
-      var authSocket = new CBAuth("localhost", Settings.SERVER_PORT);
-      
-      // "Block" until we get a token
-      var token = Task.Run( async () =>
-        await authSocket.GetToken().ConfigureAwait(false)).Result;
+			authSocket = new Client_Authenticate(_ip, Settings.SERVER_PORT);
+			BClientConnected = true;
 
-      Debug.Log("Got token, connecting to TBD...");
+			token = await authSocket.AuthToken.Task.ConfigureAwait(false);
 
-      // Got a token, use it to connect to /tbd_game endpoint
-      var gameSocket = new CTBDGame("localhost", Settings.SERVER_PORT, token);
-      Debug.Log("Connected!");
-    }
+      // Connect to /game endpoint
+			gameSocket = new Client_TBDGame(_ip, Settings.SERVER_PORT, token);
+			return "SUCCESS";
+		}
 
-    public static bool IsHostUp(string ip) {
+		public static bool IsHostUp(string _ip) {
       using(TcpClient tcpClient = new TcpClient()) {
         try {
-          tcpClient.Connect(ip, Settings.SERVER_PORT);
+          tcpClient.Connect(_ip, Settings.SERVER_PORT);
         } catch (Exception) {
           return false;
         }
       }
       return true;
     }
+
+		public static void Reset() {
+			authSocket?.Close();
+			gameSocket?.Close();
+
+			BClientConnected = false;
+			TBDNetworking.OfflineMode = true;
+		}
   }
 }

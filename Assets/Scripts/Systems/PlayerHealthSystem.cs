@@ -3,6 +3,8 @@ using Unity.Entities;
 using Unity.Mathematics;
 using System.Collections.Generic;
 
+using TBD.Networking;
+
 public class PlayerHealthSystem : ComponentSystem {
   public struct Data {
     public readonly int Length;
@@ -17,7 +19,7 @@ public class PlayerHealthSystem : ComponentSystem {
 
   protected override void OnUpdate() {
     if (sceneManager == null)
-      sceneManager = TBDBootstrap.Settings.TBDsm;
+      sceneManager = TBDBootstrap.Settings.SceneManager;
 
     for (int i = 0; i != data.Length; i++) {
       var cDamaged = data.trPlayer[i].GetComponent<Damaged>();
@@ -26,16 +28,18 @@ public class PlayerHealthSystem : ComponentSystem {
       var cHealth = data.trPlayer[i].GetComponent<Health>();
       var cArmor = data.trPlayer[i].GetComponent<Armor>();
 
-      if (Input.GetKeyDown(KeyCode.F11)) {
-        cDamaged.hit.Add(new DamageInfo("BECAUSE", "SELF", 10));
-      }
-      if (Input.GetKeyDown(KeyCode.F12)) {
-        cHealed.hit.Add(new HealInfo("BECAUSE", "GOD", 10));
-      }
+			if (TBDNetworking.IsLocalPlayer(data.trPlayer[i].gameObject)) {
+				if (Input.GetKeyDown(KeyCode.F11)) {
+					cDamaged.hit.Add(new DamageInfo("BECAUSE", "SELF", 10));
+				}
+				if (Input.GetKeyDown(KeyCode.F12)) {
+					cHealed.hit.Add(new HealInfo("BECAUSE", "GOD", 10));
+				}
+			}
 
       // TODO: Take care of healing first because of fairness
       for (int h = 0; h < cHealed.hit.Count; h++) {
-        var healAmount = cHealed.hit[i].healAmount;
+        var healAmount = cHealed.hit[h].healAmount;
         
         // Heal without limits
         cHealth.value += healAmount;
