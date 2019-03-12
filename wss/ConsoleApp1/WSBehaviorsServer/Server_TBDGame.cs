@@ -24,8 +24,8 @@ namespace TBD.Server.Behavior {
 
 		const double UpdateRate = 64f;
 
-		static Dictionary<string, WebSocketBehavior> WebSocketClients = new Dictionary<string, WebSocketBehavior>();
-		static Dictionary<string, WSData> Clients = new Dictionary<string, WSData>();
+		volatile static Dictionary<string, WebSocketBehavior> WebSocketClients = new Dictionary<string, WebSocketBehavior>();
+		volatile static Dictionary<string, WSData> Clients = new Dictionary<string, WSData>();
 		volatile static Queue<WSData> UpdateQueue = new Queue<WSData>();
 		static int countOpenSocket = 0;
 
@@ -195,6 +195,7 @@ namespace TBD.Server.Behavior {
 				SendBroadcast(msg);
 				return;
 			}
+
 			lock (Clients) {
 				foreach (var entry in Clients) {
 					if (entry.Value.InGame) {
