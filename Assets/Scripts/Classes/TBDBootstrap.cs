@@ -3,42 +3,53 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using System.Collections.Generic;
 
+using TBD.Networking;
+
 public class TBDBootstrap : MonoBehaviour {
   public static TBDSettings Settings;
+	public static EntityManager EntityManager;
 
   void Start() {
-    TBDBootstrap.Settings = GetComponent<TBDSettings>();
-    if (TBDBootstrap.Settings == null)
+    Settings = GetComponent<TBDSettings>();
+		EntityManager = World.Active.GetExistingManager<EntityManager>();
+
+		if (Settings == null)
       Debug.LogError("No TBDSettings component found on "+gameObject.name+" !");
   }
 
-  public static void NewGame() {
-    var entityManager = World.Active.GetExistingManager<EntityManager>();
-    var entity = SpawnPlayer(entityManager);
-  }
+	public static GameObject SpawnNetworkPlayer(string index, GameObject prefab) {
+		List<Transform> pSPL = Settings.PlayerSpawnPos;
+		Transform pSP = pSPL[0].transform;
 
-  static Entity SpawnPlayer(EntityManager _em) {
-    List<Transform> pSPL = Settings.PlayerSpawnPos;
-    Transform pSP = pSPL[0].transform;
+		if (Settings.UseRandomSpawn)
+			pSP = pSPL[Random.Range(0, pSPL.Count)].transform;
 
-    if (Settings.UseRandomSpawn)
-      pSP = pSPL[Random.Range(0, pSPL.Count)].transform;
-    
-    var player = Object.Instantiate(Settings.PlayerPrefab, pSP.position, pSP.rotation);
-    var entity = player.GetComponent<GameObjectEntity>().Entity;
-    player.GetComponent<Health>().max = Settings.BaseHealth;
-    player.GetComponent<Health>().value = Settings.BaseHealth;
-    player.GetComponent<Armor>().max = Settings.MaxArmor;
+		var player = Instantiate(prefab, pSP.position, pSP.rotation);
+		var entity = player.GetComponent<GameObjectEntity>().Entity;
+		player.GetComponent<Health>().max = Settings.BaseHealth;
+		player.GetComponent<Health>().value = Settings.BaseHealth;
+		player.GetComponent<Armor>().max = Settings.MaxArmor;
 
-    try {
-      var endlessTerrain = GameObject.Find("MapGenerator").GetComponent<EndlessTerrain>();
-      if (endlessTerrain != null)
-        endlessTerrain.player = player.transform;
-    } catch {
-      Debug.LogWarning("No MapGenerator found");
-    };
-    
-    Settings.Globals.goPlayer = player;
-    return entity;
-  }
+		NetworkIdentity ni = player.GetComponent<NetworkIdentity>();
+		NetworkTransform nt = player.GetComponent<NetworkTransform>();
+		ni.ID = index;
+
+		// If the player that we spawned has the same ID as LocalPlayerData
+		// We are the local player
+		if (index == TBDNetworking.LocalPlayerData.id) {
+			ni.LocalPlayerAuthority = true;
+			nt.TransformSyncMethod = TransformSyncMethod.SyncTransform;
+		} else ni.ServerOnly = true;
+
+		player.name = "P: " + index;
+
+		try {
+			var endlessTerrain = GameObject.Find("MapGenerator").GetComponent<EndlessTerrain>();
+			if (endlessTerrain != null)
+				endlessTerrain.player = player.transform;
+		} catch {};
+
+		Settings.LocalPlayer = player;
+		return player;
+	}
 }

@@ -7,7 +7,6 @@ public class TBDHelper : MonoBehaviour {
   
   void Start() {
     Setup();
-    TBDBootstrap.NewGame();
   }
 
   void Setup() {

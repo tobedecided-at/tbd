@@ -2,7 +2,10 @@
 using Unity.Entities;
 
 using TBD.Items;
+using TBD.Networking;
 public class PlayerHotbarSystem : ComponentSystem {
+
+	bool set = false;
 
   struct Data {
     public readonly int Length;
@@ -15,16 +18,19 @@ public class PlayerHotbarSystem : ComponentSystem {
   [Inject] Data data;
 
   protected override void OnUpdate() {
+
     Hotbar hotbar = TBDBootstrap.Settings.UI.GetComponent<Hotbar>();
+		if (hotbar == null) return;
+
     for (int i = 0; i != data.Length; i++) {
+		if (!TBDNetworking.IsLocalPlayer(data.go[i])) continue;
+
       // true = up | false = down
       int hotbarScrollDir = data.pi[i].iHotbarScrollDir;
 
       PlayerInventory inventory = data.pInventory[i];
+			if (inventory.invUI == null) continue;
 
-      // Initialization
-      if (hotbar.selected == null) hotbar.selected = 0;
-      
       // Right
       if (hotbarScrollDir == 1) {
         if (hotbar.selected + 1 >= inventory.iHotbarSize) continue;

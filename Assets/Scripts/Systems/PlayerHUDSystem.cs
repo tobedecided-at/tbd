@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 using Unity.Entities;
-using Unity.Mathematics;
 
 using TBD.Items;
 
 public class PlayerHUDSystem : ComponentSystem {
-
-  bool run = false;
   
   public struct Data {
     public readonly int Length;
@@ -16,8 +13,11 @@ public class PlayerHUDSystem : ComponentSystem {
 
   [Inject] private Data data;
 
+  HUD hud;
+
   protected override void OnUpdate() {
-    HUD hud = TBDBootstrap.Settings.UI.GetComponent<HUD>();
+    if (hud == null)
+      hud = TBDBootstrap.Settings.UI.GetComponent<HUD>();
     
     for (int i = 0; i != data.Length; i++) {
       var gPlayerHUD = data.gPlayerHUD[i];

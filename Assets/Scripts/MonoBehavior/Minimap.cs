@@ -9,8 +9,8 @@ public class Minimap : MonoBehaviour
     bool bPlayerFound = false;
    
     void Update() {
-      if (!bPlayerFound)
-        player = TBDBootstrap.Settings.Globals.goPlayer;
+      if (!bPlayerFound && TBDBootstrap.Settings.LocalPlayer != null)
+        player = TBDBootstrap.Settings.LocalPlayer;
     }
 
     void LateUpdate() {

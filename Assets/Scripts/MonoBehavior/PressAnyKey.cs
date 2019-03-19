@@ -13,7 +13,7 @@ public class PressAnyKey : MonoBehaviour {
   void Update() {
     if (wm == null) Start();
     if (Input.anyKey) {
-      wm.ShowMain();
+			wm.SwitchWindow(wm.CurrentIndex+1);
     }
   }
 }

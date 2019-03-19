@@ -28,7 +28,8 @@ public class EndlessTerrain : MonoBehaviour {
     chunkSize = MapGenerator.chunkSize - 1;
     maxViewDist = detailLevels[detailLevels.Length - 1].visibleDistThresh;
     chunksVisibleinViewDist = Mathf.RoundToInt(maxViewDist / chunkSize);
-    mapGenerator = GameObject.FindObjectOfType<MapGenerator>();
+    mapGenerator = FindObjectOfType<MapGenerator>();
+		player = TBDBootstrap.Settings.LocalPlayer.transform;
 
     UpdateVisibleChunks();
   }

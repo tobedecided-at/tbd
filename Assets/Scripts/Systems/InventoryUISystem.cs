@@ -2,6 +2,8 @@
 using Unity.Entities;
 
 using TBD.Items;
+using TBD.Networking;
+
 public class InventoryUISystem : ComponentSystem {
 
   struct Data {
@@ -17,6 +19,8 @@ public class InventoryUISystem : ComponentSystem {
   protected override void OnUpdate() {
     InventoryUI inventoryUI = TBDBootstrap.Settings.UI.GetComponent<InventoryUI>();
     for (int i = 0; i != data.Length; i++) {
+			if (!TBDNetworking.IsLocalPlayer(data.go[i])) continue;
+
       bool hasToggled = data.pi[i].btnInventory;
       PlayerInventory inv = data.pInv[i];
 
@@ -88,8 +92,6 @@ public class InventoryUISystem : ComponentSystem {
         inventoryUI.mouseInventorySlot.rimgIconHolder.color = fullAlpha;
         inventoryUI.mouseInventorySlot.rimgIconHolder.texture = inventoryUI.mouseInventorySlot.item.imgInventory;
 
-      } else {
-        
       }
     }
   }
