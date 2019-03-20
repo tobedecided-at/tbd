@@ -74,7 +74,7 @@ namespace TBD.Server.Behavior {
 			// Tell everyone that they should spawn the new player
 			SendBroadcast(new WSMessage(WSMessageType.NetworkSyncInstantiate, new Dictionary<string, object> {
 					{ "Client", JsonConvert.SerializeObject(Client) },
-					{ "Position", JsonConvert.SerializeObject(new SVector3(0f, 0f, 0f)) },
+					{ "Position", JsonConvert.SerializeObject(new SVector3(0f, 5f, 0f)) },
 					{ "Rotation", JsonConvert.SerializeObject(new SQuaternion(0f, 0f, 0f, 0f)) }
 				}), true);
 			SendBroadcast(new WSMessage(WSMessageType.ClientWrite, new Dictionary<string, object> {
