@@ -58,6 +58,14 @@ namespace TBD.Networking {
 			NetworkingClient.Init("gaben.ddns.net");
 		}
 
+		public void NewSinglePlayerGame() {
+			try { TBDSceneManager.onSceneLoaded -= OnNetworkSceneLoaded; } catch { }
+
+			LocalPlayerData = new WSData() { id = "LOCAL" } ;
+
+			SceneManager.LoadScene("Sandbox", TBDSceneManager.LoadMode.CutFade, OnSceneLoaded);
+		}
+
 		public GameObject InstantiatePlayer(string id) {
 			GameObject go = TBDBootstrap.SpawnNetworkPlayer(id, OnlinePlayerPrefab);
 			PlayerList.Add(id, go);
