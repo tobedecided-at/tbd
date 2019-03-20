@@ -20,6 +20,8 @@ public class NetworkSyncSystem : ComponentSystem {
 
 	protected override void OnUpdate() {
 
+		if (TBDNetworking.OfflineMode) return;
+
 		Dictionary<string, object> list = new Dictionary<string, object>();
 		for (int i = 0; i != data.Length; i++) {
 			var id = data.NetworkIdentity[i];

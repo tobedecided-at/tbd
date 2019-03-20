@@ -1691,9 +1691,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819171356}
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 1755554208}
+        m_MethodName: NewSinglePlayerGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5263,7 +5263,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 540c00cff5c76e94ca8f3e7ded12598e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28d9f5fa262d5124cbfa3616a9fcb514, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6892,7 +6892,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57536baeedd36b44c9e77cdb8ce11074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 1185450662818556, guid: 732117d7255dfd344a49e817c6de43d3,
+  OnlinePlayerPrefab: {fileID: 1185450662818556, guid: 895a97519cd98b247b5811306ef90215,
+    type: 3}
+  OfflinePlayerPrefab: {fileID: 1185450662818556, guid: 732117d7255dfd344a49e817c6de43d3,
     type: 3}
   Connected: 0
 --- !u!4 &1755554209
@@ -7252,12 +7254,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811906360}
   m_CullTransparentMesh: 0
---- !u!1 &1819171356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5443858298708604310, guid: f30a080f7799c3546b37cc929c090a79,
-    type: 3}
-  m_PrefabInstance: {fileID: 5443858298649829223}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821288496
 GameObject:
   m_ObjectHideFlags: 0
