@@ -52,8 +52,8 @@ namespace TBD.Networking {
 		}
 
 		public void Connect() {
-			NetworkingClient.Init("127.0.0.1");
-		}	
+			NetworkingClient.Init("gaben.ddns.net");
+		}
 
 		public GameObject InstantiatePlayer(string id) {
 			GameObject go = TBDBootstrap.SpawnNetworkPlayer(id, PlayerPrefab);
@@ -145,7 +145,7 @@ namespace TBD.Networking {
 					t.position = new Vector3(entry.Value.Position.x, entry.Value.Position.y, entry.Value.Position.z);
 					t.rotation = new Quaternion(entry.Value.Rotation.x, entry.Value.Rotation.y, entry.Value.Rotation.z, entry.Value.Rotation.w);
 				}
-				
+
 
 			}
 
