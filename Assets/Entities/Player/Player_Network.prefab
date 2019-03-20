@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 6579065933231983872}
   - component: {fileID: 8049673262673980886}
   m_Layer: 9
-  m_Name: Default
+  m_Name: Player_Network
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360413564656014}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &1565146986629860
 GameObject:
   m_ObjectHideFlags: 0

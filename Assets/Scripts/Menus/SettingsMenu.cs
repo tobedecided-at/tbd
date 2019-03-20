@@ -9,13 +9,15 @@ public class SettingsMenu : MonoBehaviour {
 
   public AudioMixer mixer;
   public Dropdown dd_res;
-  public TMP_Text tVolumeProcent;
+  public TMP_Text tVolumePercent;
   
   Resolution[] resolutions;
   List<string> options = new List<string>();
 
   void Start() {
-    resolutions = Screen.resolutions;
+
+		if (dd_res == null) return;
+		resolutions = Screen.resolutions;
 
     dd_res.ClearOptions();
 		options.Clear();
@@ -46,7 +48,10 @@ public class SettingsMenu : MonoBehaviour {
   void SetVolume(float volume) {
     float iAdjusted = Mathf.RoundToInt(volume + 80);
     float sPercentage = (iAdjusted * 100) / 80;
-    tVolumeProcent.text = Mathf.RoundToInt(sPercentage).ToString() + "%";
+
+		if (tVolumePercent != null)
+			tVolumePercent.text = Mathf.RoundToInt(sPercentage).ToString() + "%";
+
     mixer.SetFloat("vMaster", volume);
   }
 
