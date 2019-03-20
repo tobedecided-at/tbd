@@ -62,17 +62,17 @@ public class TBDSceneManager : MonoBehaviour {
     LoadScene(toLoad, LoadMode.CutFade);
   }
 
-  public void LoadScene(string toLoad, LoadMode loadMode) {
+  public void LoadScene(string toLoad, LoadMode loadMode, Action<string> cb = null) {
     if (!Application.CanStreamedLevelBeLoaded(toLoad)) {
       Debug.LogError("Scene not found! " + toLoad);
       return;
     }
     
-    StartCoroutine(LoadSceneCoroutine(toLoad, loadMode));
+    StartCoroutine(LoadSceneCoroutine(toLoad, loadMode, cb));
     
   }
 
-  IEnumerator LoadSceneCoroutine(string toLoad, LoadMode loadMode = LoadMode.CutFade) {
+  IEnumerator LoadSceneCoroutine(string toLoad, LoadMode loadMode = LoadMode.CutFade, Action<string> cb = null) {
 
     frame.SetActive(true);
     animator.enabled = true;
@@ -128,6 +128,7 @@ public class TBDSceneManager : MonoBehaviour {
       break;
     }
 
+		cb(toLoad);
 		onSceneLoaded?.Invoke(toLoad);
   }
 

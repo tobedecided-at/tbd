@@ -15,12 +15,13 @@ namespace TBD.Networking {
 
 		public static TBDNetworking instance;
 		public static bool OfflineMode = true;
-		public static WSData LocalPlayerData { get; private set; }
+		public static WSData LocalPlayerData { get; set; }
 
 		static TBDBootstrap TBDBootstrap;
 		static TBDSceneManager SceneManager;
 
-		public GameObject PlayerPrefab;
+		public GameObject OnlinePlayerPrefab;
+		public GameObject OfflinePlayerPrefab;
 		// Players with GameObjects in scene
 		public Dictionary<string, GameObject> PlayerList = new Dictionary<string, GameObject>();
 		// Connected clients with data
@@ -49,14 +50,24 @@ namespace TBD.Networking {
 			DontDestroyOnLoad(this);
 			TBDBootstrap = GetComponent<TBDBootstrap>();
 			SceneManager = TBDBootstrap.Settings.SceneManager;
+
+			TBDSceneManager.onSceneLoaded += OnNetworkSceneLoaded;
 		}
 
 		public void Connect() {
 			NetworkingClient.Init("gaben.ddns.net");
 		}
 
+		public void NewSinglePlayerGame() {
+			try { TBDSceneManager.onSceneLoaded -= OnNetworkSceneLoaded; } catch { }
+
+			LocalPlayerData = new WSData() { id = "LOCAL" } ;
+
+			SceneManager.LoadScene("Sandbox", TBDSceneManager.LoadMode.CutFade, OnSceneLoaded);
+		}
+
 		public GameObject InstantiatePlayer(string id) {
-			GameObject go = TBDBootstrap.SpawnNetworkPlayer(id, PlayerPrefab);
+			GameObject go = TBDBootstrap.SpawnNetworkPlayer(id, OnlinePlayerPrefab);
 			PlayerList.Add(id, go);
 			return go;
 		}
@@ -66,6 +77,10 @@ namespace TBD.Networking {
 				{ "Scene", name }
 			});
 			Client_TBDGame.instance.Ws.Send(msg);
+		}
+
+		void OnSceneLoaded(string name) {
+			TBDBootstrap.NewGame(OfflinePlayerPrefab);
 		}
 
 		#region Commands
@@ -123,7 +138,6 @@ namespace TBD.Networking {
 			string sceneNameToLoad = (string)u["Scene"];
 			int loadMode = (int)u["LoadMode"];
 
-			TBDSceneManager.onSceneLoaded += OnNetworkSceneLoaded;
 			SceneManager.LoadScene(sceneNameToLoad, (TBDSceneManager.LoadMode)loadMode);
 
 			return "SUCCESS";
