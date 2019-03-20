@@ -10,6 +10,8 @@ using TBD.Client.WSBehaviorsClient;
 using Newtonsoft.Json;
 using System.Linq;
 
+using TMPro;
+
 namespace TBD.Networking {
 	public class TBDNetworking : MonoBehaviour {
 
@@ -27,6 +29,8 @@ namespace TBD.Networking {
 		// Connected clients with data
 		public Dictionary<string, WSData> ClientList = new Dictionary<string, WSData>();
 		public bool Connected = false;
+
+		public TMP_InputField InputServerURL;
 
 		public static bool IsLocalPlayer(GameObject o) {
 			NetworkIdentity ni = o.GetComponent<NetworkIdentity>();
@@ -54,8 +58,12 @@ namespace TBD.Networking {
 			TBDSceneManager.onSceneLoaded += OnNetworkSceneLoaded;
 		}
 
-		public void Connect() {
-			NetworkingClient.Init("gaben.ddns.net");
+		public void OnConnectButton() {
+			Connect(InputServerURL.text);
+		}
+
+		public void Connect(string url) {
+			NetworkingClient.Init(url);
 		}
 
 		public void NewSinglePlayerGame() {

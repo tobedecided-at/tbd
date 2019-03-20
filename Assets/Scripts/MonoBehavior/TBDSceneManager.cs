@@ -128,7 +128,7 @@ public class TBDSceneManager : MonoBehaviour {
       break;
     }
 
-		cb(toLoad);
+		cb?.Invoke(toLoad);
 		onSceneLoaded?.Invoke(toLoad);
   }
 

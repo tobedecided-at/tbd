@@ -63,7 +63,6 @@ public class TBDBootstrap : MonoBehaviour {
 		// We are the local player
 		if (index == TBDNetworking.LocalPlayerData.id) {
 			ni.LocalPlayerAuthority = true;
-			nt.TransformSyncMethod = TransformSyncMethod.SyncRigidbody3D;
 		} else ni.ServerOnly = true;
 
 		player.name = "P: " + index;
