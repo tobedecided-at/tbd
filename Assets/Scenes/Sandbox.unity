@@ -5641,7 +5641,7 @@ MonoBehaviour:
   gBlur: {fileID: 6192605913202971806}
   lSlots: []
   goSlotsParent: {fileID: 231221598}
-  goSlotsPrefab: {fileID: 2406474536623287996, guid: c9ad9ef1b9a5763478d3d8a634a2c12d,
+  goSlotsPrefab: {fileID: 2406474536623287996, guid: aff0fb5bcfc53ba49a21f60bf7d095e8,
     type: 3}
   goHotbarSlotPrefab: {fileID: 2406474536623287996, guid: 3a504077b6660304fbcf26c98ec9be53,
     type: 3}
